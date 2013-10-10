@@ -1,2 +1,72 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>CodaFi</title><script type="text/javascript" src="/elm-runtime.js"></script><script type="text/javascript">Elm.Main=function(elm){var N=Elm.Native,_N=N.Utils(elm),_L=N.List(elm),_E=N.Error(elm),_J=N.JavaScript(elm),_str=_J.toString,$moduleName='Main',Text=Elm.Text(elm),Text=Elm.Text(elm),Basics=Elm.Basics(elm),Signal=Elm.Signal(elm),List=Elm.List(elm),Maybe=Elm.Maybe(elm),Time=Elm.Time(elm),Prelude=Elm.Prelude(elm),Graphics=Graphics||{};Graphics.Element=Elm.Graphics.Element(elm);var Color=Elm.Color(elm),Graphics=Graphics||{};Graphics.Collage=Elm.Graphics.Collage(elm);var Window=Elm.Window(elm),Graphics=Graphics||{};Graphics.Element=Elm.Graphics.Element(elm);var _op={},title=function(t){return Graphics.Element.layers(_J.toList([A3(Graphics.Collage.collage,100,50,_J.toList([Graphics.Collage.move({ctor:"_Tuple2",_0:(0-20),_1:3})(A2(Graphics.Collage.filled,A3(Color.rgb,34,48,54),Graphics.Collage.circle(24)))])),Graphics.Element.link(_str('http://www.codafi.me'))(Text.text(Text.color(A3(Color.rgb,132,151,161))(Text.header(Text.height(24)(Text.typeface(_str('Helvetica-Bold'))(Text.toText(t)))))))]))},formatInt=function(t){return Text.text(Text.color(A3(Color.rgb,132,151,161))(Text.typeface(_str('Menlo-Regular'))(Text.height(14)(Text.toText(Prelude.show(t))))))},lineNumbersColumn=F2(function(arg2,nums){return function(){switch(arg2.ctor){case'_Tuple2':return Graphics.Element.flow(Graphics.Element.down)(_L.Cons(A2(Graphics.Element.spacer,30,15),A2(List.map,formatInt,nums)))};_E.Case($moduleName,'on line 61, column 32 to 82')}()}),pageBody=F3(function(w,h,bdy){return A2(Graphics.Element.flow,Graphics.Element.right,_J.toList([A2(Graphics.Element.spacer,10,w),Graphics.Element.color(A3(Color.rgb,79,96,107))(A4(Graphics.Element.container,30,h,Graphics.Element.topLeft,A2(lineNumbersColumn,{ctor:"_Tuple2",_0:w,_1:h},_L.range(1,18)))),bdy]))}),classfile=Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<style type="text/css">\n	\n:link { text-decoration: none; color: white }\n:visited { text-decoration: none; color: white }\n:hover { text-decoration: none; color: white }\n\n.keyword          { font-size: 12pt; color: #760F50 }\n.string           { color: #4A9D8F; }\n.plainCode        { font-size: 12pt; color: white; font-family: menlo-regular }\n.classObject      { font-size: 12pt; color: #E35B00; font-family: menlo-regular }\n.preprocessor     { font-size: 12pt; color: #EBC562; font-family: menlo-regular }\n.method           { color: #236E25 }\n.method:link      { text-decoration: none; color: white }\n.method:visited   { text-decoration: none; color: white }\n.method:hover     { text-decoration: none; color: white }\n.comment          { color: #236E25 }\n.comment:link     { text-decoration: none; color: #236E25 }\n.comment:visited  { text-decoration: none; color: #236E25 }\n.comment:hover    { text-decoration: none; color: #236E25 }\n\n</style>\n\n<p><span class="preprocessor"> #ifdef __MAC_OS_X_VERSION_MIN_REQUIRED <br>ï¿½ï¿½#import <span class="string">&lt;AppKit/AppKit.h&gt;</span> </br> #elif defined(__IPHONE_OS_VERSION_MIN_REQUIRED) <br>ï¿½ï¿½#import <span class="string">&lt;UIKit/UIKit.h&gt;</span> </br> #else <br>ï¿½ï¿½#warning </br> #endif<br /></span></p>\n<p><span class="plainCode"> <span class="preprocessor">@interface</span> CFIWebsite : <span class="classObject">NSURL</span> &lt;<span class="classObject">NSCoding</span>&gt; <br></br> + (<span class="preprocessor">instancetype</span>)<a class="method"; href="http://www.codafi.me">currentWebsite</a>; <br></br> - (<span class="classObject">NSArray</span> *)<a class="method"; href="https://github.com/CodaFi?tab=repositories">projects</a>; <br>- (<span class="classObject">NSURL</span> *)<a class="method"; href="http://www.codafi.me/blog">blog</a>; </br> - (<span class="classObject">NSString</span> *)<a class="method"; href="http://www.codafi.me/abount">description</a>; <br></br> <span class="preprocessor">@end</span> </span></p><div style="height:0;width:0;">&nbsp;</div>'),scene=function(arg1){return function(){switch(arg1.ctor){case'_Tuple2':return A2(Graphics.Element.flow,Graphics.Element.down,_J.toList([Graphics.Element.color(A3(Color.rgb,57,74,85))(A4(Graphics.Element.container,A2(Basics.max,500,arg1._0),60,A2(Graphics.Element.midLeftAt,Graphics.Element.absolute(10),Graphics.Element.absolute(30)),title(_str('  CF')))),Graphics.Element.color(A3(Color.rgb,79,96,107))(A4(Graphics.Element.container,A2(Basics.max,500,arg1._0),A2(Basics.max,430,arg1._1),Graphics.Element.topLeft,A3(pageBody,arg1._0,arg1._1,classfile)))]))};_E.Case($moduleName,'between lines 70 and 72')}()},main=A2(Signal.lift,scene,Window.dimensions);return elm.Main={_op:_op,title:title,formatInt:formatInt,classfile:classfile,lineNumbersColumn:lineNumbersColumn,pageBody:pageBody,scene:scene,main:main}}</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Main)</script><noscript></noscript></body></html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            CodaFi
+        </title>
+        <script type="text/javascript" src="/elm-runtime.js">
+            
+        </script>
+        <script type="text/javascript">
+            
+Elm.Main = function(elm){
+  var N = Elm.Native, _N = N.Utils(elm), _L = N.List(elm), _E = N.Error(elm), _J = N.JavaScript(elm), _str = _J.toString, $moduleName = 'Main';
+  var Text = Elm.Text(elm);
+  var Text = Elm.Text(elm);
+  var Basics = Elm.Basics(elm);
+  var Signal = Elm.Signal(elm);
+  var List = Elm.List(elm);
+  var Maybe = Elm.Maybe(elm);
+  var Time = Elm.Time(elm);
+  var Prelude = Elm.Prelude(elm);
+  var Graphics = Graphics || {};
+  Graphics.Element = Elm.Graphics.Element(elm);
+  var Color = Elm.Color(elm);
+  var Graphics = Graphics || {};
+  Graphics.Collage = Elm.Graphics.Collage(elm);
+  var Window = Elm.Window(elm);
+  var Graphics = Graphics || {};
+  Graphics.Element = Elm.Graphics.Element(elm);
+  var _op = {};
+  var title = function(t){
+    return Graphics.Element.layers(_J.toList([A3(Graphics.Collage.collage, 100, 50, _J.toList([Graphics.Collage.move({ctor:"_Tuple2", _0:(0-20), _1:3})(A2(Graphics.Collage.filled, A3(Color.rgb, 34, 48, 54), Graphics.Collage.circle(24)))])),Graphics.Element.link(_str('http://www.codafi.me'))(Text.text(Text.color(A3(Color.rgb, 132, 151, 161))(Text.header(Text.height(24)(Text.typeface(_str('Helvetica-Bold'))(Text.toText(t)))))))]));};
+  var formatInt = function(t){
+    return Text.text(Text.color(A3(Color.rgb, 132, 151, 161))(Text.typeface(_str('Menlo-Regular'))(Text.height(14)(Text.toText(Prelude.show(t))))));};
+  var lineNumbersColumn = F2(function(arg2, nums){
+    return function(){
+      switch (arg2.ctor) {
+        case '_Tuple2':
+          return Graphics.Element.flow(Graphics.Element.down)(_L.Cons(A2(Graphics.Element.spacer, 30, 15),A2(List.map, formatInt, nums)));
+      }_E.Case($moduleName,'on line 61, column 32 to 82')}();});
+  var pageBody = F3(function(w, h, bdy){
+    return A2(Graphics.Element.flow, Graphics.Element.right, _J.toList([A2(Graphics.Element.spacer, 10, w),Graphics.Element.color(A3(Color.rgb, 79, 96, 107))(A4(Graphics.Element.container, 30, h, Graphics.Element.topLeft, A2(lineNumbersColumn, {ctor:"_Tuple2", _0:w, _1:h}, _L.range(1,18)))),bdy]));});
+  var classfile = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<style type="text/css">\n	\n:link { text-decoration: none; color: white }\n:visited { text-decoration: none; color: white }\n:hover { text-decoration: none; color: white }\n\n.keyword          { font-size: 12pt; color: #760F50 }\n.string           { color: #4A9D8F; }\n.plainCode        { font-size: 12pt; color: white; font-family: menlo-regular }\n.classObject      { font-size: 12pt; color: #E35B00; font-family: menlo-regular }\n.preprocessor     { font-size: 12pt; color: #EBC562; font-family: menlo-regular }\n.method           { color: #236E25 }\n.method:link      { text-decoration: none; color: white }\n.method:visited   { text-decoration: none; color: white }\n.method:hover     { text-decoration: none; color: white }\n.comment          { color: #236E25 }\n.comment:link     { text-decoration: none; color: #236E25 }\n.comment:visited  { text-decoration: none; color: #236E25 }\n.comment:hover    { text-decoration: none; color: #236E25 }\n\n</style>\n\n<p><span class="preprocessor"> #ifdef __MAC_OS_X_VERSION_MIN_REQUIRED <br>  #import <span class="string">&lt;AppKit/AppKit.h&gt;</span> </br> #elif defined(__IPHONE_OS_VERSION_MIN_REQUIRED) <br>  #import <span class="string">&lt;UIKit/UIKit.h&gt;</span> </br> #else <br>  #warning </br> #endif<br /></span></p>\n<p><span class="plainCode"> <span class="preprocessor">@interface</span> CFIWebsite : <span class="classObject">NSURL</span> &lt;<span class="classObject">NSCoding</span>&gt; <br></br> + (<span class="preprocessor">instancetype</span>)<a class="method"; href="http://www.codafi.me">currentWebsite</a>; <br></br> - (<span class="classObject">NSArray</span> *)<a class="method"; href="https://github.com/CodaFi?tab=repositories">projects</a>; <br>- (<span class="classObject">NSURL</span> *)<a class="method"; href="http://www.codafi.me/blog">blog</a>; </br> - (<span class="classObject">NSString</span> *)<a class="method"; href="http://www.codafi.me/abount">description</a>; <br></br> <span class="preprocessor">@end</span> </span></p><div style="height:0;width:0;">&nbsp;</div>');
+  var scene = function(arg1){
+    return function(){
+      switch (arg1.ctor) {
+        case '_Tuple2':
+          return A2(Graphics.Element.flow, Graphics.Element.down, _J.toList([Graphics.Element.color(A3(Color.rgb, 57, 74, 85))(A4(Graphics.Element.container, A2(Basics.max, 500, arg1._0), 60, A2(Graphics.Element.midLeftAt, Graphics.Element.absolute(10), Graphics.Element.absolute(30)), title(_str('  CF')))),Graphics.Element.color(A3(Color.rgb, 79, 96, 107))(A4(Graphics.Element.container, A2(Basics.max, 500, arg1._0), A2(Basics.max, 430, arg1._1), Graphics.Element.topLeft, A3(pageBody, arg1._0, arg1._1, classfile)))]));
+      }_E.Case($moduleName,'between lines 70 and 72')}();};
+  var main = A2(Signal.lift, scene, Window.dimensions);
+  return elm.Main = {
+    _op : _op, 
+    title : title, 
+    formatInt : formatInt, 
+    classfile : classfile, 
+    lineNumbersColumn : lineNumbersColumn, 
+    pageBody : pageBody, 
+    scene : scene, 
+    main : main};};
+        </script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            Elm.fullscreen(Elm.Main)
+        </script>
+        <noscript>
+            
+        </noscript>
+    </body>
+</html>
