@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            Test
+        </title>
+        <script type="text/javascript" src="/elm-runtime.js">
+            
+        </script>
+        <script type="text/javascript">
+            
+Elm.Main = function(elm){
+  var N = Elm.Native, _N = N.Utils(elm), _L = N.List(elm), _E = N.Error(elm), _J = N.JavaScript(elm), _str = _J.toString, $moduleName = 'Main';
+  var Text = Elm.Text(elm);
+  var Text = Elm.Text(elm);
+  var Basics = Elm.Basics(elm);
+  var Signal = Elm.Signal(elm);
+  var List = Elm.List(elm);
+  var Maybe = Elm.Maybe(elm);
+  var Time = Elm.Time(elm);
+  var Prelude = Elm.Prelude(elm);
+  var Graphics = Graphics || {};
+  Graphics.Element = Elm.Graphics.Element(elm);
+  var Color = Elm.Color(elm);
+  var Graphics = Graphics || {};
+  Graphics.Collage = Elm.Graphics.Collage(elm);
+  var Window = Elm.Window(elm);
+  var Website = Website || {};
+  Website.Blog = Website.Blog || {};
+  Website.Blog.Skeleton = Elm.Website.Blog.Skeleton(elm);
+  var _op = {};
+  var post = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<p>\nSome Test Markdown\n</p>\n\n<div style="height:0;width:0;">&nbsp;</div>');
+  var main = A4(Signal.lift3, Website.Blog.Skeleton.generatePost, Window.dimensions, Signal.constant(_str('Test Title')), Signal.constant(post));
+  return elm.Main = {
+    _op : _op, 
+    post : post, 
+    main : main};};
+Elm.Website = Elm.Website || {};
+Elm.Website.Blog = Elm.Website.Blog || {};
+Elm.Website.Blog.Skeleton = function(elm){
+  var N = Elm.Native, _N = N.Utils(elm), _L = N.List(elm), _E = N.Error(elm), _J = N.JavaScript(elm), _str = _J.toString, $moduleName = 'Website.Blog.Skeleton';
+  var Text = Elm.Text(elm);
+  var Text = Elm.Text(elm);
+  var Basics = Elm.Basics(elm);
+  var Signal = Elm.Signal(elm);
+  var List = Elm.List(elm);
+  var Maybe = Elm.Maybe(elm);
+  var Time = Elm.Time(elm);
+  var Prelude = Elm.Prelude(elm);
+  var Graphics = Graphics || {};
+  Graphics.Element = Elm.Graphics.Element(elm);
+  var Color = Elm.Color(elm);
+  var Graphics = Graphics || {};
+  Graphics.Collage = Elm.Graphics.Collage(elm);
+  var Window = Elm.Window(elm);
+  var Graphics = Graphics || {};
+  Graphics.Element = Elm.Graphics.Element(elm);
+  var Website = Website || {};
+  Website.Blog = Website.Blog || {};
+  Website.Blog.Formatting = Elm.Website.Blog.Formatting(elm);
+  var _op = {};
+  var generatePost = F3(function(arg3, t, postBody){
+    return function(){
+      switch (arg3.ctor) {
+        case '_Tuple2':
+          return function(){
+            var bodyHeight = Basics.fst(Graphics.Element.sizeOf(postBody));
+            return A2(Graphics.Element.flow, Graphics.Element.down, _J.toList([Graphics.Element.color(A3(Color.rgb, 57, 74, 85))(A4(Graphics.Element.container, A2(Basics.max, 500, arg3._0), 60, A2(Graphics.Element.midLeftAt, Graphics.Element.absolute(10), Graphics.Element.absolute(30)), Website.Blog.Formatting.title(_str('  CF')))),A2(Graphics.Element.spacer, A2(Basics.max, 300, arg3._0), 30),A4(Graphics.Element.container, A2(Basics.max, 300, arg3._0), 60, Graphics.Element.middle, Website.Blog.Formatting.formatTitleText(t)),A4(Graphics.Element.container, arg3._0, arg3._1, Graphics.Element.midTop, A3(Graphics.Element.size, A2(Basics.min, 550, arg3._0), A2(Basics.max, bodyHeight, arg3._1), postBody))]));}();
+      }_E.Case($moduleName,'between lines 8 and 13')}();});
+  var generateImagefulPost = F4(function(arg4, t, im, postBody){
+    return function(){
+      switch (arg4.ctor) {
+        case '_Tuple2':
+          return function(){
+            var bodyHeight = Basics.fst(Graphics.Element.sizeOf(postBody));
+            return A2(Graphics.Element.flow, Graphics.Element.down, _J.toList([Graphics.Element.color(A3(Color.rgb, 57, 74, 85))(A4(Graphics.Element.container, A2(Basics.max, 300, arg4._0), 60, Graphics.Element.midLeft, A3(Website.Blog.Formatting.formatImagefulTitle, {ctor:"_Tuple2", _0:arg4._0, _1:60}, _str('  CF'), im))),A2(Graphics.Element.spacer, A2(Basics.max, 300, arg4._0), 30),A4(Graphics.Element.container, A2(Basics.max, 300, (arg4._0+20)), 60, Graphics.Element.middle, Website.Blog.Formatting.formatTitleText(t)),A4(Graphics.Element.container, arg4._0, arg4._1, Graphics.Element.midTop, A3(Graphics.Element.size, A2(Basics.min, 550, arg4._0), A2(Basics.max, bodyHeight, arg4._1), postBody))]));}();
+      }_E.Case($moduleName,'between lines 16 and 21')}();});
+  elm.Website = elm.Website || {};
+  elm.Website.Blog = elm.Website.Blog || {};
+  return elm.Website.Blog.Skeleton = {
+    _op : _op, 
+    generatePost : generatePost, 
+    generateImagefulPost : generateImagefulPost};};
+Elm.Website = Elm.Website || {};
+Elm.Website.Blog = Elm.Website.Blog || {};
+Elm.Website.Blog.Formatting = function(elm){
+  var N = Elm.Native, _N = N.Utils(elm), _L = N.List(elm), _E = N.Error(elm), _J = N.JavaScript(elm), _str = _J.toString, $moduleName = 'Website.Blog.Formatting';
+  var Text = Elm.Text(elm);
+  var Text = Elm.Text(elm);
+  var Basics = Elm.Basics(elm);
+  var Signal = Elm.Signal(elm);
+  var List = Elm.List(elm);
+  var Maybe = Elm.Maybe(elm);
+  var Time = Elm.Time(elm);
+  var Prelude = Elm.Prelude(elm);
+  var Graphics = Graphics || {};
+  Graphics.Element = Elm.Graphics.Element(elm);
+  var Color = Elm.Color(elm);
+  var Graphics = Graphics || {};
+  Graphics.Collage = Elm.Graphics.Collage(elm);
+  var Graphics = Graphics || {};
+  Graphics.Element = Elm.Graphics.Element(elm);
+  var _op = {};
+  var title = function(t){
+    return Graphics.Element.layers(_J.toList([A3(Graphics.Collage.collage, 100, 50, _J.toList([Graphics.Collage.move({ctor:"_Tuple2", _0:(0-20), _1:3})(A2(Graphics.Collage.filled, A3(Color.rgb, 34, 48, 54), Graphics.Collage.circle(24)))])),Graphics.Element.link(_str('http://www.codafi.me'))(Text.text(Text.color(A3(Color.rgb, 132, 151, 161))(Text.header(Text.height(24)(Text.typeface(_str('Helvetica-Bold'))(Text.toText(t)))))))]));};
+  var formatTitleText = function(s){
+    return Text.text(Text.color(A3(Color.rgb, 94, 94, 93))(Text.height(36)(Text.typeface(_str('Helvetica-Bold'))(Text.toText(s)))));};
+  var formatImagefulTitle = F3(function(arg3, t, im){
+    return function(){
+      switch (arg3.ctor) {
+        case '_Tuple2':
+          return A2(Graphics.Element.flow, Graphics.Element.outward, _J.toList([A3(Graphics.Element.fittedImage, arg3._0, arg3._1, im),A4(Graphics.Element.container, 100, arg3._1, A2(Graphics.Element.topLeftAt, Graphics.Element.absolute(10), Graphics.Element.absolute(4)), title(t))]));
+      }_E.Case($moduleName,'between lines 10 and 12')}();});
+  elm.Website = elm.Website || {};
+  elm.Website.Blog = elm.Website.Blog || {};
+  return elm.Website.Blog.Formatting = {
+    _op : _op, 
+    title : title, 
+    formatImagefulTitle : formatImagefulTitle, 
+    formatTitleText : formatTitleText};};
+        </script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            Elm.fullscreen(Elm.Main)
+        </script>
+        <noscript>
+            
+        </noscript>
+    </body>
+</html>
