@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>
-            Test
+            HelloWorld
         </title>
         <script type="text/javascript" src="/elm-runtime.js">
             
@@ -31,8 +31,8 @@ Elm.Main = function(elm){
   Website.Blog = Website.Blog || {};
   Website.Blog.Skeleton = Elm.Website.Blog.Skeleton(elm);
   var _op = {};
-  var post = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<p>\nSome Test Markdown\n</p>\n\n<div style="height:0;width:0;">&nbsp;</div>');
-  var main = A4(Signal.lift3, Website.Blog.Skeleton.generatePost, Window.dimensions, Signal.constant(_str('Test Title')), Signal.constant(post));
+  var post = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<p>\n++++++++++[&gt;+++++++&gt;++++++++++&gt;+++&gt;+&lt;&lt;&lt;&lt;-]&gt;++.&gt;+.+++++++..+++.&gt;++.&lt;&lt;+++++++++++++++.&gt;.+++.------.--------.&gt;+.&gt;.\n</p>\n\n<div style="height:0;width:0;">&nbsp;</div>');
+  var main = A4(Signal.lift3, Website.Blog.Skeleton.generatePost, Window.dimensions, Signal.constant(_str('Hello, World')), Signal.constant(post));
   return elm.Main = {
     _op : _op, 
     post : post, 

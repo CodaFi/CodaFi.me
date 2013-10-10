@@ -2,14 +2,11 @@ import Window
 import Graphics.Element as El
 
 notFoundTitle = [markdown|
-<style type="text/css">p { text-align:justify; }</style>
-# 404
+<h2 style="margin-left:24px;">Hello World</h2>
 
-Rather than a beep  
-Or a rude error message,  
-These words: “File not found.”
-
-<p style="text-align:right;font-style:italic;">Anonymous</p>
+<span style="margin-left:24px;">
+In which we question the reason for this blog's inception.
+</span>
 |]
 
 
@@ -19,13 +16,13 @@ title t = layers [ collage 100 50 [ filled (rgb 34 48 54) (circle 24) |> move (-
                    
                    
 scene (w,h) = flow down [container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (title "  CF") |> color (rgb 57 74 85),
-                         container w h middle (box <| width 300 notFoundTitle) ]
+                         container (max 500 w) 135 topLeft (box notFoundTitle "http://codafi.me/blog/HelloWorld.html" w |> width w) 
+                        ]
 
-box e =
-  let w = widthOf e
-      h = heightOf e
-  in  flow down [ color black . container (w+40) (h+10) midTop .
-                  color white . container (w+38) (h+10) midTop <| e
-                ]
+box e l w =
+  let h = heightOf e
+  in flow down [ color (rgb 132 151 161) . container (w) (h+1) midTop .
+                 color white . container (w+2) h midLeft <| e
+               ] |> link l
 
 main = lift scene Window.dimensions

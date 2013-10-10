@@ -51,7 +51,7 @@ classfile = [markdown|
 \+ (<span class="preprocessor">instancetype</span>)<a class="method"; href="http://www.codafi.me">currentWebsite</a>; <br></br>
 \- (<span class="classObject">NSArray</span> *)<a class="method"; href="https://github.com/CodaFi?tab=repositories">projects</a>;
 <br>\- (<span class="classObject">NSURL</span> *)<a class="method"; href="http://www.codafi.me/blog">blog</a>; </br>
-\- (<span class="classObject">NSString</span> *)<a class="method"; href="http://www.codafi.me/abount">description</a>;
+\- (<span class="classObject">NSString</span> *)<a class="method"; href="http://www.codafi.me/about">description</a>;
 <br></br>
 <span class="preprocessor">@end</span>
 </span>  
