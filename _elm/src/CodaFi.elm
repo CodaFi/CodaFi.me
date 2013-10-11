@@ -8,23 +8,23 @@ title t = layers [ collage 100 50 [ filled (rgb 34 48 54) (circle 24) |> move (-
 formatInt : Int -> Element
 formatInt t = (show t) |> toText  
                        |> Text.height (14) 
-                       |> typeface "Menlo-Regular"
+                       |> typeface "Menlo, Monaco, Helvetica, sans-serif"
                        |> Text.color (rgb 132 151 161)
                        |> text
                                              
 classfile : Element
 classfile = [markdown|
 <style type="text/css">
-	
+
 :link { text-decoration: none; color: white }
 :visited { text-decoration: none; color: white }
 :hover { text-decoration: none; color: white }
 
 .keyword          { font-size: 12pt; color: #760F50 }
 .string           { color: #4A9D8F; }
-.plainCode        { font-size: 12pt; color: white; font-family: menlo-regular }
-.classObject      { font-size: 12pt; color: #E35B00; font-family: menlo-regular }
-.preprocessor     { font-size: 12pt; color: #EBC562; font-family: menlo-regular }
+.plainCode        { font-size: 12pt; color: white; font-family: Menlo, Monaco, Helvetica, sans-serif; }
+.classObject      { font-size: 12pt; color: #E35B00; font-family: Menlo, Monaco, Helvetica, sans-serif; }
+.preprocessor     { font-size: 12pt; color: #EBC562; font-family: Menlo, Monaco, Helvetica, sans-serif; }
 .method           { color: #236E25 }
 .method:link      { text-decoration: none; color: white }
 .method:visited   { text-decoration: none; color: white }
@@ -58,7 +58,7 @@ classfile = [markdown|
 |]
  
 lineNumbersColumn : (Int, Int) -> [Int] -> Element 
-lineNumbersColumn (w,h) nums = flow down <| (spacer 30 15) :: (map formatInt nums)
+lineNumbersColumn (w,h) nums = flow down <| (spacer 30 14) :: (map formatInt nums)
                       
 pageBody : Int -> Int -> Element -> Element
 pageBody w h bdy = flow right [ spacer 10 w,

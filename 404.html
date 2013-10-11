@@ -32,7 +32,7 @@ Elm.Main = function(elm){
   var _op = {};
   var title = function(t){
     return Graphics.Element.layers(_J.toList([A3(Graphics.Collage.collage, 100, 50, _J.toList([Graphics.Collage.move({ctor:"_Tuple2", _0:(0-20), _1:3})(A2(Graphics.Collage.filled, A3(Color.rgb, 34, 48, 54), Graphics.Collage.circle(24)))])),Graphics.Element.link(_str('http://www.codafi.me'))(Text.text(Text.color(A3(Color.rgb, 132, 151, 161))(Text.header(Text.height(24)(Text.typeface(_str('Helvetica-Bold'))(Text.toText(t)))))))]));};
-  var notFoundTitle = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<style type="text/css">p { text-align:justify; }</style>\n<h1 id="section">404</h1>\n<p>Rather than a beep <br/> Or a rude error message, <br/> These words: “File not found.”</p>\n<p style="text-align:right;font-style:italic;">\nAnonymous\n</p>\n\n<div style="height:0;width:0;">&nbsp;</div>');
+  var notFoundTitle = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<style type="text/css">p { text-align:justify; }</style>\n<h1 id="section">404</h1>\n<p>Rather than a beep<br />Or a rude error message,<br />These words: “File not found.”</p>\n<p style="text-align:right;font-style:italic;">\nAnonymous\n</p>\n\n<div style="height:0;width:0;">&nbsp;</div>');
   var box = function(e){
     return function(){
       var w = Graphics.Element.widthOf(e);
