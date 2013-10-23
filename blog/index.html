@@ -32,7 +32,8 @@ Elm.Main = function(elm){
   var _op = {};
   var title = function(t){
     return Graphics.Element.layers(_J.toList([A3(Graphics.Collage.collage, 100, 50, _J.toList([Graphics.Collage.move({ctor:"_Tuple2", _0:(0-20), _1:3})(A2(Graphics.Collage.filled, A3(Color.rgb, 34, 48, 54), Graphics.Collage.circle(24)))])),Graphics.Element.link(_str('http://www.codafi.me'))(Text.text(Text.color(A3(Color.rgb, 132, 151, 161))(Text.header(Text.height(24)(Text.typeface(_str('Helvetica-Bold'))(Text.toText(t)))))))]));};
-  var notFoundTitle = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<h2 style="margin-left:24px;">\nHello World\n</h2>\n\n<p><span style="margin-left:24px;"> In which we question the reason for this blog\'s inception. </span></p><div style="height:0;width:0;">&nbsp;</div>');
+  var intercalTitle = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<h2 style="margin-left:24px;">\nVariations on a RoCocoa Theme\n</h2>\n\n<p><span style="margin-left:24px;"> In which the relevance of Esolangs is examined. </span></p><div style="height:0;width:0;">&nbsp;</div>');
+  var helloWorldTitle = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<h2 style="margin-left:24px; margin-top:0px;">\nHello World\n</h2>\n\n<p><span style="margin-left:24px;"> In which we question the reason for this blog\'s inception. </span></p><div style="height:0;width:0;">&nbsp;</div>');
   var box = F3(function(e, l, w){
     return function(){
       var h = Graphics.Element.heightOf(e);
@@ -41,12 +42,13 @@ Elm.Main = function(elm){
     return function(){
       switch (arg1.ctor) {
         case '_Tuple2':
-          return A2(Graphics.Element.flow, Graphics.Element.down, _J.toList([Graphics.Element.color(A3(Color.rgb, 57, 74, 85))(A4(Graphics.Element.container, A2(Basics.max, 500, arg1._0), 60, A2(Graphics.Element.midLeftAt, Graphics.Element.absolute(10), Graphics.Element.absolute(30)), title(_str('  CF')))),A4(Graphics.Element.container, A2(Basics.max, 500, arg1._0), 135, Graphics.Element.topLeft, Graphics.Element.width(arg1._0)(A3(box, notFoundTitle, _str('http://codafi.me/blog/HelloWorld.html'), arg1._0)))]));
-      }_E.Case($moduleName,'between lines 18 and 20')}();};
+          return A2(Graphics.Element.flow, Graphics.Element.down, _J.toList([Graphics.Element.color(A3(Color.rgb, 57, 74, 85))(A4(Graphics.Element.container, A2(Basics.max, 500, arg1._0), 60, A2(Graphics.Element.midLeftAt, Graphics.Element.absolute(10), Graphics.Element.absolute(30)), title(_str('  CF')))),A4(Graphics.Element.container, A2(Basics.max, 500, arg1._0), 135, Graphics.Element.topLeft, Graphics.Element.width(arg1._0)(A3(box, intercalTitle, _str('http://codafi.me/blog/SendingMessages.html'), arg1._0))),A4(Graphics.Element.container, A2(Basics.max, 500, arg1._0), 135, Graphics.Element.topLeft, Graphics.Element.width(arg1._0)(A3(box, helloWorldTitle, _str('http://codafi.me/blog/INTERCAL.html'), arg1._0)))]));
+      }_E.Case($moduleName,'between lines 26 and 29')}();};
   var main = A2(Signal.lift, scene, Window.dimensions);
   return elm.Main = {
     _op : _op, 
-    notFoundTitle : notFoundTitle, 
+    intercalTitle : intercalTitle, 
+    helloWorldTitle : helloWorldTitle, 
     title : title, 
     scene : scene, 
     box : box, 

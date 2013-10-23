@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            INTERCAL
+        </title>
+        <script type="text/javascript" src="/elm-runtime.js">
+            
+        </script>
+        <script type="text/javascript">
+            
+Elm.Main = function(elm){
+  var N = Elm.Native, _N = N.Utils(elm), _L = N.List(elm), _E = N.Error(elm), _J = N.JavaScript(elm), _str = _J.toString, $moduleName = 'Main';
+  var Text = Elm.Text(elm);
+  var Text = Elm.Text(elm);
+  var Basics = Elm.Basics(elm);
+  var Signal = Elm.Signal(elm);
+  var List = Elm.List(elm);
+  var Maybe = Elm.Maybe(elm);
+  var Time = Elm.Time(elm);
+  var Prelude = Elm.Prelude(elm);
+  var Graphics = Graphics || {};
+  Graphics.Element = Elm.Graphics.Element(elm);
+  var Color = Elm.Color(elm);
+  var Graphics = Graphics || {};
+  Graphics.Collage = Elm.Graphics.Collage(elm);
+  var Window = Elm.Window(elm);
+  var Website = Website || {};
+  Website.Blog = Website.Blog || {};
+  Website.Blog.Skeleton = Elm.Website.Blog.Skeleton(elm);
+  var _op = {};
+  var post = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<p>\n<p>I have been writing Objective-C for the entirety of my (arguably short) programming career, and the only conclusion I can draw from all that time spent in the world of square-brackets and verbosity is that it forces me to think in extremely provincially about my code. While the language itself is founded on very powerful ideas, and the libraries and tools provided by Apple’s walled garden are of an agreeable quality, there was always an urge within me to “peak out over the garden walls”, as it were, and experiment with other languages. I’ve dabbled in the web, and left with a sour taste. I’ve poked and prodded the list comprehension languages, forced the functional ones, and written self-reorganizing code in the ones promising to satisfy that code-as-data fetish for those of us so inclined that way. But, paradoxically enough, the esoteric languages have, by far, been the most educational and satisfying. To be fair, I’m not saying that you should run out and immediately install Malbolge on your computer -just to watch your precious RAM fill with garbage and have to program entirely in random, cryptographically-restructured, pointer arithmetic- but rather that it is those languages that seem most foreign that often have the most to offer. It is in this spirit that I am going to discuss one of my great loves: INTERCAL.</p>\n<blockquote>\n<p>The names you are about to ignore are true. However, the story has been changed significantly. Any resemblance of the programming language portrayed here to other programming languages, living or dead, is purely coincidental.</p>\n<p>~<strong>INTERCAL-72 Language Specification, Introduction</strong></p>\n</blockquote>\n<p>INTERCAL began one May morning as a joke between two residents of Princeton University, Donald R. Woods and James M. Lyon. INTERCAL (affectionately expanded as the Compiler Language With No Pronounceable Acronym) was literally meant to be a compiler language that had nothing in common with any of the major languages of the period, eschewing everything but assignment statements, variables, arrays, and “IO”. INTERCAL has no notion of pointers, strings, subroutines, boolean logic, and features a type system that’s little more than a sick joke wrapped in a cruel irony. This strict adherence to a perverted definition of simplicity lead to a language innovative for its unconventional use of the ASCII character set, its nonsensical syntax, and its voluminous avenues for errors and confusion. The INTERCAL-72 spec puts it best:</p>\n<blockquote>\n<p>It has few capabilities, and thus there are few restrictions to be kept in mind. Since it is an exceedingly easy language to learn, one might expect it would be a good language for initiating novice programmers. Perhaps surprising, than, is the fact that it would be more likely to initiate a novice into a search for another line of work.</p>\n<p>~<strong>INTERCAL-72 Language Specification, Section 2.2</strong></p>\n</blockquote>\n<h2 id="structure">Structure</h2>\n<pre><code>ICL778I	UNEXPLAINED COMPILER BUG\n	ON THE WAY TO 2\n        CORRECT SOURCE AND RESUBNIT</code></pre>\n<blockquote>\n<p>An error code from ICK, the INTERCAL compiler</p>\n</blockquote>\n<p>INTERCAL is built around the notion of optionally-numbered ordered statements consisting of either an operator and its argument, or a DO-prefixed expression. All statements that are not explicitly operators must be prepended with a <code>DO</code>. But, as telling the compiler -called ICK - to <code>DO</code> your bidding is rude, every third-ish statement must be prepended with a <code>PLEASE DO</code>. Failure to make at least 1/5th of all statements <code>PLEASE</code> statements will result in ICK rejecting your program as insufficiently polite. Conversely, if more than 1/3rd of statements are prepended with a <code>PLEASE</code>, your program will be rejected as overly polite. Thus, INTERCAL forces the programmer to contort their code so as not to trample on the Politesse Checking mechanism.</p>\nLine numbers must be explicitly reserved by the programmer or the library writer so as to avoid clashes with existing line numbers. For example, the INTERCAL system libraries reside on line numbers 1000-1999, and any program making use of lines or labels in that range are subject to undefined behavior. C-INTERCAL corrects this with the <code>-E</code> option, but this obstructs inclusion of the standard libraries). Every line may be preceded by a double-oh-seven (%) and a number from 0-100 inclusive which indicates the probability a given line may be executed when it is reached, allowing some notion of randomness to any INTERCAL program.\n</p>\n\n<div style="height:0;width:0;">&nbsp;</div>');
+  var main = A5(Signal.lift4, Website.Blog.Skeleton.generateImagefulPost, Window.dimensions, Signal.constant(_str('Variations on a RoCocoa Theme')), Signal.constant(_str('http://www.gcca.org/wp-content/uploads/2013/06/Intercal-300x167.jpg')), Signal.constant(post));
+  return elm.Main = {
+    _op : _op, 
+    post : post, 
+    main : main};};
+Elm.Website = Elm.Website || {};
+Elm.Website.Blog = Elm.Website.Blog || {};
+Elm.Website.Blog.Skeleton = function(elm){
+  var N = Elm.Native, _N = N.Utils(elm), _L = N.List(elm), _E = N.Error(elm), _J = N.JavaScript(elm), _str = _J.toString, $moduleName = 'Website.Blog.Skeleton';
+  var Text = Elm.Text(elm);
+  var Text = Elm.Text(elm);
+  var Basics = Elm.Basics(elm);
+  var Signal = Elm.Signal(elm);
+  var List = Elm.List(elm);
+  var Maybe = Elm.Maybe(elm);
+  var Time = Elm.Time(elm);
+  var Prelude = Elm.Prelude(elm);
+  var Graphics = Graphics || {};
+  Graphics.Element = Elm.Graphics.Element(elm);
+  var Color = Elm.Color(elm);
+  var Graphics = Graphics || {};
+  Graphics.Collage = Elm.Graphics.Collage(elm);
+  var Window = Elm.Window(elm);
+  var Graphics = Graphics || {};
+  Graphics.Element = Elm.Graphics.Element(elm);
+  var Website = Website || {};
+  Website.Blog = Website.Blog || {};
+  Website.Blog.Formatting = Elm.Website.Blog.Formatting(elm);
+  var _op = {};
+  var generatePost = F3(function(arg3, t, postBody){
+    return function(){
+      switch (arg3.ctor) {
+        case '_Tuple2':
+          return function(){
+            var bodyHeight = Basics.fst(Graphics.Element.sizeOf(postBody));
+            return A2(Graphics.Element.flow, Graphics.Element.down, _J.toList([Graphics.Element.color(A3(Color.rgb, 57, 74, 85))(A4(Graphics.Element.container, A2(Basics.max, 500, arg3._0), 60, A2(Graphics.Element.midLeftAt, Graphics.Element.absolute(10), Graphics.Element.absolute(30)), Website.Blog.Formatting.title(_str('  CF')))),A2(Graphics.Element.spacer, A2(Basics.max, 300, arg3._0), 30),A4(Graphics.Element.container, A2(Basics.max, 300, arg3._0), 60, Graphics.Element.middle, Website.Blog.Formatting.formatTitleText(t)),A4(Graphics.Element.container, arg3._0, arg3._1, Graphics.Element.midTop, A3(Graphics.Element.size, A2(Basics.min, 550, arg3._0), A2(Basics.max, bodyHeight, arg3._1), postBody))]));}();
+      }_E.Case($moduleName,'between lines 8 and 13')}();});
+  var generateImagefulPost = F4(function(arg4, t, im, postBody){
+    return function(){
+      switch (arg4.ctor) {
+        case '_Tuple2':
+          return function(){
+            var bodyHeight = Basics.fst(Graphics.Element.sizeOf(postBody));
+            return A2(Graphics.Element.flow, Graphics.Element.down, _J.toList([Graphics.Element.color(A3(Color.rgb, 57, 74, 85))(A4(Graphics.Element.container, A2(Basics.max, 300, arg4._0), 60, Graphics.Element.midLeft, A3(Website.Blog.Formatting.formatImagefulTitle, {ctor:"_Tuple2", _0:arg4._0, _1:60}, _str('  CF'), im))),A2(Graphics.Element.spacer, A2(Basics.max, 300, arg4._0), 30),A4(Graphics.Element.container, A2(Basics.max, 300, (arg4._0+20)), 60, Graphics.Element.middle, Website.Blog.Formatting.formatTitleText(t)),A4(Graphics.Element.container, arg4._0, arg4._1, Graphics.Element.midTop, A3(Graphics.Element.size, A2(Basics.min, 550, arg4._0), A2(Basics.max, bodyHeight, arg4._1), postBody))]));}();
+      }_E.Case($moduleName,'between lines 16 and 21')}();});
+  elm.Website = elm.Website || {};
+  elm.Website.Blog = elm.Website.Blog || {};
+  return elm.Website.Blog.Skeleton = {
+    _op : _op, 
+    generatePost : generatePost, 
+    generateImagefulPost : generateImagefulPost};};
+Elm.Website = Elm.Website || {};
+Elm.Website.Blog = Elm.Website.Blog || {};
+Elm.Website.Blog.Formatting = function(elm){
+  var N = Elm.Native, _N = N.Utils(elm), _L = N.List(elm), _E = N.Error(elm), _J = N.JavaScript(elm), _str = _J.toString, $moduleName = 'Website.Blog.Formatting';
+  var Text = Elm.Text(elm);
+  var Text = Elm.Text(elm);
+  var Basics = Elm.Basics(elm);
+  var Signal = Elm.Signal(elm);
+  var List = Elm.List(elm);
+  var Maybe = Elm.Maybe(elm);
+  var Time = Elm.Time(elm);
+  var Prelude = Elm.Prelude(elm);
+  var Graphics = Graphics || {};
+  Graphics.Element = Elm.Graphics.Element(elm);
+  var Color = Elm.Color(elm);
+  var Graphics = Graphics || {};
+  Graphics.Collage = Elm.Graphics.Collage(elm);
+  var Graphics = Graphics || {};
+  Graphics.Element = Elm.Graphics.Element(elm);
+  var _op = {};
+  var title = function(t){
+    return Graphics.Element.layers(_J.toList([A3(Graphics.Collage.collage, 100, 50, _J.toList([Graphics.Collage.move({ctor:"_Tuple2", _0:(0-20), _1:3})(A2(Graphics.Collage.filled, A3(Color.rgb, 34, 48, 54), Graphics.Collage.circle(24)))])),Graphics.Element.link(_str('http://www.codafi.me'))(Text.text(Text.color(A3(Color.rgb, 132, 151, 161))(Text.header(Text.height(24)(Text.typeface(_str('Helvetica-Bold'))(Text.toText(t)))))))]));};
+  var formatTitleText = function(s){
+    return Text.text(Text.color(A3(Color.rgb, 94, 94, 93))(Text.height(36)(Text.typeface(_str('Helvetica-Bold'))(Text.toText(s)))));};
+  var formatImagefulTitle = F3(function(arg3, t, im){
+    return function(){
+      switch (arg3.ctor) {
+        case '_Tuple2':
+          return A2(Graphics.Element.flow, Graphics.Element.outward, _J.toList([A3(Graphics.Element.fittedImage, arg3._0, arg3._1, im),A4(Graphics.Element.container, 100, arg3._1, A2(Graphics.Element.topLeftAt, Graphics.Element.absolute(10), Graphics.Element.absolute(4)), title(t))]));
+      }_E.Case($moduleName,'between lines 10 and 12')}();});
+  elm.Website = elm.Website || {};
+  elm.Website.Blog = elm.Website.Blog || {};
+  return elm.Website.Blog.Formatting = {
+    _op : _op, 
+    title : title, 
+    formatImagefulTitle : formatImagefulTitle, 
+    formatTitleText : formatTitleText};};
+        </script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            Elm.fullscreen(Elm.Main)
+        </script>
+        <noscript>
+            
+        </noscript>
+    </body>
+</html>

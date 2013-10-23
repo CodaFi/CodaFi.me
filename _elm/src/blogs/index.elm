@@ -1,8 +1,16 @@
 import Window
 import Graphics.Element as El
 
-notFoundTitle = [markdown|
-<h2 style="margin-left:24px;">Hello World</h2>
+intercalTitle = [markdown|
+<h2 style="margin-left:24px;">Variations on a RoCocoa Theme</h2>
+
+<span style="margin-left:24px;">
+In which the relevance of Esolangs is examined.
+</span>
+|]
+
+helloWorldTitle = [markdown|
+<h2 style="margin-left:24px; margin-top:0px;">Hello World</h2>
 
 <span style="margin-left:24px;">
 In which we question the reason for this blog's inception.
@@ -16,7 +24,8 @@ title t = layers [ collage 100 50 [ filled (rgb 34 48 54) (circle 24) |> move (-
                    
                    
 scene (w,h) = flow down [container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (title "  CF") |> color (rgb 57 74 85),
-                         container (max 500 w) 135 topLeft (box notFoundTitle "http://codafi.me/blog/HelloWorld.html" w |> width w) 
+                         container (max 500 w) 135 topLeft (box intercalTitle "http://codafi.me/blog/SendingMessages.html" w |> width w), 
+                         container (max 500 w) 135 topLeft (box helloWorldTitle "http://codafi.me/blog/INTERCAL.html" w |> width w) 
                         ]
 
 box e l w =
