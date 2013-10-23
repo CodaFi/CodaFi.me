@@ -31,4 +31,4 @@ Line numbers must be explicitly reserved by the programmer or the library writer
 </p>
 |]
 
-main = lift4 Blog.generateImagefulPost Window.dimensions (constant "Variations on a RoCocoa Theme") (constant "http://www.gcca.org/wp-content/uploads/2013/06/Intercal-300x167.jpg") (constant post)
+main = lift4 Blog.generateImagefulPost Window.dimensions (constant "Variations on a RoCocoa Theme") (constant "http://images03.olx.co.za/ui/19/87/99/1328006455_309297899_1-Intercal-Calibration-Services-CC-Newton-Park.jpg") (constant post)
