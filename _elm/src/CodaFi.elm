@@ -94,13 +94,47 @@ objcClassElement = [markdown|
 </span>  
 |]
  
+haskellElement : Element 
+haskellElement = [markdown|
+<style type="text/css">
+
+:link { text-decoration: none; color: white }
+:visited { text-decoration: none; color: white }
+:hover { text-decoration: none; color: white }
+
+.reserved         { font-size: 12pt; color: #dc276c; font-family: Menlo, Monaco, Helvetica, sans-serif; }
+.plainCode        { font-size: 12pt; color: white; font-family: Menlo, Monaco, Helvetica, sans-serif; }
+.dataType         { font-size: 12pt; color: #ae81ff; font-family: Menlo, Monaco, Helvetica, sans-serif; }
+.monad            { font-size: 12pt; color: #66d9ef; font-family: Menlo, Monaco, Helvetica, sans-serif; }
+.keyword          { font-size: 12pt; color: #a6e22d; font-family: Menlo, Monaco, Helvetica, sans-serif; }
+
+</style>
+
+<span class="plainCode">
+<span class="reserved">module</span> CFI.Website.Utils <span class="reserved">where</span>
+<br><span class="reserved">type</span> <span class="dataType">URL</span> = <span class="dataType">String</span></br>
+
+<span class="reserved">class</span> <span class="monad">Monad</span> m =\> <span class="keyword">MonadWebsite</span> m <span class="reserved">where</span>
+<br><span class="keyword">&nbsp;&nbsp;projects</span> :: URL <span class="reserved">-\></span> [m ()]</br>
+<span class="keyword">&nbsp;&nbsp;blog</span> :: URL <span class="reserved">-\></span> m ()
+<br><span class="keyword">&nbsp;&nbsp;show</span> :: URL <span class="reserved">-\></span> m ()</br>
+
+<span class="reserved">instance</span> <span class="monad">MonadWebsite IO</span> <span class="reserved">where</span>
+<br><span class="keyword">&nbsp;&nbsp;projects</span> = githubProjects</br>
+<span class="keyword">&nbsp;&nbsp;blog</span> = gotoBlog
+<br><span class="keyword">&nbsp;&nbsp;show</span> = putStrLn</br>
+</span>
+|]
+
+
 allElements : [(Element, Int)]
-allElements = [(objcClassElement, 18),
-               (rubyClassElement, 13)]
+allElements = [(objcClassElement, 16),
+               (rubyClassElement, 13),
+               (haskellElement, 13)]
 
 elementAt : [(Element, Int)] -> Int -> (Element, Int)
 elementAt xs n = case xs of 
-                    [] -> (objcClassElement, 18)
+                    [] -> (objcClassElement, 16)
                     lst -> (head . drop n) lst
 
 lineNumbersColumn : (Int, Int) -> [Int] -> Element 
@@ -119,5 +153,5 @@ scene (w,h) n = let el = fst (elementAt allElements n)
                                container (max 500 w) (max 430 h) topLeft (pageBody w h lines el) |> color (rgb 79 96 107) 
                              ] 
  
-main = lift2 scene Window.dimensions (Random.range 0 1 (constant ()))
+main = lift2 scene Window.dimensions (Random.range 0 2 (constant ()))
 

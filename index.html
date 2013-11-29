@@ -37,6 +37,7 @@ Elm.Main = function(elm){
   var range = F2(function(n, m){
     return (_N.eq(n,m) ? _J.toList([n]) : ((_N.cmp(n,m)<0) ? _L.Cons(n,A2(range, (n+1), m)) : ((_N.cmp(n,m)>0) ? _L.Cons(n,A2(range, (n-1), m)) : _E.If($moduleName,'between lines 17 and 20'))));});
   var objcClassElement = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<style type="text/css">\n\n:link { text-decoration: none; color: white }\n:visited { text-decoration: none; color: white }\n:hover { text-decoration: none; color: white }\n\n.keyword          { font-size: 12pt; color: #760F50 }\n.string           { color: #4A9D8F; }\n.plainCode        { font-size: 12pt; color: white; font-family: Menlo, Monaco, Helvetica, sans-serif; }\n.classObject      { font-size: 12pt; color: #E35B00; font-family: Menlo, Monaco, Helvetica, sans-serif; }\n.preprocessor     { font-size: 12pt; color: #EBC562; font-family: Menlo, Monaco, Helvetica, sans-serif; }\n.method           { color: #236E25 }\n.method:link      { text-decoration: none; color: white }\n.method:visited   { text-decoration: none; color: white }\n.method:hover     { text-decoration: none; color: white }\n.comment          { color: #236E25 }\n.comment:link     { text-decoration: none; color: #236E25 }\n.comment:visited  { text-decoration: none; color: #236E25 }\n.comment:hover    { text-decoration: none; color: #236E25 }\n\n</style>\n\n<p><span class="preprocessor"> #if TARGET_OS_MAC <br>  #import <span class="string">&lt;AppKit/AppKit.h&gt;</span> </br> #else <br>  #import <span class="string">&lt;UIKit/UIKit.h&gt;</span> </br> #endif<br /></span></p>\n<p><span class="plainCode"> <span class="preprocessor">@interface</span> CFIWebsite : <span class="classObject">NSURL</span> &lt;<span class="classObject">NSCoding</span>&gt; <br></br> + (<span class="preprocessor">instancetype</span>)<a class="method"; href="http://www.codafi.me">currentWebsite</a>; <br></br> - (<span class="classObject">NSArray</span> *)<a class="method"; href="https://github.com/CodaFi?tab=repositories">projects</a>; <br>- (<span class="classObject">NSURL</span> *)<a class="method"; href="http://www.codafi.me/blog">blog</a>; </br> - (<span class="classObject">NSString</span> *)<a class="method"; href="http://www.codafi.me/about">description</a>; <br></br> <span class="preprocessor">@end</span> </span></p><div style="height:0;width:0;">&nbsp;</div>');
+  var haskellElement = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<style type="text/css">\n\n:link { text-decoration: none; color: white }\n:visited { text-decoration: none; color: white }\n:hover { text-decoration: none; color: white }\n\n.reserved         { font-size: 12pt; color: #dc276c; font-family: Menlo, Monaco, Helvetica, sans-serif; }\n.plainCode        { font-size: 12pt; color: white; font-family: Menlo, Monaco, Helvetica, sans-serif; }\n.dataType         { font-size: 12pt; color: #ae81ff; font-family: Menlo, Monaco, Helvetica, sans-serif; }\n.monad            { font-size: 12pt; color: #66d9ef; font-family: Menlo, Monaco, Helvetica, sans-serif; }\n.keyword          { font-size: 12pt; color: #a6e22d; font-family: Menlo, Monaco, Helvetica, sans-serif; }\n\n</style>\n\n<p><span class="plainCode"> <span class="reserved">module</span> CFI.Website.Utils <span class="reserved">where</span> <br><span class="reserved">type</span> <span class="dataType">URL</span> = <span class="dataType">String</span></br></p>\n<p><span class="reserved">class</span> <span class="monad">Monad</span> m =&gt; <span class="keyword">MonadWebsite</span> m <span class="reserved">where</span> <br><span class="keyword">  projects</span> :: URL <span class="reserved">-&gt;</span> [m ()]</br> <span class="keyword">  blog</span> :: URL <span class="reserved">-&gt;</span> m () <br><span class="keyword">  show</span> :: URL <span class="reserved">-&gt;</span> m ()</br></p>\n<p><span class="reserved">instance</span> <span class="monad">MonadWebsite IO</span> <span class="reserved">where</span> <br><span class="keyword">  projects</span> = githubProjects</br> <span class="keyword">  blog</span> = gotoBlog <br><span class="keyword">  show</span> = putStrLn</br> </span></p><div style="height:0;width:0;">&nbsp;</div>');
   var formatInt = function(t){
     return Text.text(Text.color(A3(Color.rgb, 132, 151, 161))(Text.typeface(_str('Menlo, Monaco, Helvetica, sans-serif'))(Text.height(14)(Text.toText(Prelude.show(t))))));};
   var lineNumbersColumn = F2(function(arg2, nums){
@@ -44,18 +45,18 @@ Elm.Main = function(elm){
       switch (arg2.ctor) {
         case '_Tuple2':
           return Graphics.Element.flow(Graphics.Element.down)(_L.Cons(A2(Graphics.Element.spacer, 30, 14),A2(List.map, formatInt, nums)));
-      }_E.Case($moduleName,'on line 107, column 32 to 82')}();});
+      }_E.Case($moduleName,'on line 141, column 32 to 82')}();});
   var pageBody = F4(function(w, h, lns, bdy){
     return A2(Graphics.Element.flow, Graphics.Element.right, _J.toList([A2(Graphics.Element.spacer, 10, w),Graphics.Element.color(A3(Color.rgb, 79, 96, 107))(A4(Graphics.Element.container, 30, h, Graphics.Element.topLeft, A2(lineNumbersColumn, {ctor:"_Tuple2", _0:w, _1:h}, A2(range, 1, lns)))),bdy]));});
   var elementAt = F2(function(xs, n){
     return function(){
       switch (xs.ctor) {
         case '[]':
-          return {ctor:"_Tuple2", _0:objcClassElement, _1:18};
+          return {ctor:"_Tuple2", _0:objcClassElement, _1:16};
       }
       return function($){
         return List.head(List.drop(n)($));}(xs);}();});
-  var allElements = _J.toList([{ctor:"_Tuple2", _0:objcClassElement, _1:18},{ctor:"_Tuple2", _0:rubyClassElement, _1:13}]);
+  var allElements = _J.toList([{ctor:"_Tuple2", _0:objcClassElement, _1:16},{ctor:"_Tuple2", _0:rubyClassElement, _1:13},{ctor:"_Tuple2", _0:haskellElement, _1:13}]);
   var scene = F2(function(arg2, n){
     return function(){
       switch (arg2.ctor) {
@@ -64,8 +65,8 @@ Elm.Main = function(elm){
             var lines = Basics.snd(A2(elementAt, allElements, n));
             var el = Basics.fst(A2(elementAt, allElements, n));
             return A2(Graphics.Element.flow, Graphics.Element.down, _J.toList([Graphics.Element.color(A3(Color.rgb, 57, 74, 85))(A4(Graphics.Element.container, A2(Basics.max, 500, arg2._0), 60, A2(Graphics.Element.midLeftAt, Graphics.Element.absolute(10), Graphics.Element.absolute(30)), title(_str('  CF')))),Graphics.Element.color(A3(Color.rgb, 79, 96, 107))(A4(Graphics.Element.container, A2(Basics.max, 500, arg2._0), A2(Basics.max, 430, arg2._1), Graphics.Element.topLeft, A4(pageBody, arg2._0, arg2._1, lines, el)))]));}();
-      }_E.Case($moduleName,'between lines 116 and 120')}();});
-  var main = A3(Signal.lift2, scene, Window.dimensions, A3(Random.range, 0, 1, Signal.constant({ctor:"_Tuple0"})));
+      }_E.Case($moduleName,'between lines 150 and 154')}();});
+  var main = A3(Signal.lift2, scene, Window.dimensions, A3(Random.range, 0, 2, Signal.constant({ctor:"_Tuple0"})));
   return elm.Main = {
     _op : _op, 
     title : title, 
@@ -73,6 +74,7 @@ Elm.Main = function(elm){
     range : range, 
     rubyClassElement : rubyClassElement, 
     objcClassElement : objcClassElement, 
+    haskellElement : haskellElement, 
     allElements : allElements, 
     elementAt : elementAt, 
     lineNumbersColumn : lineNumbersColumn, 
