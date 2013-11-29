@@ -111,14 +111,12 @@ haskellElement = [markdown|
 </style>
 
 <span class="plainCode">
-<span class="reserved">module</span> CFI.Website.Utils <span class="reserved">where</span>
-<br><span class="reserved">type</span> <span class="dataType">URL</span> = <span class="dataType">String</span></br>
-
-<span class="reserved">class</span> <span class="monad">Monad</span> m =\> <span class="keyword">MonadWebsite</span> m <span class="reserved">where</span>
+<span class="reserved">module</span> CFI\.Website\.Utils <span class="reserved">where</span>
+<br><span class="reserved">type</span> <span class="dataType">URL</span> = <span class="dataType">String</span></br><br></br>
+<span class="reserved">class</span> <span class="monad">Monad</span> m \=\> <span class="keyword">MonadWebsite</span> m <span class="reserved">where</span>
 <br><span class="keyword">&nbsp;&nbsp;projects</span> :: URL <span class="reserved">-\></span> [m ()]</br>
 <span class="keyword">&nbsp;&nbsp;blog</span> :: URL <span class="reserved">-\></span> m ()
-<br><span class="keyword">&nbsp;&nbsp;show</span> :: URL <span class="reserved">-\></span> m ()</br>
-
+<br><span class="keyword">&nbsp;&nbsp;show</span> :: URL <span class="reserved">-\></span> m ()</br><br></br>
 <span class="reserved">instance</span> <span class="monad">MonadWebsite IO</span> <span class="reserved">where</span>
 <br><span class="keyword">&nbsp;&nbsp;projects</span> = githubProjects</br>
 <span class="keyword">&nbsp;&nbsp;blog</span> = gotoBlog
@@ -130,7 +128,7 @@ haskellElement = [markdown|
 allElements : [(Element, Int)]
 allElements = [(objcClassElement, 16),
                (rubyClassElement, 13),
-               (haskellElement, 13)]
+               (haskellElement, 15)]
 
 elementAt : [(Element, Int)] -> Int -> (Element, Int)
 elementAt xs n = case xs of 
