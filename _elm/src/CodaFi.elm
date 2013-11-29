@@ -14,7 +14,7 @@ formatInt t = (show t) |> toText
                        |> text
          
 rubyClassElement : Element
-rubyClassElement =  [markdown|
+rubyClassElement = [markdown|
 <style type="text/css">
 
 :link { text-decoration: none; color: white }
@@ -33,21 +33,14 @@ rubyClassElement =  [markdown|
 </style>
 
 <span class="plainCode">
-<span class="keyword">module</span> URI <br></br>&nbsp;&nbsp;Website < <span class="classObject">Generic</span> <br></br>
+<span class="keyword">module</span> URI <br>&nbsp;&nbsp;Website < <span class="classObject">Generic</span></br>
 <span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;def </span><a class="method"; href="https://github.com/CodaFi?tab=repositories">projects</a>
-<br></br>
+<br><span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;end</span></br>
+<br><span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;def </span><a class="method"; href="http://www.codafi.me/blog">blog</a>
+<br><span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;end</span></br>
+<br><span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;def </span><a class="method"; href="http://www.codafi.me/about">inspect</a></br>
 <span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;end</span>
-<br></br>
-<span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;def </span><a class="method"; href="http://www.codafi.me/blog">blog</a>
-<br></br>
-<span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;end</span>
-<br></br>
-<span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;def </span><a class="method"; href="http://www.codafi.me/about">inspect</a>
-<br></br>
-<span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;end</span>
-<br></br>
-<span class="classObject">&nbsp;&nbsp;end</span>
-<br></br>
+<br><span class="classObject">&nbsp;&nbsp;end</span></br>
 <span class="classObject">end</span>
 </span>  
 |]
