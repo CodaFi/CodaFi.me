@@ -1,5 +1,6 @@
 import Window
 import Graphics.Element as E
+import Random
 
 title : String -> Element
 title t = layers [ collage 100 50 [ filled (rgb 34 48 54) (circle 24) |> move (-20, 3) ],
@@ -11,9 +12,47 @@ formatInt t = (show t) |> toText
                        |> typeface "Menlo, Monaco, Helvetica, sans-serif"
                        |> Text.color (rgb 132 151 161)
                        |> text
-                                             
-classfile : Element
-classfile = [markdown|
+         
+rubyClassElement : Element
+rubyClassElement =  [markdown|
+<style type="text/css">
+
+:link { text-decoration: none; color: white }
+:visited { text-decoration: none; color: white }
+:hover { text-decoration: none; color: white }
+
+.keyword          { font-size: 12pt; color: #EBC562; font-family: Menlo, Monaco, Helvetica, sans-serif; }
+.string           { color: #4A9D8F; }
+.plainCode        { font-size: 12pt; color: white; font-family: Menlo, Monaco, Helvetica, sans-serif; }
+.classObject      { font-size: 12pt; color: #89730c; font-family: Menlo, Monaco, Helvetica, sans-serif; }
+.method           { color: #1b75b4 }
+.method:link      { text-decoration: none; color: #1b75b4 }
+.method:visited   { text-decoration: none; color: #1b75b4 }
+.method:hover     { text-decoration: none; color: #1b75b4 }
+
+</style>
+
+<span class="plainCode">
+<span class="keyword">module</span> URI <br></br>&nbsp;&nbsp;Website < <span class="classObject">Generic</span> <br></br>
+<span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;def </span><a class="method"; href="https://github.com/CodaFi?tab=repositories">projects</a>
+<br></br>
+<span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;end</span>
+<br></br>
+<span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;def </span><a class="method"; href="http://www.codafi.me/blog">blog</a>
+<br></br>
+<span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;end</span>
+<br></br>
+<span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;def </span><a class="method"; href="http://www.codafi.me/about">inspect</a>
+<br></br>
+<span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;end</span>
+<br></br>
+<span class="classObject">&nbsp;&nbsp;end</span>
+<br></br>
+<span class="classObject">end</span>
+|]
+
+objcClassElement : Element
+objcClassElement = [markdown|
 <style type="text/css">
 
 :link { text-decoration: none; color: white }
@@ -38,11 +77,9 @@ classfile = [markdown|
 
 <span class="preprocessor">
 \#if TARGET_OS_MAC
-	<br>&nbsp;&nbsp;\#import <span class="string">\<AppKit/AppKit.h\></span> </br>
-\#elif defined(\_\_IPHONE_OS_VERSION_MIN_REQUIRED)
-	<br>&nbsp;&nbsp;\#import <span class="string">\<UIKit/UIKit.h\></span> </br>
+  <br>&nbsp;&nbsp;\#import <span class="string">\<AppKit/AppKit.h\></span> </br>
 \#else
-	<br>&nbsp;&nbsp;\#warning </br>
+  <br>&nbsp;&nbsp;\#import <span class="string">\<UIKit/UIKit.h\></span> </br>
 \#endif  
 </span>
 
@@ -57,18 +94,29 @@ classfile = [markdown|
 </span>  
 |]
  
+allElements : [(Element, Int)]
+allElements = [(objcClassElement, 18),
+               (rubyClassElement, 18)]
+
+elementAt : [(Element, Int)] -> Int -> (Element, Int)
+elementAt xs n = case xs of 
+                    [] -> (objcClassElement, 18)
+                    lst -> (head . drop n) lst
+                    
 lineNumbersColumn : (Int, Int) -> [Int] -> Element 
 lineNumbersColumn (w,h) nums = flow down <| (spacer 30 14) :: (map formatInt nums)
                       
-pageBody : Int -> Int -> Element -> Element
-pageBody w h bdy = flow right [ spacer 10 w,
-                                container 30 h topLeft (lineNumbersColumn (w, h) [1..18]) |> color (rgb 79 96 107),
-                                bdy 
-                              ]
+pageBody : Int -> Int -> Int -> Element -> Element
+pageBody w h lns bdy = flow right [ spacer 10 w,
+                                    container 30 h topLeft (lineNumbersColumn (w, h) [1..18]) |> color (rgb 79 96 107),
+                                    bdy 
+                                  ]
                       
-scene : (Int, Int) -> Element
-scene (w,h) = flow down [ container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (title "  CF") |> color (rgb 57 74 85),
-                          container (max 500 w) (max 430 h) topLeft (pageBody w h classfile) |> color (rgb 79 96 107) 
-                        ] 
+scene : (Int, Int) -> Int -> Element
+scene (w,h) n = let el = fst (elementAt allElements n)
+                    lines = snd (elementAt allElements n)
+                in flow down [ container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (title "  CF") |> color (rgb 57 74 85),
+                               container (max 500 w) (max 430 h) topLeft (pageBody w h lines el) |> color (rgb 79 96 107) 
+                             ] 
  
-main = lift scene Window.dimensions
+main = lift2 scene Window.dimensions (Random.range 0 1 (constant ()))
