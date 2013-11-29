@@ -49,6 +49,7 @@ rubyClassElement =  [markdown|
 <span class="classObject">&nbsp;&nbsp;end</span>
 <br></br>
 <span class="classObject">end</span>
+</span>  
 |]
 
 objcClassElement : Element
@@ -102,7 +103,7 @@ elementAt : [(Element, Int)] -> Int -> (Element, Int)
 elementAt xs n = case xs of 
                     [] -> (objcClassElement, 18)
                     lst -> (head . drop n) lst
-                    
+
 lineNumbersColumn : (Int, Int) -> [Int] -> Element 
 lineNumbersColumn (w,h) nums = flow down <| (spacer 30 14) :: (map formatInt nums)
                       
