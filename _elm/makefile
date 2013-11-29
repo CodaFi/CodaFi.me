@@ -1,7 +1,7 @@
 CC=elm
 CFLAGS=--runtime="/elm-runtime.js"
 
-all: CodaFi Error404 BlogIndex HelloWorldBlog INTERCALBlog
+all: CodaFi Error404 BlogIndex HelloWorldBlog INTERCALBlog ErrorBlog
 
 CodaFi: ./src/CodaFi.elm
 	$(CC) $(CFLAGS) $<
@@ -23,3 +23,7 @@ HelloWorldBlog: ./src/blogs/HelloWorld.elm
 INTERCALBlog: ./src/blogs/INTERCAL.elm
 	$(CC) $(CFLAGS) --make $<
 	mv ./build/src/blogs/INTERCAL.html ./../blog/INTERCAL.html
+
+ErrorBlog: ./src/blogs/Error-Handling.elm
+	$(CC) $(CFLAGS) --make $<
+	mv ./build/src/blogs/Error-Handling.html ./../blog/Error-Handling.html

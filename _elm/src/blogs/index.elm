@@ -1,6 +1,14 @@
 import Window
 import Graphics.Element as El
 
+errorHandlingTitle = [markdown|
+<h2 style="margin-left:24px;">Error Handling</h2>
+
+<span style="margin-left:24px;">
+In which the BSOD is praised for its innovative qualities.
+</span>
+|]
+
 intercalTitle = [markdown|
 <h2 style="margin-left:24px;">Variations on a RoCocoa Theme</h2>
 
@@ -23,9 +31,10 @@ title t = layers [ collage 100 50 [ filled (rgb 34 48 54) (circle 24) |> move (-
                    (toText t) |> typeface "Helvetica-Bold" |> Text.height (24) |> header |> Text.color (rgb 132 151 161) |> text |> El.link "http://www.codafi.me" ]
                    
                    
-scene (w,h) = flow down [container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (title "  CF") |> color (rgb 57 74 85),
-                         container (max 500 w) 135 topLeft (box intercalTitle "http://codafi.me/blog/INTERCAL.html" w |> width w), 
-                         container (max 500 w) 135 topLeft (box helloWorldTitle "http://codafi.me/blog/HelloWorld.html" w |> width w) 
+scene (w,h) = flow down [ container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (title "  CF") |> color (rgb 57 74 85),
+                          container (max 500 w) 135 topLeft (box errorHandlingTitle "http://codafi.me/blog/Error Handling.html" w |> width w), 
+                          container (max 500 w) 135 topLeft (box intercalTitle "http://codafi.me/blog/INTERCAL.html" w |> width w), 
+                          container (max 500 w) 135 topLeft (box helloWorldTitle "http://codafi.me/blog/HelloWorld.html" w |> width w) 
                         ]
 
 box e l w =
