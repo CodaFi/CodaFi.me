@@ -118,9 +118,9 @@ haskellElement = [markdown|
 <span class="keyword">&nbsp;&nbsp;blog</span> :: URL <span class="reserved">-\></span> m ()
 <br><span class="keyword">&nbsp;&nbsp;show</span> :: URL <span class="reserved">-\></span> m ()</br><br></br>
 <span class="reserved">instance</span> <span class="monad">MonadWebsite IO</span> <span class="reserved">where</span>
-<br><span class="keyword">&nbsp;&nbsp;projects</span> = githubProjects</br>
-<span class="keyword">&nbsp;&nbsp;blog</span> = gotoBlog
-<br><span class="keyword">&nbsp;&nbsp;show</span> = putStrLn</br>
+<br><span class="keyword">&nbsp;&nbsp;projects</span> = <a class="plainCode"; href="https://github.com/CodaFi?tab=repositories">githubProjects</a></br>
+<span class="keyword">&nbsp;&nbsp;blog</span> = <a class="plainCode"; href="http://www.codafi.me/blog">gotoBlog</a>
+<br><span class="keyword">&nbsp;&nbsp;show</span> = <a class="plainCode"; href="http://www.codafi.me/about">putStrLn</a></br>
 </span>
 |]
 
