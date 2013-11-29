@@ -12,7 +12,13 @@ formatInt t = (show t) |> toText
                        |> typeface "Menlo, Monaco, Helvetica, sans-serif"
                        |> Text.color (rgb 132 151 161)
                        |> text
-         
+
+range : Int -> Int -> [Int]
+range n m = if 
+             | n == m -> [n]
+             | n < m -> n::(range (n+1) m)
+             | n > m -> n::(range (n-1) m)
+
 rubyClassElement : Element
 rubyClassElement = [markdown|
 <style type="text/css">
@@ -90,7 +96,7 @@ objcClassElement = [markdown|
  
 allElements : [(Element, Int)]
 allElements = [(objcClassElement, 18),
-               (rubyClassElement, 18)]
+               (rubyClassElement, 13)]
 
 elementAt : [(Element, Int)] -> Int -> (Element, Int)
 elementAt xs n = case xs of 
@@ -102,7 +108,7 @@ lineNumbersColumn (w,h) nums = flow down <| (spacer 30 14) :: (map formatInt num
                       
 pageBody : Int -> Int -> Int -> Element -> Element
 pageBody w h lns bdy = flow right [ spacer 10 w,
-                                    container 30 h topLeft (lineNumbersColumn (w, h) [1..18]) |> color (rgb 79 96 107),
+                                    container 30 h topLeft (lineNumbersColumn (w, h) (range 1 lns)) |> color (rgb 79 96 107),
                                     bdy 
                                   ]
                       
@@ -114,3 +120,4 @@ scene (w,h) n = let el = fst (elementAt allElements n)
                              ] 
  
 main = lift2 scene Window.dimensions (Random.range 0 1 (constant ()))
+
