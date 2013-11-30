@@ -45,7 +45,7 @@ Elm.Main = function(elm){
       switch (arg2.ctor) {
         case '_Tuple2':
           return Graphics.Element.flow(Graphics.Element.down)(_L.Cons(A2(Graphics.Element.spacer, 30, 14),A2(List.map, formatInt, nums)));
-      }_E.Case($moduleName,'on line 139, column 32 to 82')}();});
+      }_E.Case($moduleName,'on line 184, column 32 to 82')}();});
   var pageBody = F4(function(w, h, lns, bdy){
     return A2(Graphics.Element.flow, Graphics.Element.right, _J.toList([A2(Graphics.Element.spacer, 10, w),Graphics.Element.color(A3(Color.rgb, 79, 96, 107))(A4(Graphics.Element.container, 30, h, Graphics.Element.topLeft, A2(lineNumbersColumn, {ctor:"_Tuple2", _0:w, _1:h}, A2(range, 1, lns)))),bdy]));});
   var elementAt = F2(function(xs, n){
@@ -56,7 +56,8 @@ Elm.Main = function(elm){
       }
       return function($){
         return List.head(List.drop(n)($));}(xs);}();});
-  var allElements = _J.toList([{ctor:"_Tuple2", _0:objcClassElement, _1:16},{ctor:"_Tuple2", _0:rubyClassElement, _1:13},{ctor:"_Tuple2", _0:haskellElement, _1:15}]);
+  var cClassElement = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<style type="text/css">\n\n:link { text-decoration: none; color: white }\n:visited { text-decoration: none; color: white }\n:hover { text-decoration: none; color: white }\n\n.keyword          { font-size: 12pt; color: #760F50 }\n.string           { color: #4A9D8F; }\n.funcPtr          { color: #67bb2a; }\n.funcPtr:link     { text-decoration: none; color: #67bb2a }\n.funcPtr:visited  { text-decoration: none; color: #67bb2a }\n.funcPtr:hover    { text-decoration: none; color: #67bb2a }\n.plainCode        { font-size: 12pt; color: white; font-family: Menlo, Monaco, Helvetica, sans-serif; }\n.classObject      { font-size: 12pt; color: #E35B00; font-family: Menlo, Monaco, Helvetica, sans-serif; }\n.preprocessor     { font-size: 12pt; color: #EBC562; font-family: Menlo, Monaco, Helvetica, sans-serif; }\n.comment          { color: #236E25 }\n.comment:link     { text-decoration: none; color: #236E25 }\n.comment:visited  { text-decoration: none; color: #236E25 }\n.comment:hover    { text-decoration: none; color: #236E25 }\n\n</style>\n\n<p><span class="plainCode"> <span class="preprocessor">#include</span> <span class="string">&lt;CoreFoundation/CoreFoundation.h&gt;</span> <br><span class="preprocessor">#include</span> <span class="string">&quot;CFIUtils.h&quot;</span></br><br></br> <span class="preprocessor">typedef struct</span> { <br>  <span class="funcPtr">CFIWebsiteProjectCallback</span> projects;</br>   <span class="funcPtr">CFIWebsiteBlogCallback</span> blog; <br>  <span class="funcPtr">CFIWebsiteCopyDescriptionCallback</span> copyDescription;</br>   <span class="funcPtr">CFIWebsiteEqualCallBack</span> equal; <br>  <span class="funcPtr">CFIWebsiteHashCallBack</span> hash;</br> } CFIWebsiteCallBacks;<br></br> <br><span class="preprocessor">const</span> <span class="funcPtr">CFIWebsiteCallBacks</span> kCFITypeWebsiteCallBacks = {</br>   <a class="funcPtr"; href="https://github.com/CodaFi?tab=repositories">__CFITypeProjects</a>, <br>  <a class="funcPtr"; href="http://www.codafi.me/blog">__CFITypeBlog</a>,</br>   <a class="funcPtr"; href="http://www.codafi.me/about">CFCopyDescription</a>, <br>  <span class="funcPtr">CFEqual</span>,</br>   <span class="funcPtr">CFHash</span> <br>};</br> </span></p><div style="height:0;width:0;">&nbsp;</div>');
+  var allElements = _J.toList([{ctor:"_Tuple2", _0:objcClassElement, _1:16},{ctor:"_Tuple2", _0:rubyClassElement, _1:13},{ctor:"_Tuple2", _0:haskellElement, _1:15},{ctor:"_Tuple2", _0:cClassElement, _1:18}]);
   var scene = F2(function(arg2, n){
     return function(){
       switch (arg2.ctor) {
@@ -65,14 +66,15 @@ Elm.Main = function(elm){
             var lines = Basics.snd(A2(elementAt, allElements, n));
             var el = Basics.fst(A2(elementAt, allElements, n));
             return A2(Graphics.Element.flow, Graphics.Element.down, _J.toList([Graphics.Element.color(A3(Color.rgb, 57, 74, 85))(A4(Graphics.Element.container, A2(Basics.max, 500, arg2._0), 60, A2(Graphics.Element.midLeftAt, Graphics.Element.absolute(10), Graphics.Element.absolute(30)), title(_str('  CF')))),Graphics.Element.color(A3(Color.rgb, 79, 96, 107))(A4(Graphics.Element.container, A2(Basics.max, 500, arg2._0), A2(Basics.max, 430, arg2._1), Graphics.Element.topLeft, A4(pageBody, arg2._0, arg2._1, lines, el)))]));}();
-      }_E.Case($moduleName,'between lines 148 and 152')}();});
-  var main = A3(Signal.lift2, scene, Window.dimensions, A3(Random.range, 0, 2, Signal.constant({ctor:"_Tuple0"})));
+      }_E.Case($moduleName,'between lines 193 and 197')}();});
+  var main = A3(Signal.lift2, scene, Window.dimensions, A3(Random.range, 0, 3, Signal.constant({ctor:"_Tuple0"})));
   return elm.Main = {
     _op : _op, 
     title : title, 
     formatInt : formatInt, 
     range : range, 
     rubyClassElement : rubyClassElement, 
+    cClassElement : cClassElement, 
     objcClassElement : objcClassElement, 
     haskellElement : haskellElement, 
     allElements : allElements, 

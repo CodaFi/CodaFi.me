@@ -51,6 +51,50 @@ rubyClassElement = [markdown|
 </span>  
 |]
 
+cClassElement : Element
+cClassElement = [markdown|
+<style type="text/css">
+
+:link { text-decoration: none; color: white }
+:visited { text-decoration: none; color: white }
+:hover { text-decoration: none; color: white }
+
+.keyword          { font-size: 12pt; color: #760F50 }
+.string           { color: #4A9D8F; }
+.funcPtr          { color: #67bb2a; }
+.funcPtr:link     { text-decoration: none; color: #67bb2a }
+.funcPtr:visited  { text-decoration: none; color: #67bb2a }
+.funcPtr:hover    { text-decoration: none; color: #67bb2a }
+.plainCode        { font-size: 12pt; color: white; font-family: Menlo, Monaco, Helvetica, sans-serif; }
+.classObject      { font-size: 12pt; color: #E35B00; font-family: Menlo, Monaco, Helvetica, sans-serif; }
+.preprocessor     { font-size: 12pt; color: #EBC562; font-family: Menlo, Monaco, Helvetica, sans-serif; }
+.comment          { color: #236E25 }
+.comment:link     { text-decoration: none; color: #236E25 }
+.comment:visited  { text-decoration: none; color: #236E25 }
+.comment:hover    { text-decoration: none; color: #236E25 }
+
+</style>
+
+<span class="plainCode">
+<span class="preprocessor">\#include</span> <span class="string">\<CoreFoundation\/CoreFoundation.h\></span>
+<br><span class="preprocessor">\#include</span> <span class="string">\"CFIUtils.h\"</span></br><br></br>
+<span class="preprocessor">typedef struct</span> {
+<br>&nbsp;&nbsp;<span class="funcPtr">CFIWebsiteProjectCallback</span> projects;</br>
+&nbsp;&nbsp;<span class="funcPtr">CFIWebsiteBlogCallback</span> blog;
+<br>&nbsp;&nbsp;<span class="funcPtr">CFIWebsiteCopyDescriptionCallback</span> copyDescription;</br>
+&nbsp;&nbsp;<span class="funcPtr">CFIWebsiteEqualCallBack</span> equal;
+<br>&nbsp;&nbsp;<span class="funcPtr">CFIWebsiteHashCallBack</span> hash;</br>
+} CFIWebsiteCallBacks;<br></br>
+<br><span class="preprocessor">const</span> <span class="funcPtr">CFIWebsiteCallBacks</span> kCFITypeWebsiteCallBacks = {</br> 
+&nbsp;&nbsp;<a class="funcPtr"; href="https://github.com/CodaFi?tab=repositories">\_\_CFITypeProjects</a>, 
+<br>&nbsp;&nbsp;<a class="funcPtr"; href="http://www.codafi.me/blog">\_\_CFITypeBlog</a>,</br> 
+&nbsp;&nbsp;<a class="funcPtr"; href="http://www.codafi.me/about">CFCopyDescription</a>, 
+<br>&nbsp;&nbsp;<span class="funcPtr">CFEqual</span>,</br>
+&nbsp;&nbsp;<span class="funcPtr">CFHash</span>
+<br>};</br>
+</span>
+|]
+
 objcClassElement : Element
 objcClassElement = [markdown|
 <style type="text/css">
@@ -128,7 +172,8 @@ haskellElement = [markdown|
 allElements : [(Element, Int)]
 allElements = [(objcClassElement, 16),
                (rubyClassElement, 13),
-               (haskellElement, 15)]
+               (haskellElement, 15),
+               (cClassElement, 18)]
 
 elementAt : [(Element, Int)] -> Int -> (Element, Int)
 elementAt xs n = case xs of 
@@ -151,5 +196,5 @@ scene (w,h) n = let el = fst (elementAt allElements n)
                                container (max 500 w) (max 430 h) topLeft (pageBody w h lines el) |> color (rgb 79 96 107) 
                              ] 
  
-main = lift2 scene Window.dimensions (Random.range 0 2 (constant ()))
+main = lift2 scene Window.dimensions (Random.range 0 3 (constant ()))
 
