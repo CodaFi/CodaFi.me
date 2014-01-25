@@ -1,135 +1,258 @@
 <!DOCTYPE HTML>
-
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>
-            Error-Handling
-        </title>
-        <script type="text/javascript" src="/elm-runtime.js">
-            
-        </script>
-        <script type="text/javascript">
-            
-Elm.Main = function(elm){
-  var N = Elm.Native, _N = N.Utils(elm), _L = N.List(elm), _E = N.Error(elm), _J = N.JavaScript(elm), _str = _J.toString, $moduleName = 'Main';
-  var Text = Elm.Text(elm);
-  var Text = Elm.Text(elm);
-  var Basics = Elm.Basics(elm);
-  var Signal = Elm.Signal(elm);
-  var List = Elm.List(elm);
-  var Maybe = Elm.Maybe(elm);
-  var Time = Elm.Time(elm);
-  var Prelude = Elm.Prelude(elm);
-  var Graphics = Graphics || {};
-  Graphics.Element = Elm.Graphics.Element(elm);
-  var Color = Elm.Color(elm);
-  var Graphics = Graphics || {};
-  Graphics.Collage = Elm.Graphics.Collage(elm);
-  var Window = Elm.Window(elm);
-  var Website = Website || {};
-  Website.Blog = Website.Blog || {};
-  Website.Blog.Skeleton = Elm.Website.Blog.Skeleton(elm);
-  var _op = {};
-  var post = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<p>\n\n<h2 id="introduction">Introduction</h2>\n<p>We have all seen our fair share of masterpieces on Dribbble, Behance, and the like. Those apps that really get us salivating, that really display some extremely high level of creativity, finish, and innovation are the ones that end up splashing onto the front page of Hacker News and getting \'aqu-hired\' for millions. They\'re supposed to be the forefront of what software development can do to enhance our lives and the lives of those around us. So, why then, are they all so bad at error handling?</p>\n<p>Many applications include some notion of error-handling, whether that be in the form of modal dialogs, banners, icons, extra screens, etc., but they all share one common characteristic: they suck at showing them. Error generation and presentation has always been an afterthought from both a design and programming standpoint. The highest level of abstraction for the error itself is the exception, and the conventions for their use remains fractured along language boundaries. Even languages as high-level has Haskell couldn\'t rethink the exception, rather they provide constructs that bandy the error around into different chains of responsibility. As for design, iteration on error presentation has all but halted for no apparent reason (other than the fact that nobody ever remembers the guy who designed the error dialogs). To be clear, I\'m not demanding that all error pages, dialogs, and icons be as thought-out and overdone as the application they are bound to, but rather that in deciding to present errors, you have taken on the responsibility of doing so judiciously.</p>\n<h2 id="design-not-found">404, Design Not Found</h2>\n<p>Fundamentally an error represents a mistake in logic. In the context of an application, an error represents a mistake in program logic or execution, and can be divided into two kinds: Those applicable to the user (actionable errors), and those applicable to the program (application errors). Actionable errors are the only kind that should be presented to the user under normal circumstances, and hopefully not at all. When a program cannot resolve some bit of state, or requires outside interaction to begin doing its job again, the user must be presented with some fork in the road. This means that errors should not be presented for the sake of showing errors. If the error is not actionable, or deals with hidden state (application errors) don\'t inform the user. Further, if that piece of state is unresolvable without further action, then it may be presented modally. Modal dialogs are a <em>last resort</em>, and should always be regarded as such. They are not a means of presenting messages, they are a means of distraction from the task at hand, and that distraction had better be important, informative, and reasonable.</p>\n<p>For all other kinds of errors, there are a myriad of ways of getting the user\'s attention. These kinds of actionable errors can be divided further into two camps: visible and invisible. If an error interrupts expected program behavior, it\'s best to notify the user that the error has occured, and what steps can be taken to mitigate or solve the problem. All other errors should be invisible or take up as little space as possible.</p>\n<p>These all seem to be obvious points to some extent, but there appears to be not only a lack of consistency, but a lack of understanding about them. Designers pay too little attention to the UI and UX of errors, and developers assume the user is as knowledgeable as they are in whatever language they happen to be using. In reality, most users only care about the illusion of progress, and it can be provided even when errors must be shown. Such is the reason why the spinning beachball of death was written, or why indeterminate progress bars seem to get a new facelift every year.</p>\n<h2 id="the-error-code">The Error Code</h2>\n<p>I propose a new way of classifying what meaningful errors actually are so that they can be presented to the user in an appropriate and actionable way.</p>\n<p>Catastrophic errors (those errors that cannot be recovered from) must be immediately and loudly presented to the user if and only if the component that must terminate is <em>critical</em> to the functionality of the system. Taking that into consideration, Microsoft Windows\' BSOD can actually be praised for being an appropriate method for error display, however it comes nowhere near to being <em>meaningful</em> to the end-user. Mac OS X kernel panics, by contrast, present the user with a clear and straightforward resolution to a serious problem: That the computer must be reset. It even presents the error in a number of common languages to aid international users. The reasoning behind such intrusive errors is clear: the system cannot, or should not, recover from a given component failure, and so the user should do the logical thing and restart their system at the cost of lost work hours. That said, there have always been applications that violate these rules. Games like Chess.app and Words With Friends, even company-sanctioned apps like the App Store and iTunes that are renowned for closing themselves when they cannot establish a stable internet connection. This is simply unacceptable. When an application cannot function because it requires a persistent connection to the internet, it should be clearly explained as such. It should become immediately obvious to a user presented with an empty store screen or game canvas that the application cannot continue to function normally, and they should be given the opportunity to quit it themselves. If a program must self-terminate make it clear to the user that it is doing so. Simply presenting a modal dialog or submitting a local notification to the system queue is not enough for important processes. (I should hardly think anyone would want to see the OS X window server present a growl notification of its impending death!)</p>\n<p>Major errors (those requiring user action) such as an inability to reach a particular content server or a failed plugin load should be presented modally to the user if and only if the application cannot perform its main duties until the error has been resolved. The important thing to remember about these kinds of errors is that they can actually be fixed by the user\'s doing something. If an application cannot load a plugin, prompt the user to refresh the page. If it cannot download a required file, prompt the user to find a more stable internet connection. If, however, a modal dialog is presented simply because a parser failed, or a short-lived re-queueable operation failed, then this indicates a serious error in program design. Such errors are unactionable, and qualify as application-logic errors.</p>\n<p>Logic errors (those specific to the program at hand or one of its dependencies) should <em>never</em> be shown to the user unmodified. There is absolutely no reason a user should care about your shoddy craftsmanship, nor should they have to ever get a glimpse into the unfortunate maw of your error-chaining mechanism. Error codes should be converted to <em>meaningful</em> and actionable descriptions and should be presented as discreetly as possible. A good example of this is hitting API limits. A good program that hits an API limit should alert the user with a non-intrusive banner that the application can no longer request content for the day, apologize for the inconvenience, and present a helpful document or link as to why the error has occurred if necessary. It should <em>not</em> attempt to present a modal dialog containing a raw error code, an error description specific to a framework or library, or one that is unactionable. A simple rule of thumb is to keep them to yourself and cover all your bases in regards to error handling so one doesn\'t happen to slip through only to waste the user\'s time.</p>\n<p>Minor errors (all others) should <em>never</em> be presented to the user. The same rules about application logic errors apply double to this class of errors. The user should never have to deal with a recoverable exception, the failure of a re-queueable operation, the inability to reach a given branch in an if-statement, and whatever trivial byte-vomit happened to get pushed into production. Nobody wants to see your mistakes, least of all you. Fix it.</p>\n<h2 id="stop">Stop</h2>\n<p>So, before you go to submit that new email client you\'ve been working on, or that new reddit clone you\'re sure will become the new and lasting hotness, stop and think about how, why, and where errors will be shown. If you honestly cannot answer those questions, rethink your design. Please, for my sake and yours, stop ignoring error handling!</p>\n</p>\n\n<div style="height:0;width:0;">&nbsp;</div>');
-  var main = A4(Signal.lift3, Website.Blog.Skeleton.generatePost, Window.dimensions, Signal.constant(_str('Error Handling')), Signal.constant(post));
-  return elm.Main = {
-    _op : _op, 
-    post : post, 
-    main : main};};
-Elm.Website = Elm.Website || {};
+<html><head><meta charset="UTF-8"><title>Error-Handling</title><script type="text/javascript" src="/elm-runtime.js"></script><script type="text/javascript">Elm.Main = Elm.Main || {};
+Elm.Main.make = function (_elm) {
+   _elm.Main = _elm.Main || {};
+   if (_elm.Main.values)
+   return _elm.Main.values;
+   var _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _E = _N.Error.make(_elm),
+   _J = _N.JavaScript.make(_elm),
+   $moduleName = "Main";
+   var Basics = Elm.Basics.make(_elm);
+   var Color = Elm.Color.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Element = Elm.Graphics.Element.make(_elm);
+   var List = Elm.List.make(_elm);
+   var Maybe = Elm.Maybe.make(_elm);
+   var Native = Native || {};
+   Native.Ports = Elm.Native.Ports.make(_elm);
+   var Prelude = Elm.Prelude.make(_elm);
+   var Signal = Elm.Signal.make(_elm);
+   var String = Elm.String.make(_elm);
+   var Text = Elm.Text.make(_elm);
+   var Time = Elm.Time.make(_elm);
+   var Website = Website || {};
+   Website.Blog = Website.Blog || {};
+   Website.Blog.Skeleton = Elm.Website.Blog.Skeleton.make(_elm);
+   var Window = Elm.Window.make(_elm);
+   var _op = {};
+   var post = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>\n\n<h2 id=\"introduction\">Introduction</h2>\n<p>We have all seen our fair share of masterpieces on Dribbble, Behance, and the like. Those apps that really get us salivating, that really display some extremely high level of creativity, finish, and innovation are the ones that end up splashing onto the front page of Hacker News and getting \'aqu-hired\' for millions. They\'re supposed to be the forefront of what software development can do to enhance our lives and the lives of those around us. So, why then, are they all so bad at error handling?</p>\n<p>Many applications include some notion of error-handling, whether that be in the form of modal dialogs, banners, icons, extra screens, etc., but they all share one common characteristic: they suck at showing them. Error generation and presentation has always been an afterthought from both a design and programming standpoint. The highest level of abstraction for the error itself is the exception, and the conventions for their use remains fractured along language boundaries. Even languages as high-level has Haskell couldn\'t rethink the exception, rather they provide constructs that bandy the error around into different chains of responsibility. As for design, iteration on error presentation has all but halted for no apparent reason (other than the fact that nobody ever remembers the guy who designed the error dialogs). To be clear, I\'m not demanding that all error pages, dialogs, and icons be as thought-out and overdone as the application they are bound to, but rather that in deciding to present errors, you have taken on the responsibility of doing so judiciously.</p>\n<h2 id=\"design-not-found\">404, Design Not Found</h2>\n<p>Fundamentally an error represents a mistake in logic. In the context of an application, an error represents a mistake in program logic or execution, and can be divided into two kinds: Those applicable to the user (actionable errors), and those applicable to the program (application errors). Actionable errors are the only kind that should be presented to the user under normal circumstances, and hopefully not at all. When a program cannot resolve some bit of state, or requires outside interaction to begin doing its job again, the user must be presented with some fork in the road. This means that errors should not be presented for the sake of showing errors. If the error is not actionable, or deals with hidden state (application errors) don\'t inform the user. Further, if that piece of state is unresolvable without further action, then it may be presented modally. Modal dialogs are a <em>last resort</em>, and should always be regarded as such. They are not a means of presenting messages, they are a means of distraction from the task at hand, and that distraction had better be important, informative, and reasonable.</p>\n<p>For all other kinds of errors, there are a myriad of ways of getting the user\'s attention. These kinds of actionable errors can be divided further into two camps: visible and invisible. If an error interrupts expected program behavior, it\'s best to notify the user that the error has occured, and what steps can be taken to mitigate or solve the problem. All other errors should be invisible or take up as little space as possible.</p>\n<p>These all seem to be obvious points to some extent, but there appears to be not only a lack of consistency, but a lack of understanding about them. Designers pay too little attention to the UI and UX of errors, and developers assume the user is as knowledgeable as they are in whatever language they happen to be using. In reality, most users only care about the illusion of progress, and it can be provided even when errors must be shown. Such is the reason why the spinning beachball of death was written, or why indeterminate progress bars seem to get a new facelift every year.</p>\n<h2 id=\"the-error-code\">The Error Code</h2>\n<p>I propose a new way of classifying what meaningful errors actually are so that they can be presented to the user in an appropriate and actionable way.</p>\n<p>Catastrophic errors (those errors that cannot be recovered from) must be immediately and loudly presented to the user if and only if the component that must terminate is <em>critical</em> to the functionality of the system. Taking that into consideration, Microsoft Windows\' BSOD can actually be praised for being an appropriate method for error display, however it comes nowhere near to being <em>meaningful</em> to the end-user. Mac OS X kernel panics, by contrast, present the user with a clear and straightforward resolution to a serious problem: That the computer must be reset. It even presents the error in a number of common languages to aid international users. The reasoning behind such intrusive errors is clear: the system cannot, or should not, recover from a given component failure, and so the user should do the logical thing and restart their system at the cost of lost work hours. That said, there have always been applications that violate these rules. Games like Chess.app and Words With Friends, even company-sanctioned apps like the App Store and iTunes that are renowned for closing themselves when they cannot establish a stable internet connection. This is simply unacceptable. When an application cannot function because it requires a persistent connection to the internet, it should be clearly explained as such. It should become immediately obvious to a user presented with an empty store screen or game canvas that the application cannot continue to function normally, and they should be given the opportunity to quit it themselves. If a program must self-terminate make it clear to the user that it is doing so. Simply presenting a modal dialog or submitting a local notification to the system queue is not enough for important processes. (I should hardly think anyone would want to see the OS X window server present a growl notification of its impending death!)</p>\n<p>Major errors (those requiring user action) such as an inability to reach a particular content server or a failed plugin load should be presented modally to the user if and only if the application cannot perform its main duties until the error has been resolved. The important thing to remember about these kinds of errors is that they can actually be fixed by the user\'s doing something. If an application cannot load a plugin, prompt the user to refresh the page. If it cannot download a required file, prompt the user to find a more stable internet connection. If, however, a modal dialog is presented simply because a parser failed, or a short-lived re-queueable operation failed, then this indicates a serious error in program design. Such errors are unactionable, and qualify as application-logic errors.</p>\n<p>Logic errors (those specific to the program at hand or one of its dependencies) should <em>never</em> be shown to the user unmodified. There is absolutely no reason a user should care about your shoddy craftsmanship, nor should they have to ever get a glimpse into the unfortunate maw of your error-chaining mechanism. Error codes should be converted to <em>meaningful</em> and actionable descriptions and should be presented as discreetly as possible. A good example of this is hitting API limits. A good program that hits an API limit should alert the user with a non-intrusive banner that the application can no longer request content for the day, apologize for the inconvenience, and present a helpful document or link as to why the error has occurred if necessary. It should <em>not</em> attempt to present a modal dialog containing a raw error code, an error description specific to a framework or library, or one that is unactionable. A simple rule of thumb is to keep them to yourself and cover all your bases in regards to error handling so one doesn\'t happen to slip through only to waste the user\'s time.</p>\n<p>Minor errors (all others) should <em>never</em> be presented to the user. The same rules about application logic errors apply double to this class of errors. The user should never have to deal with a recoverable exception, the failure of a re-queueable operation, the inability to reach a given branch in an if-statement, and whatever trivial byte-vomit happened to get pushed into production. Nobody wants to see your mistakes, least of all you. Fix it.</p>\n<h2 id=\"stop\">Stop</h2>\n<p>So, before you go to submit that new email client you\'ve been working on, or that new reddit clone you\'re sure will become the new and lasting hotness, stop and think about how, why, and where errors will be shown. If you honestly cannot answer those questions, rethink your design. Please, for my sake and yours, stop ignoring error handling!</p>\n</p>\n\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+   "5:8");
+   var main = A4(Signal.lift3,
+   Website.Blog.Skeleton.generatePost,
+   Window.dimensions,
+   Signal.constant("Error Handling"),
+   Signal.constant(post));
+   _elm.Main.values = {_op: _op
+                      ,post: post
+                      ,main: main};
+   return _elm.Main.values;
+};Elm.Website = Elm.Website || {};
 Elm.Website.Blog = Elm.Website.Blog || {};
-Elm.Website.Blog.Skeleton = function(elm){
-  var N = Elm.Native, _N = N.Utils(elm), _L = N.List(elm), _E = N.Error(elm), _J = N.JavaScript(elm), _str = _J.toString, $moduleName = 'Website.Blog.Skeleton';
-  var Text = Elm.Text(elm);
-  var Text = Elm.Text(elm);
-  var Basics = Elm.Basics(elm);
-  var Signal = Elm.Signal(elm);
-  var List = Elm.List(elm);
-  var Maybe = Elm.Maybe(elm);
-  var Time = Elm.Time(elm);
-  var Prelude = Elm.Prelude(elm);
-  var Graphics = Graphics || {};
-  Graphics.Element = Elm.Graphics.Element(elm);
-  var Color = Elm.Color(elm);
-  var Graphics = Graphics || {};
-  Graphics.Collage = Elm.Graphics.Collage(elm);
-  var Window = Elm.Window(elm);
-  var Graphics = Graphics || {};
-  Graphics.Element = Elm.Graphics.Element(elm);
-  var Website = Website || {};
-  Website.Blog = Website.Blog || {};
-  Website.Blog.Formatting = Elm.Website.Blog.Formatting(elm);
-  var _op = {};
-  var generatePost = F3(function(arg3, t, postBody){
-    return function(){
-      switch (arg3.ctor) {
-        case '_Tuple2':
-          return function(){
-            var titleHeight = Graphics.Element.heightOf(Website.Blog.Formatting.formatTitleText(t));
-            var bodyHeight = Graphics.Element.heightOf(A2(Graphics.Element.width, 500, postBody));
-            return A2(Graphics.Element.flow, Graphics.Element.down, _J.toList([Graphics.Element.color(A3(Color.rgb, 57, 74, 85))(A4(Graphics.Element.container, A2(Basics.max, 500, arg3._0), 60, A2(Graphics.Element.midLeftAt, Graphics.Element.absolute(10), Graphics.Element.absolute(30)), Website.Blog.Formatting.title(_str('  CF')))),A2(Graphics.Element.spacer, A2(Basics.max, 300, arg3._0), 100),Graphics.Element.height(160)(A4(Graphics.Element.container, arg3._0, titleHeight, Graphics.Element.midTop, Website.Blog.Formatting.formatTitleText(t))),A4(Graphics.Element.container, arg3._0, bodyHeight, Graphics.Element.midTop, A2(Graphics.Element.width, A2(Basics.min, 550, arg3._0), postBody)),A2(Graphics.Element.spacer, A2(Basics.max, 300, arg3._0), 30)]));}();
-      }_E.Case($moduleName,'between lines 8 and 15')}();});
-  var generateImagefulPost = F4(function(arg4, t, im, postBody){
-    return function(){
-      switch (arg4.ctor) {
-        case '_Tuple2':
-          return function(){
-            var titleHeight = Graphics.Element.heightOf(Website.Blog.Formatting.formatTitleText(t));
-            var bodyHeight = Graphics.Element.heightOf(A2(Graphics.Element.width, 500, postBody));
-            return A2(Graphics.Element.flow, Graphics.Element.down, _J.toList([Graphics.Element.color(A3(Color.rgb, 57, 74, 85))(A4(Graphics.Element.container, A2(Basics.max, 300, arg4._0), 60, Graphics.Element.midLeft, A3(Website.Blog.Formatting.formatImagefulTitle, {ctor:"_Tuple2", _0:arg4._0, _1:60}, _str('  CF'), im))),A2(Graphics.Element.spacer, A2(Basics.max, 300, arg4._0), 100),Graphics.Element.height(160)(A4(Graphics.Element.container, arg4._0, titleHeight, Graphics.Element.midTop, Website.Blog.Formatting.formatTitleText(t))),A4(Graphics.Element.container, arg4._0, bodyHeight, Graphics.Element.midTop, A2(Graphics.Element.width, A2(Basics.min, 550, arg4._0), postBody)),A2(Graphics.Element.spacer, A2(Basics.max, 300, arg4._0), 30)]));}();
-      }_E.Case($moduleName,'between lines 18 and 25')}();});
-  elm.Website = elm.Website || {};
-  elm.Website.Blog = elm.Website.Blog || {};
-  return elm.Website.Blog.Skeleton = {
-    _op : _op, 
-    generatePost : generatePost, 
-    generateImagefulPost : generateImagefulPost};};
-Elm.Website = Elm.Website || {};
+Elm.Website.Blog.Skeleton = Elm.Website.Blog.Skeleton || {};
+Elm.Website.Blog.Skeleton.make = function (_elm) {
+   _elm.Website = _elm.Website || {};
+   _elm.Website.Blog = _elm.Website.Blog || {};
+   _elm.Website.Blog.Skeleton = _elm.Website.Blog.Skeleton || {};
+   if (_elm.Website.Blog.Skeleton.values)
+   return _elm.Website.Blog.Skeleton.values;
+   var _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _E = _N.Error.make(_elm),
+   _J = _N.JavaScript.make(_elm),
+   $moduleName = "Website.Blog.Skeleton";
+   var Basics = Elm.Basics.make(_elm);
+   var Color = Elm.Color.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Element = Elm.Graphics.Element.make(_elm);
+   var List = Elm.List.make(_elm);
+   var Maybe = Elm.Maybe.make(_elm);
+   var Native = Native || {};
+   Native.Ports = Elm.Native.Ports.make(_elm);
+   var Prelude = Elm.Prelude.make(_elm);
+   var Signal = Elm.Signal.make(_elm);
+   var String = Elm.String.make(_elm);
+   var Text = Elm.Text.make(_elm);
+   var Time = Elm.Time.make(_elm);
+   var Website = Website || {};
+   Website.Blog = Website.Blog || {};
+   Website.Blog.Formatting = Elm.Website.Blog.Formatting.make(_elm);
+   var Window = Elm.Window.make(_elm);
+   var _op = {};
+   var generateImagefulPost = F4(function (_v0,
+   t,
+   im,
+   postBody) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var titleHeight = Graphics.Element.heightOf(Website.Blog.Formatting.formatTitleText(t));
+                 var bodyHeight = Graphics.Element.heightOf(A2(Graphics.Element.width,
+                 500,
+                 postBody));
+                 return A2(Graphics.Element.flow,
+                 Graphics.Element.down,
+                 _J.toList([Graphics.Element.color(A3(Color.rgb,
+                           57,
+                           74,
+                           85))(A4(Graphics.Element.container,
+                           A2(Basics.max,300,_v0._0),
+                           60,
+                           Graphics.Element.midLeft,
+                           A3(Website.Blog.Formatting.formatImagefulTitle,
+                           {ctor: "_Tuple2"
+                           ,_0: _v0._0
+                           ,_1: 60},
+                           "  CF",
+                           im)))
+                           ,A2(Graphics.Element.spacer,
+                           A2(Basics.max,300,_v0._0),
+                           100)
+                           ,Graphics.Element.height(160)(A4(Graphics.Element.container,
+                           _v0._0,
+                           titleHeight,
+                           Graphics.Element.midTop,
+                           Website.Blog.Formatting.formatTitleText(t)))
+                           ,A4(Graphics.Element.container,
+                           _v0._0,
+                           bodyHeight,
+                           Graphics.Element.midTop,
+                           A2(Graphics.Element.width,
+                           A2(Basics.min,550,_v0._0),
+                           postBody))
+                           ,A2(Graphics.Element.spacer,
+                           A2(Basics.max,300,_v0._0),
+                           30)]));
+              }();}
+         _E.Case($moduleName,
+         "between lines 18 and 25");
+      }();
+   });
+   var generatePost = F3(function (_v4,
+   t,
+   postBody) {
+      return function () {
+         switch (_v4.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var titleHeight = Graphics.Element.heightOf(Website.Blog.Formatting.formatTitleText(t));
+                 var bodyHeight = Graphics.Element.heightOf(A2(Graphics.Element.width,
+                 500,
+                 postBody));
+                 return A2(Graphics.Element.flow,
+                 Graphics.Element.down,
+                 _J.toList([Graphics.Element.color(A3(Color.rgb,
+                           57,
+                           74,
+                           85))(A4(Graphics.Element.container,
+                           A2(Basics.max,500,_v4._0),
+                           60,
+                           A2(Graphics.Element.midLeftAt,
+                           Graphics.Element.absolute(10),
+                           Graphics.Element.absolute(30)),
+                           Website.Blog.Formatting.title("  CF")))
+                           ,A2(Graphics.Element.spacer,
+                           A2(Basics.max,300,_v4._0),
+                           100)
+                           ,Graphics.Element.height(160)(A4(Graphics.Element.container,
+                           _v4._0,
+                           titleHeight,
+                           Graphics.Element.midTop,
+                           Website.Blog.Formatting.formatTitleText(t)))
+                           ,A4(Graphics.Element.container,
+                           _v4._0,
+                           bodyHeight,
+                           Graphics.Element.midTop,
+                           A2(Graphics.Element.width,
+                           A2(Basics.min,550,_v4._0),
+                           postBody))
+                           ,A2(Graphics.Element.spacer,
+                           A2(Basics.max,300,_v4._0),
+                           30)]));
+              }();}
+         _E.Case($moduleName,
+         "between lines 8 and 15");
+      }();
+   });
+   _elm.Website.Blog.Skeleton.values = {_op: _op
+                                       ,generatePost: generatePost
+                                       ,generateImagefulPost: generateImagefulPost};
+   return _elm.Website.Blog.Skeleton.values;
+};Elm.Website = Elm.Website || {};
 Elm.Website.Blog = Elm.Website.Blog || {};
-Elm.Website.Blog.Formatting = function(elm){
-  var N = Elm.Native, _N = N.Utils(elm), _L = N.List(elm), _E = N.Error(elm), _J = N.JavaScript(elm), _str = _J.toString, $moduleName = 'Website.Blog.Formatting';
-  var Text = Elm.Text(elm);
-  var Text = Elm.Text(elm);
-  var Basics = Elm.Basics(elm);
-  var Signal = Elm.Signal(elm);
-  var List = Elm.List(elm);
-  var Maybe = Elm.Maybe(elm);
-  var Time = Elm.Time(elm);
-  var Prelude = Elm.Prelude(elm);
-  var Graphics = Graphics || {};
-  Graphics.Element = Elm.Graphics.Element(elm);
-  var Color = Elm.Color(elm);
-  var Graphics = Graphics || {};
-  Graphics.Collage = Elm.Graphics.Collage(elm);
-  var Graphics = Graphics || {};
-  Graphics.Element = Elm.Graphics.Element(elm);
-  var _op = {};
-  var title = function(t){
-    return Graphics.Element.layers(_J.toList([A3(Graphics.Collage.collage, 100, 50, _J.toList([Graphics.Collage.move({ctor:"_Tuple2", _0:(0-20), _1:3})(A2(Graphics.Collage.filled, A3(Color.rgb, 34, 48, 54), Graphics.Collage.circle(24)))])),Graphics.Element.link(_str('http://www.codafi.me'))(Text.text(Text.color(A3(Color.rgb, 132, 151, 161))(Text.header(Text.height(24)(Text.typeface(_str('Helvetica-Bold'))(Text.toText(t)))))))]));};
-  var formatTitleText = function(s){
-    return Text.text(Text.color(A3(Color.rgb, 94, 94, 93))(Text.height(36)(Text.typeface(_str('Helvetica-Bold'))(Text.toText(s)))));};
-  var formatImagefulTitle = F3(function(arg3, t, im){
-    return function(){
-      switch (arg3.ctor) {
-        case '_Tuple2':
-          return A2(Graphics.Element.flow, Graphics.Element.outward, _J.toList([A3(Graphics.Element.fittedImage, arg3._0, arg3._1, im),A4(Graphics.Element.container, 100, arg3._1, A2(Graphics.Element.topLeftAt, Graphics.Element.absolute(10), Graphics.Element.absolute(4)), title(t))]));
-      }_E.Case($moduleName,'between lines 10 and 12')}();});
-  elm.Website = elm.Website || {};
-  elm.Website.Blog = elm.Website.Blog || {};
-  return elm.Website.Blog.Formatting = {
-    _op : _op, 
-    title : title, 
-    formatImagefulTitle : formatImagefulTitle, 
-    formatTitleText : formatTitleText};};
-        </script>
-    </head>
-    <body>
-        <script type="text/javascript">
-            Elm.fullscreen(Elm.Main)
-        </script>
-        <noscript>
-            
-        </noscript>
-    </body>
-</html>
+Elm.Website.Blog.Formatting = Elm.Website.Blog.Formatting || {};
+Elm.Website.Blog.Formatting.make = function (_elm) {
+   _elm.Website = _elm.Website || {};
+   _elm.Website.Blog = _elm.Website.Blog || {};
+   _elm.Website.Blog.Formatting = _elm.Website.Blog.Formatting || {};
+   if (_elm.Website.Blog.Formatting.values)
+   return _elm.Website.Blog.Formatting.values;
+   var _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _E = _N.Error.make(_elm),
+   _J = _N.JavaScript.make(_elm),
+   $moduleName = "Website.Blog.Formatting";
+   var Basics = Elm.Basics.make(_elm);
+   var Color = Elm.Color.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Element = Elm.Graphics.Element.make(_elm);
+   var List = Elm.List.make(_elm);
+   var Maybe = Elm.Maybe.make(_elm);
+   var Native = Native || {};
+   Native.Ports = Elm.Native.Ports.make(_elm);
+   var Prelude = Elm.Prelude.make(_elm);
+   var Signal = Elm.Signal.make(_elm);
+   var String = Elm.String.make(_elm);
+   var Text = Elm.Text.make(_elm);
+   var Time = Elm.Time.make(_elm);
+   var _op = {};
+   var formatTitleText = function (s) {
+      return Text.text(Text.color(A3(Color.rgb,
+      94,
+      94,
+      93))(Text.height(36)(Text.typeface("Helvetica-Bold")(Text.toText(s)))));
+   };
+   var title = function (t) {
+      return Graphics.Element.layers(_J.toList([A3(Graphics.Collage.collage,
+                                               100,
+                                               50,
+                                               _J.toList([Graphics.Collage.move({ctor: "_Tuple2"
+                                                                                ,_0: -20
+                                                                                ,_1: 3})(A2(Graphics.Collage.filled,
+                                               A3(Color.rgb,34,48,54),
+                                               Graphics.Collage.circle(24)))]))
+                                               ,Graphics.Element.link("http://www.codafi.me")(Text.text(Text.color(A3(Color.rgb,
+                                               132,
+                                               151,
+                                               161))(Text.height(24)(Text.typeface("Helvetica-Bold")(Text.toText(t))))))]));
+   };
+   var formatImagefulTitle = F3(function (_v0,
+   t,
+   im) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return A2(Graphics.Element.flow,
+              Graphics.Element.outward,
+              _J.toList([A3(Graphics.Element.fittedImage,
+                        _v0._0,
+                        _v0._1,
+                        im)
+                        ,A4(Graphics.Element.container,
+                        100,
+                        _v0._1,
+                        A2(Graphics.Element.topLeftAt,
+                        Graphics.Element.absolute(10),
+                        Graphics.Element.absolute(4)),
+                        title(t))]));}
+         _E.Case($moduleName,
+         "between lines 10 and 12");
+      }();
+   });
+   _elm.Website.Blog.Formatting.values = {_op: _op
+                                         ,title: title
+                                         ,formatImagefulTitle: formatImagefulTitle
+                                         ,formatTitleText: formatTitleText};
+   return _elm.Website.Blog.Formatting.values;
+};</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Main)</script><noscript></noscript></body></html>

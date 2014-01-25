@@ -4,7 +4,7 @@ import Graphics.Element as El
 
 title : String -> Element
 title t = layers [ collage 100 50 [ filled (rgb 34 48 54) (circle 24) |> move (-20, 3) ],
-                   (toText t) |> typeface "Helvetica-Bold" |> Text.height (24) |> header |> Text.color (rgb 132 151 161) |> text |> El.link "http://www.codafi.me" ]
+                   (toText t) |> typeface "Helvetica-Bold" |> Text.height (24) |> Text.color (rgb 132 151 161) |> text |> El.link "http://www.codafi.me" ]
 
 formatImagefulTitle : (Int, Int) -> String -> String -> Element
 formatImagefulTitle (w,h) t im = flow outward [ fittedImage  w h im, 

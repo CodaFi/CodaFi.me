@@ -1,68 +1,123 @@
 <!DOCTYPE HTML>
-
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>
-            index
-        </title>
-        <script type="text/javascript" src="/elm-runtime.js">
-            
-        </script>
-        <script type="text/javascript">
-            
-Elm.Main = function(elm){
-  var N = Elm.Native, _N = N.Utils(elm), _L = N.List(elm), _E = N.Error(elm), _J = N.JavaScript(elm), _str = _J.toString, $moduleName = 'Main';
-  var Text = Elm.Text(elm);
-  var Text = Elm.Text(elm);
-  var Basics = Elm.Basics(elm);
-  var Signal = Elm.Signal(elm);
-  var List = Elm.List(elm);
-  var Maybe = Elm.Maybe(elm);
-  var Time = Elm.Time(elm);
-  var Prelude = Elm.Prelude(elm);
-  var Graphics = Graphics || {};
-  Graphics.Element = Elm.Graphics.Element(elm);
-  var Color = Elm.Color(elm);
-  var Graphics = Graphics || {};
-  Graphics.Collage = Elm.Graphics.Collage(elm);
-  var Window = Elm.Window(elm);
-  var Graphics = Graphics || {};
-  Graphics.Element = Elm.Graphics.Element(elm);
-  var _op = {};
-  var title = function(t){
-    return Graphics.Element.layers(_J.toList([A3(Graphics.Collage.collage, 100, 50, _J.toList([Graphics.Collage.move({ctor:"_Tuple2", _0:(0-20), _1:3})(A2(Graphics.Collage.filled, A3(Color.rgb, 34, 48, 54), Graphics.Collage.circle(24)))])),Graphics.Element.link(_str('http://www.codafi.me'))(Text.text(Text.color(A3(Color.rgb, 132, 151, 161))(Text.header(Text.height(24)(Text.typeface(_str('Helvetica-Bold'))(Text.toText(t)))))))]));};
-  var intercalTitle = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<h2 style="margin-left:24px;">\nVariations on a RoCocoa Theme\n</h2>\n\n<p><span style="margin-left:24px;"> In which the relevance of Esolangs is examined. </span></p><div style="height:0;width:0;">&nbsp;</div>');
-  var helloWorldTitle = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<h2 style="margin-left:24px; margin-top:0px;">\nHello World\n</h2>\n\n<p><span style="margin-left:24px;"> In which we question the reason for this blog\'s inception. </span></p><div style="height:0;width:0;">&nbsp;</div>');
-  var errorHandlingTitle = Text.text('<div style="height:0;width:0;">&nbsp;</div>\n<h2 style="margin-left:24px;">\nError Handling\n</h2>\n\n<p><span style="margin-left:24px;"> In which the BSOD is praised for its innovative qualities. </span></p><div style="height:0;width:0;">&nbsp;</div>');
-  var box = F3(function(e, l, w){
-    return function(){
-      var h = Graphics.Element.heightOf(e);
-      return Graphics.Element.link(l)(A2(Graphics.Element.flow, Graphics.Element.down, _J.toList([Graphics.Element.color(A3(Color.rgb, 132, 151, 161))(A3(Graphics.Element.container, w, (h+1), Graphics.Element.midTop)(Graphics.Element.color(Color.white)(A3(Graphics.Element.container, (w+2), h, Graphics.Element.midLeft)(e))))])));}();});
-  var scene = function(arg1){
-    return function(){
-      switch (arg1.ctor) {
-        case '_Tuple2':
-          return A2(Graphics.Element.flow, Graphics.Element.down, _J.toList([Graphics.Element.color(A3(Color.rgb, 57, 74, 85))(A4(Graphics.Element.container, A2(Basics.max, 500, arg1._0), 60, A2(Graphics.Element.midLeftAt, Graphics.Element.absolute(10), Graphics.Element.absolute(30)), title(_str('  CF')))),A4(Graphics.Element.container, A2(Basics.max, 500, arg1._0), 135, Graphics.Element.topLeft, Graphics.Element.width(arg1._0)(A3(box, errorHandlingTitle, _str('http://codafi.me/blog/Error-Handling.html'), arg1._0))),A4(Graphics.Element.container, A2(Basics.max, 500, arg1._0), 135, Graphics.Element.topLeft, Graphics.Element.width(arg1._0)(A3(box, intercalTitle, _str('http://codafi.me/blog/INTERCAL.html'), arg1._0))),A4(Graphics.Element.container, A2(Basics.max, 500, arg1._0), 135, Graphics.Element.topLeft, Graphics.Element.width(arg1._0)(A3(box, helloWorldTitle, _str('http://codafi.me/blog/HelloWorld.html'), arg1._0)))]));
-      }_E.Case($moduleName,'between lines 34 and 38')}();};
-  var main = A2(Signal.lift, scene, Window.dimensions);
-  return elm.Main = {
-    _op : _op, 
-    errorHandlingTitle : errorHandlingTitle, 
-    intercalTitle : intercalTitle, 
-    helloWorldTitle : helloWorldTitle, 
-    title : title, 
-    scene : scene, 
-    box : box, 
-    main : main};};
-        </script>
-    </head>
-    <body>
-        <script type="text/javascript">
-            Elm.fullscreen(Elm.Main)
-        </script>
-        <noscript>
-            
-        </noscript>
-    </body>
-</html>
+<html><head><meta charset="UTF-8"><title>index</title><script type="text/javascript" src="/elm-runtime.js"></script><script type="text/javascript">Elm.Main = Elm.Main || {};
+Elm.Main.make = function (_elm) {
+   _elm.Main = _elm.Main || {};
+   if (_elm.Main.values)
+   return _elm.Main.values;
+   var _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _E = _N.Error.make(_elm),
+   _J = _N.JavaScript.make(_elm),
+   $moduleName = "Main";
+   var Basics = Elm.Basics.make(_elm);
+   var Color = Elm.Color.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Element = Elm.Graphics.Element.make(_elm);
+   var List = Elm.List.make(_elm);
+   var Maybe = Elm.Maybe.make(_elm);
+   var Native = Native || {};
+   Native.Ports = Elm.Native.Ports.make(_elm);
+   var Prelude = Elm.Prelude.make(_elm);
+   var Signal = Elm.Signal.make(_elm);
+   var String = Elm.String.make(_elm);
+   var Text = Elm.Text.make(_elm);
+   var Time = Elm.Time.make(_elm);
+   var Window = Elm.Window.make(_elm);
+   var _op = {};
+   var box = F3(function (e,l,w) {
+      return function () {
+         var h = Graphics.Element.heightOf(e);
+         return Graphics.Element.link(l)(A2(Graphics.Element.flow,
+         Graphics.Element.down,
+         _J.toList([Graphics.Element.color(A3(Color.rgb,
+         132,
+         151,
+         161))(A3(Graphics.Element.container,
+         w,
+         h + 1,
+         Graphics.Element.midTop)(Graphics.Element.color(Color.white)(A3(Graphics.Element.container,
+         w + 2,
+         h,
+         Graphics.Element.midLeft)(e))))])));
+      }();
+   });
+   var title = function (t) {
+      return Graphics.Element.layers(_J.toList([A3(Graphics.Collage.collage,
+                                               100,
+                                               50,
+                                               _J.toList([Graphics.Collage.move({ctor: "_Tuple2"
+                                                                                ,_0: -20
+                                                                                ,_1: 3})(A2(Graphics.Collage.filled,
+                                               A3(Color.rgb,34,48,54),
+                                               Graphics.Collage.circle(24)))]))
+                                               ,Graphics.Element.link("http://www.codafi.me")(Text.text(Text.color(A3(Color.rgb,
+                                               132,
+                                               151,
+                                               161))(Text.height(24)(Text.typeface("Helvetica-Bold")(Text.toText(t))))))]));
+   };
+   var helloWorldTitle = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px; margin-top:0px;\">\nHello World\n</h2>\n\n<p><span style=\"margin-left:24px;\"> In which we question the reason for this blog\'s inception. </span></p><div style=\"height:0;width:0;\">&nbsp;</div>",
+   "20:19");
+   var intercalTitle = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">\nVariations on a RoCocoa Theme\n</h2>\n\n<p><span style=\"margin-left:24px;\"> In which the relevance of Esolangs is examined. </span></p><div style=\"height:0;width:0;\">&nbsp;</div>",
+   "12:17");
+   var errorHandlingTitle = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">\nError Handling\n</h2>\n\n<p><span style=\"margin-left:24px;\"> In which the BSOD is praised for its innovative qualities. </span></p><div style=\"height:0;width:0;\">&nbsp;</div>",
+   "4:22");
+   var scene = function (_v0) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return A2(Graphics.Element.flow,
+              Graphics.Element.down,
+              _J.toList([Graphics.Element.color(A3(Color.rgb,
+                        57,
+                        74,
+                        85))(A4(Graphics.Element.container,
+                        A2(Basics.max,500,_v0._0),
+                        60,
+                        A2(Graphics.Element.midLeftAt,
+                        Graphics.Element.absolute(10),
+                        Graphics.Element.absolute(30)),
+                        title("  CF")))
+                        ,A4(Graphics.Element.container,
+                        A2(Basics.max,500,_v0._0),
+                        135,
+                        Graphics.Element.topLeft,
+                        Graphics.Element.width(_v0._0)(A3(box,
+                        errorHandlingTitle,
+                        "http://codafi.me/blog/Error-Handling.html",
+                        _v0._0)))
+                        ,A4(Graphics.Element.container,
+                        A2(Basics.max,500,_v0._0),
+                        135,
+                        Graphics.Element.topLeft,
+                        Graphics.Element.width(_v0._0)(A3(box,
+                        intercalTitle,
+                        "http://codafi.me/blog/INTERCAL.html",
+                        _v0._0)))
+                        ,A4(Graphics.Element.container,
+                        A2(Basics.max,500,_v0._0),
+                        135,
+                        Graphics.Element.topLeft,
+                        Graphics.Element.width(_v0._0)(A3(box,
+                        helloWorldTitle,
+                        "http://codafi.me/blog/HelloWorld.html",
+                        _v0._0)))]));}
+         _E.Case($moduleName,
+         "between lines 34 and 38");
+      }();
+   };
+   var main = A2(Signal.lift,
+   scene,
+   Window.dimensions);
+   _elm.Main.values = {_op: _op
+                      ,errorHandlingTitle: errorHandlingTitle
+                      ,intercalTitle: intercalTitle
+                      ,helloWorldTitle: helloWorldTitle
+                      ,title: title
+                      ,scene: scene
+                      ,box: box
+                      ,main: main};
+   return _elm.Main.values;
+};</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Main)</script><noscript></noscript></body></html>

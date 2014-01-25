@@ -15,7 +15,7 @@ These words: “File not found.”
 
 title : String -> Element
 title t = layers [ collage 100 50 [ filled (rgb 34 48 54) (circle 24) |> move (-20, 3) ],
-                   (toText t) |> typeface "Helvetica-Bold" |> Text.height (24) |> header |> Text.color (rgb 132 151 161) |> text |> El.link "http://www.codafi.me" ]
+                   (toText t) |> typeface "Helvetica-Bold" |> Text.height (24) |> Text.color (rgb 132 151 161) |> text |> El.link "http://www.codafi.me" ]
                    
                    
 scene (w,h) = flow down [container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (title "  CF") |> color (rgb 57 74 85),
