@@ -41,7 +41,7 @@ rubyClassElement = [markdown|
 <br><span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;end</span></br>
 <br><span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;def </span><a class="method"; href="http://www.codafi.me/blog">blog</a>
 <br><span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;end</span></br>
-<br><span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;def </span><a class="method"; href="http://www.codafi.me/about">inspect</a></br>
+<br><span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;def </span><a class="method"; href="http://www.codafi.me/About-Me.html">inspect</a></br>
 <span class="classObject">&nbsp;&nbsp;&nbsp;&nbsp;end</span>
 <br><span class="classObject">&nbsp;&nbsp;end</span></br>
 <span class="classObject">end</span>
@@ -85,7 +85,7 @@ cClassElement = [markdown|
 <br><span class="preprocessor">const</span> <span class="funcPtr">CFIWebsiteCallBacks</span> kCFITypeWebsiteCallBacks = {</br> 
 &nbsp;&nbsp;<a class="funcPtr"; href="https://github.com/CodaFi?tab=repositories">\_\_CFITypeProjects</a>, 
 <br>&nbsp;&nbsp;<a class="funcPtr"; href="http://www.codafi.me/blog">\_\_CFITypeBlog</a>,</br> 
-&nbsp;&nbsp;<a class="funcPtr"; href="http://www.codafi.me/about">CFCopyDescription</a>, 
+&nbsp;&nbsp;<a class="funcPtr"; href="http://www.codafi.me/About-Me.html">CFCopyDescription</a>, 
 <br>&nbsp;&nbsp;<span class="funcPtr">CFEqual</span>,</br>
 &nbsp;&nbsp;<span class="funcPtr">CFHash</span>
 <br>};</br>
@@ -129,7 +129,7 @@ objcClassElement = [markdown|
 \+ (<span class="preprocessor">instancetype</span>)<a class="method"; href="http://www.codafi.me">currentWebsite</a>; <br></br>
 \- (<span class="classObject">NSArray</span> \*)<a class="method"; href="https://github.com/CodaFi?tab=repositories">projects</a>;
 <br>\- (<span class="classObject">NSURL</span> \*)<a class="method"; href="http://www.codafi.me/blog">blog</a>; </br>
-\- (<span class="classObject">NSString</span> \*)<a class="method"; href="http://www.codafi.me/about">description</a>;
+\- (<span class="classObject">NSString</span> \*)<a class="method"; href="http://www.codafi.me/About-Me.html">description</a>;
 <br></br>
 <span class="preprocessor">@end</span>
 </span>  
@@ -161,7 +161,7 @@ haskellElement = [markdown|
 <span class="reserved">instance</span> <span class="monad">MonadWebsite IO</span> <span class="reserved">where</span>
 <br><span class="keyword">&nbsp;&nbsp;projects</span> = <a class="plainCode"; href="https://github.com/CodaFi?tab=repositories">githubProjects</a></br>
 <span class="keyword">&nbsp;&nbsp;blog</span> = <a class="plainCode"; href="http://www.codafi.me/blog">gotoBlog</a>
-<br><span class="keyword">&nbsp;&nbsp;show</span> = <a class="plainCode"; href="http://www.codafi.me/about">putStrLn</a></br>
+<br><span class="keyword">&nbsp;&nbsp;show</span> = <a class="plainCode"; href="http://www.codafi.me/About-Me.html">putStrLn</a></br>
 </span>
 |]
 

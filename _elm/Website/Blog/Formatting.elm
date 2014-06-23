@@ -16,3 +16,6 @@ formatImagefulTitle (w,h) t im = flow outward [ fittedImage  w h im,
 
 formatTitleText : String -> Element
 formatTitleText s = (toText s) |> typeface ["Helvetica-Bold"] |> Text.height (36) |> Text.color (rgb 94 94 93) |> Text.justified 
+
+formatFunctionText : String -> Element
+formatFunctionText s = (toText s) |> typeface ["Computer Modern Roman"] |> Text.height (36) |> Text.justified 

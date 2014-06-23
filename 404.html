@@ -118,6 +118,9 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
    var Text = Elm.Text.make(_elm);
    var Time = Elm.Time.make(_elm);
    var _op = {};
+   var formatFunctionText = function (s) {
+      return Text.justified(Text.height(36)(Text.typeface(_L.fromArray(["Computer Modern Roman"]))(Text.toText(s))));
+   };
    var formatTitleText = function (s) {
       return Text.justified(Text.color(A3(Color.rgb,
       94,
@@ -169,6 +172,7 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
    _elm.Website.Blog.Formatting.values = {_op: _op
                                          ,title: title
                                          ,formatImagefulTitle: formatImagefulTitle
-                                         ,formatTitleText: formatTitleText};
+                                         ,formatTitleText: formatTitleText
+                                         ,formatFunctionText: formatFunctionText};
    return _elm.Website.Blog.Formatting.values;
 };</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Main)</script><noscript></noscript></body></html>

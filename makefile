@@ -2,7 +2,7 @@ CC=elm
 CFLAGS=--cache-dir="_elm/cache" --build-dir="_elm/build" --src-dir="_elm" --set-runtime="elm-runtime.js" --make
 SRC=./_elm
 
-all: CodaFi Error404 BlogIndex HelloWorldBlog INTERCALBlog ErrorBlog MonardsBlog
+all: CodaFi Error404 AboutMe BlogIndex HelloWorldBlog INTERCALBlog ErrorBlog MonardsBlog
 
 CodaFi: $(SRC)/src/CodaFi.elm
 	$(CC) $(CFLAGS) $<
@@ -11,6 +11,10 @@ CodaFi: $(SRC)/src/CodaFi.elm
 Error404: $(SRC)/src/Error404.elm
 	$(CC) $(CFLAGS) $<
 	mv $(SRC)/build/_elm/src/Error404.html ./404.html
+
+AboutMe: $(SRC)/src/About-Me.elm
+	$(CC) $(CFLAGS) $<
+	mv $(SRC)/build/_elm/src/About-Me.html ./About-Me.html
 
 BlogIndex: $(SRC)/src/blogs/index.elm
 	$(CC) $(CFLAGS) $<
