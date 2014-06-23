@@ -214,7 +214,7 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
    var Time = Elm.Time.make(_elm);
    var _op = {};
    var formatTitleText = function (s) {
-      return Text.asText(Text.color(A3(Color.rgb,
+      return Text.justified(Text.color(A3(Color.rgb,
       94,
       94,
       93))(Text.height(36)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(s)))));
@@ -228,10 +228,15 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
                                                                                       ,_1: 3})(A2(Graphics.Collage.filled,
                                                   A3(Color.rgb,34,48,54),
                                                   Graphics.Collage.circle(24)))]))
-                                                  ,Graphics.Element.link("http://www.codafi.me")(Text.asText(Text.color(A3(Color.rgb,
-                                                  132,
-                                                  151,
-                                                  161))(Text.height(24)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(t))))))]));
+                                                  ,A2(Graphics.Element.flow,
+                                                  Graphics.Element.down,
+                                                  _L.fromArray([A2(Graphics.Element.spacer,
+                                                               0,
+                                                               8)
+                                                               ,Graphics.Element.link("http://www.codafi.me")(Text.justified(Text.color(A3(Color.rgb,
+                                                               132,
+                                                               151,
+                                                               161))(Text.height(24)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(t))))))]))]));
    };
    var formatImagefulTitle = F3(function (_v0,
    t,
@@ -253,7 +258,7 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
                            Graphics.Element.absolute(4)),
                            title(t))]));}
          _E.Case($moduleName,
-         "between lines 10 and 12");
+         "between lines 13 and 15");
       }();
    });
    _elm.Website.Blog.Formatting.values = {_op: _op

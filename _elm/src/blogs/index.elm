@@ -36,11 +36,14 @@ In which we question the reason for this blog's inception.
 
 title : String -> Element
 title t = layers [ collage 100 50 [ filled (rgb 34 48 54) (circle 24) |> move (-20, 3) ],
-                   (toText t) |> typeface ["Helvetica-Bold"] |> Text.height (24) |> Text.color (rgb 132 151 161) |> asText |> El.link "http://www.codafi.me" ]
+                   flow down [spacer 0 8,
+                              (toText t) |> typeface ["Helvetica-Bold"] |> Text.height (24) |> Text.color (rgb 132 151 161) |> Text.justified  |> El.link "http://www.codafi.me"
+                   ]
+                 ]
                    
                    
 scene (w,h) = flow down [ container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (title "  CF") |> color (rgb 57 74 85),
-                          container (max 500 w) 135 topLeft (box errorHandlingTitle "http://codafi.me/blog/Monards.html" w |> width w),
+                          container (max 500 w) 135 topLeft (box monardsTitle "http://codafi.me/blog/Monards.html" w |> width w),
                           container (max 500 w) 135 topLeft (box errorHandlingTitle "http://codafi.me/blog/Error-Handling.html" w |> width w), 
                           container (max 500 w) 135 topLeft (box intercalTitle "http://codafi.me/blog/INTERCAL.html" w |> width w), 
                           container (max 500 w) 135 topLeft (box helloWorldTitle "http://codafi.me/blog/HelloWorld.html" w |> width w) 

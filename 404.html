@@ -27,6 +27,9 @@ Elm.Main.make = function (_elm) {
    var String = Elm.String.make(_elm);
    var Text = Elm.Text.make(_elm);
    var Time = Elm.Time.make(_elm);
+   var Website = Website || {};
+   Website.Blog = Website.Blog || {};
+   Website.Blog.Formatting = Elm.Website.Blog.Formatting.make(_elm);
    var Window = Elm.Window.make(_elm);
    var _op = {};
    var box = function (e) {
@@ -44,22 +47,8 @@ Elm.Main.make = function (_elm) {
          Graphics.Element.midTop)(e))))]));
       }();
    };
-   var title = function (t) {
-      return Graphics.Element.layers(_L.fromArray([A3(Graphics.Collage.collage,
-                                                  100,
-                                                  50,
-                                                  _L.fromArray([Graphics.Collage.move({ctor: "_Tuple2"
-                                                                                      ,_0: -20
-                                                                                      ,_1: 3})(A2(Graphics.Collage.filled,
-                                                  A3(Color.rgb,34,48,54),
-                                                  Graphics.Collage.circle(24)))]))
-                                                  ,Graphics.Element.link("http://www.codafi.me")(Text.asText(Text.color(A3(Color.rgb,
-                                                  132,
-                                                  151,
-                                                  161))(Text.height(24)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(t))))))]));
-   };
    var notFoundTitle = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><style type=\"text/css\">p { text-align:justify; }</style>\n<h1 id=\"section\">404</h1>\n<p>Rather than a beep<br />Or a rude error message,<br />These words: “File not found.”</p>\n<p style=\"text-align:right;font-style:italic;\">\nAnonymous\n</p>\n\n<div style=\"height:0;width:0;\">&nbsp;</div>",
-   "4:17");
+   "5:17");
    var scene = function (_v0) {
       return function () {
          switch (_v0.ctor)
@@ -75,7 +64,7 @@ Elm.Main.make = function (_elm) {
                            A2(Graphics.Element.midLeftAt,
                            Graphics.Element.absolute(10),
                            Graphics.Element.absolute(30)),
-                           title("  CF")))
+                           Website.Blog.Formatting.title("  CF")))
                            ,A4(Graphics.Element.container,
                            _v0._0,
                            _v0._1,
@@ -84,7 +73,7 @@ Elm.Main.make = function (_elm) {
                            300,
                            notFoundTitle)))]));}
          _E.Case($moduleName,
-         "between lines 21 and 22");
+         "between lines 16 and 17");
       }();
    };
    var main = A2(Signal.lift,
@@ -92,9 +81,94 @@ Elm.Main.make = function (_elm) {
    Window.dimensions);
    _elm.Main.values = {_op: _op
                       ,notFoundTitle: notFoundTitle
-                      ,title: title
                       ,scene: scene
                       ,box: box
                       ,main: main};
    return _elm.Main.values;
+};Elm.Website = Elm.Website || {};
+Elm.Website.Blog = Elm.Website.Blog || {};
+Elm.Website.Blog.Formatting = Elm.Website.Blog.Formatting || {};
+Elm.Website.Blog.Formatting.make = function (_elm) {
+   "use strict";
+   _elm.Website = _elm.Website || {};
+   _elm.Website.Blog = _elm.Website.Blog || {};
+   _elm.Website.Blog.Formatting = _elm.Website.Blog.Formatting || {};
+   if (_elm.Website.Blog.Formatting.values)
+   return _elm.Website.Blog.Formatting.values;
+   var _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Website.Blog.Formatting";
+   var Basics = Elm.Basics.make(_elm);
+   var Color = Elm.Color.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Element = Elm.Graphics.Element.make(_elm);
+   var List = Elm.List.make(_elm);
+   var Maybe = Elm.Maybe.make(_elm);
+   var Native = Native || {};
+   Native.Json = Elm.Native.Json.make(_elm);
+   var Native = Native || {};
+   Native.Ports = Elm.Native.Ports.make(_elm);
+   var Signal = Elm.Signal.make(_elm);
+   var String = Elm.String.make(_elm);
+   var Text = Elm.Text.make(_elm);
+   var Time = Elm.Time.make(_elm);
+   var _op = {};
+   var formatTitleText = function (s) {
+      return Text.justified(Text.color(A3(Color.rgb,
+      94,
+      94,
+      93))(Text.height(36)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(s)))));
+   };
+   var title = function (t) {
+      return Graphics.Element.layers(_L.fromArray([A3(Graphics.Collage.collage,
+                                                  100,
+                                                  50,
+                                                  _L.fromArray([Graphics.Collage.move({ctor: "_Tuple2"
+                                                                                      ,_0: -20
+                                                                                      ,_1: 3})(A2(Graphics.Collage.filled,
+                                                  A3(Color.rgb,34,48,54),
+                                                  Graphics.Collage.circle(24)))]))
+                                                  ,A2(Graphics.Element.flow,
+                                                  Graphics.Element.down,
+                                                  _L.fromArray([A2(Graphics.Element.spacer,
+                                                               0,
+                                                               8)
+                                                               ,Graphics.Element.link("http://www.codafi.me")(Text.justified(Text.color(A3(Color.rgb,
+                                                               132,
+                                                               151,
+                                                               161))(Text.height(24)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(t))))))]))]));
+   };
+   var formatImagefulTitle = F3(function (_v0,
+   t,
+   im) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return A2(Graphics.Element.flow,
+              Graphics.Element.outward,
+              _L.fromArray([A3(Graphics.Element.fittedImage,
+                           _v0._0,
+                           _v0._1,
+                           im)
+                           ,A4(Graphics.Element.container,
+                           100,
+                           _v0._1,
+                           A2(Graphics.Element.topLeftAt,
+                           Graphics.Element.absolute(10),
+                           Graphics.Element.absolute(4)),
+                           title(t))]));}
+         _E.Case($moduleName,
+         "between lines 13 and 15");
+      }();
+   });
+   _elm.Website.Blog.Formatting.values = {_op: _op
+                                         ,title: title
+                                         ,formatImagefulTitle: formatImagefulTitle
+                                         ,formatTitleText: formatTitleText};
+   return _elm.Website.Blog.Formatting.values;
 };</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Main)</script><noscript></noscript></body></html>

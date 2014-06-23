@@ -168,7 +168,7 @@ PLEASE ABSTAIN FROM CALCULATING
 ```
 As noted by the spec:
 
-> `DO ABSTAIN FROM ABSTAINING` is perfectly valid, as is `DO ABSTAIN FROM REINSTATING` (although this latter is not usually recommended). However, the statement DO `ABSTAIN FROM GIVING UP` is not accepted, even though `DON'T GIVE UP` is.
+> `DO ABSTAIN FROM ABSTAINING` is perfectly valid, as is `DO ABSTAIN FROM REINSTATING` (although this latter is not usually recommended). However, the statement `DO ABSTAIN FROM GIVING UP` is not accepted, even though `DON'T GIVE UP` is.
 
 
 ## "IO" 

@@ -1,17 +1,14 @@
 import Window
 import Graphics.Element as E
+import Website.Blog.Formatting as Format
 import Random
-
-title : String -> Element
-title t = layers [ collage 100 50 [ filled (rgb 34 48 54) (circle 24) |> move (-20, 3) ],
-                   (toText t) |> typeface ["Helvetica-Bold"] |> Text.height (24) |> Text.color (rgb 132 151 161) |> asText |> E.link "http://www.codafi.me" ]
 
 formatInt : Int -> Element
 formatInt t = (show t) |> toText  
                        |> Text.height (14) 
                        |> typeface ["Menlo", "Monaco, Helvetica", "sans-serif"]
                        |> Text.color (rgb 132 151 161)
-                       |> asText
+                       |> Text.justified
 
 range : Int -> Int -> [Int]
 range n m = if 
@@ -130,9 +127,9 @@ objcClassElement = [markdown|
 <span class="plainCode">
 <span class="preprocessor">@interface</span> CFIWebsite : <span class="classObject">NSURL</span> \<<span class="classObject">NSCoding</span>\> <br></br>
 \+ (<span class="preprocessor">instancetype</span>)<a class="method"; href="http://www.codafi.me">currentWebsite</a>; <br></br>
-\- (<span class="classObject">NSArray</span> *)<a class="method"; href="https://github.com/CodaFi?tab=repositories">projects</a>;
-<br>\- (<span class="classObject">NSURL</span> *)<a class="method"; href="http://www.codafi.me/blog">blog</a>; </br>
-\- (<span class="classObject">NSString</span> *)<a class="method"; href="http://www.codafi.me/about">description</a>;
+\- (<span class="classObject">NSArray</span> \*)<a class="method"; href="https://github.com/CodaFi?tab=repositories">projects</a>;
+<br>\- (<span class="classObject">NSURL</span> \*)<a class="method"; href="http://www.codafi.me/blog">blog</a>; </br>
+\- (<span class="classObject">NSString</span> \*)<a class="method"; href="http://www.codafi.me/about">description</a>;
 <br></br>
 <span class="preprocessor">@end</span>
 </span>  
@@ -192,7 +189,7 @@ pageBody w h lns bdy = flow right [ spacer 10 w,
 scene : (Int, Int) -> Int -> Element
 scene (w,h) n = let el = fst (elementAt allElements n)
                     lines = snd (elementAt allElements n)
-                in flow down [ container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (title "  CF") |> color (rgb 57 74 85),
+                in flow down [ container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (Format.title "  CF") |> color (rgb 57 74 85),
                                container (max 500 w) (max 430 h) topLeft (pageBody w h lines el) |> color (rgb 79 96 107) 
                              ] 
  
