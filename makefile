@@ -13,22 +13,22 @@ Error404: $(SRC)/src/Error404.elm
 	mv $(SRC)/build/_elm/src/Error404.html ./404.html
 
 BlogIndex: $(SRC)/src/blogs/index.elm
-	$(CC) $(CFLAGS) --make $<
+	$(CC) $(CFLAGS) $<
 	mkdir -p ./../blog
 	mv $(SRC)/build/_elm/src/blogs/index.html ./blog/index.html
 
 HelloWorldBlog: $(SRC)/src/blogs/HelloWorld.elm
-	$(CC) $(CFLAGS) --make $<
+	$(CC) $(CFLAGS) $<
 	mv $(SRC)/build/_elm/src/blogs/HelloWorld.html ./blog/HelloWorld.html
 
 INTERCALBlog: $(SRC)/src/blogs/INTERCAL.elm
-	$(CC) $(CFLAGS) --make $<
+	$(CC) $(CFLAGS) $<
 	mv $(SRC)/build/_elm/src/blogs/INTERCAL.html ./blog/INTERCAL.html
 
 ErrorBlog: $(SRC)/src/blogs/Error-Handling.elm
-	$(CC) $(CFLAGS) --make $<
+	$(CC) $(CFLAGS) $<
 	mv $(SRC)/build/_elm/src/blogs/Error-Handling.html ./blog/Error-Handling.html
 
 MonardsBlog: $(SRC)/src/blogs/Monards.elm
-	$(CC) $(CFLAGS) --make $<
+	$(CC) $(CFLAGS) $<
 	mv $(SRC)/build/_elm/src/blogs/Monards.html ./blog/Monards.html
