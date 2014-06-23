@@ -1,14 +1,15 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>HelloWorld</title><script type="text/javascript" src="/elm-runtime.js"></script><script type="text/javascript">Elm.Main = Elm.Main || {};
+<html><head><meta charset="UTF-8"><title>HelloWorld</title><script type="text/javascript" src="_elm/elm-runtime.js"></script><script type="text/javascript">Elm.Main = Elm.Main || {};
 Elm.Main.make = function (_elm) {
+   "use strict";
    _elm.Main = _elm.Main || {};
    if (_elm.Main.values)
    return _elm.Main.values;
    var _N = Elm.Native,
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
    _E = _N.Error.make(_elm),
-   _J = _N.JavaScript.make(_elm),
    $moduleName = "Main";
    var Basics = Elm.Basics.make(_elm);
    var Color = Elm.Color.make(_elm);
@@ -19,8 +20,9 @@ Elm.Main.make = function (_elm) {
    var List = Elm.List.make(_elm);
    var Maybe = Elm.Maybe.make(_elm);
    var Native = Native || {};
+   Native.Json = Elm.Native.Json.make(_elm);
+   var Native = Native || {};
    Native.Ports = Elm.Native.Ports.make(_elm);
-   var Prelude = Elm.Prelude.make(_elm);
    var Signal = Elm.Signal.make(_elm);
    var String = Elm.String.make(_elm);
    var Text = Elm.Text.make(_elm);
@@ -45,6 +47,7 @@ Elm.Main.make = function (_elm) {
 Elm.Website.Blog = Elm.Website.Blog || {};
 Elm.Website.Blog.Skeleton = Elm.Website.Blog.Skeleton || {};
 Elm.Website.Blog.Skeleton.make = function (_elm) {
+   "use strict";
    _elm.Website = _elm.Website || {};
    _elm.Website.Blog = _elm.Website.Blog || {};
    _elm.Website.Blog.Skeleton = _elm.Website.Blog.Skeleton || {};
@@ -53,8 +56,8 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
    var _N = Elm.Native,
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
    _E = _N.Error.make(_elm),
-   _J = _N.JavaScript.make(_elm),
    $moduleName = "Website.Blog.Skeleton";
    var Basics = Elm.Basics.make(_elm);
    var Color = Elm.Color.make(_elm);
@@ -65,8 +68,9 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
    var List = Elm.List.make(_elm);
    var Maybe = Elm.Maybe.make(_elm);
    var Native = Native || {};
+   Native.Json = Elm.Native.Json.make(_elm);
+   var Native = Native || {};
    Native.Ports = Elm.Native.Ports.make(_elm);
-   var Prelude = Elm.Prelude.make(_elm);
    var Signal = Elm.Signal.make(_elm);
    var String = Elm.String.make(_elm);
    var Text = Elm.Text.make(_elm);
@@ -90,37 +94,37 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
                  postBody));
                  return A2(Graphics.Element.flow,
                  Graphics.Element.down,
-                 _J.toList([Graphics.Element.color(A3(Color.rgb,
-                           57,
-                           74,
-                           85))(A4(Graphics.Element.container,
-                           A2(Basics.max,300,_v0._0),
-                           60,
-                           Graphics.Element.midLeft,
-                           A3(Website.Blog.Formatting.formatImagefulTitle,
-                           {ctor: "_Tuple2"
-                           ,_0: _v0._0
-                           ,_1: 60},
-                           "  CF",
-                           im)))
-                           ,A2(Graphics.Element.spacer,
-                           A2(Basics.max,300,_v0._0),
-                           100)
-                           ,Graphics.Element.height(160)(A4(Graphics.Element.container,
-                           _v0._0,
-                           titleHeight,
-                           Graphics.Element.midTop,
-                           Website.Blog.Formatting.formatTitleText(t)))
-                           ,A4(Graphics.Element.container,
-                           _v0._0,
-                           bodyHeight,
-                           Graphics.Element.midTop,
-                           A2(Graphics.Element.width,
-                           A2(Basics.min,550,_v0._0),
-                           postBody))
-                           ,A2(Graphics.Element.spacer,
-                           A2(Basics.max,300,_v0._0),
-                           30)]));
+                 _L.fromArray([Graphics.Element.color(A3(Color.rgb,
+                              57,
+                              74,
+                              85))(A4(Graphics.Element.container,
+                              A2(Basics.max,300,_v0._0),
+                              60,
+                              Graphics.Element.midLeft,
+                              A3(Website.Blog.Formatting.formatImagefulTitle,
+                              {ctor: "_Tuple2"
+                              ,_0: _v0._0
+                              ,_1: 60},
+                              "  CF",
+                              im)))
+                              ,A2(Graphics.Element.spacer,
+                              A2(Basics.max,300,_v0._0),
+                              100)
+                              ,Graphics.Element.height(160)(A4(Graphics.Element.container,
+                              _v0._0,
+                              titleHeight,
+                              Graphics.Element.midTop,
+                              Website.Blog.Formatting.formatTitleText(t)))
+                              ,A4(Graphics.Element.container,
+                              _v0._0,
+                              bodyHeight,
+                              Graphics.Element.midTop,
+                              A2(Graphics.Element.width,
+                              A2(Basics.min,550,_v0._0),
+                              postBody))
+                              ,A2(Graphics.Element.spacer,
+                              A2(Basics.max,300,_v0._0),
+                              30)]));
               }();}
          _E.Case($moduleName,
          "between lines 18 and 25");
@@ -139,34 +143,34 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
                  postBody));
                  return A2(Graphics.Element.flow,
                  Graphics.Element.down,
-                 _J.toList([Graphics.Element.color(A3(Color.rgb,
-                           57,
-                           74,
-                           85))(A4(Graphics.Element.container,
-                           A2(Basics.max,500,_v4._0),
-                           60,
-                           A2(Graphics.Element.midLeftAt,
-                           Graphics.Element.absolute(10),
-                           Graphics.Element.absolute(30)),
-                           Website.Blog.Formatting.title("  CF")))
-                           ,A2(Graphics.Element.spacer,
-                           A2(Basics.max,300,_v4._0),
-                           100)
-                           ,Graphics.Element.height(160)(A4(Graphics.Element.container,
-                           _v4._0,
-                           titleHeight,
-                           Graphics.Element.midTop,
-                           Website.Blog.Formatting.formatTitleText(t)))
-                           ,A4(Graphics.Element.container,
-                           _v4._0,
-                           bodyHeight,
-                           Graphics.Element.midTop,
-                           A2(Graphics.Element.width,
-                           A2(Basics.min,550,_v4._0),
-                           postBody))
-                           ,A2(Graphics.Element.spacer,
-                           A2(Basics.max,300,_v4._0),
-                           30)]));
+                 _L.fromArray([Graphics.Element.color(A3(Color.rgb,
+                              57,
+                              74,
+                              85))(A4(Graphics.Element.container,
+                              A2(Basics.max,500,_v4._0),
+                              60,
+                              A2(Graphics.Element.midLeftAt,
+                              Graphics.Element.absolute(10),
+                              Graphics.Element.absolute(30)),
+                              Website.Blog.Formatting.title("  CF")))
+                              ,A2(Graphics.Element.spacer,
+                              A2(Basics.max,300,_v4._0),
+                              100)
+                              ,Graphics.Element.height(160)(A4(Graphics.Element.container,
+                              _v4._0,
+                              titleHeight,
+                              Graphics.Element.midTop,
+                              Website.Blog.Formatting.formatTitleText(t)))
+                              ,A4(Graphics.Element.container,
+                              _v4._0,
+                              bodyHeight,
+                              Graphics.Element.midTop,
+                              A2(Graphics.Element.width,
+                              A2(Basics.min,550,_v4._0),
+                              postBody))
+                              ,A2(Graphics.Element.spacer,
+                              A2(Basics.max,300,_v4._0),
+                              30)]));
               }();}
          _E.Case($moduleName,
          "between lines 8 and 15");
@@ -180,6 +184,7 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
 Elm.Website.Blog = Elm.Website.Blog || {};
 Elm.Website.Blog.Formatting = Elm.Website.Blog.Formatting || {};
 Elm.Website.Blog.Formatting.make = function (_elm) {
+   "use strict";
    _elm.Website = _elm.Website || {};
    _elm.Website.Blog = _elm.Website.Blog || {};
    _elm.Website.Blog.Formatting = _elm.Website.Blog.Formatting || {};
@@ -188,8 +193,8 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
    var _N = Elm.Native,
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
    _E = _N.Error.make(_elm),
-   _J = _N.JavaScript.make(_elm),
    $moduleName = "Website.Blog.Formatting";
    var Basics = Elm.Basics.make(_elm);
    var Color = Elm.Color.make(_elm);
@@ -200,32 +205,33 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
    var List = Elm.List.make(_elm);
    var Maybe = Elm.Maybe.make(_elm);
    var Native = Native || {};
+   Native.Json = Elm.Native.Json.make(_elm);
+   var Native = Native || {};
    Native.Ports = Elm.Native.Ports.make(_elm);
-   var Prelude = Elm.Prelude.make(_elm);
    var Signal = Elm.Signal.make(_elm);
    var String = Elm.String.make(_elm);
    var Text = Elm.Text.make(_elm);
    var Time = Elm.Time.make(_elm);
    var _op = {};
    var formatTitleText = function (s) {
-      return Text.text(Text.color(A3(Color.rgb,
+      return Text.asText(Text.color(A3(Color.rgb,
       94,
       94,
-      93))(Text.height(36)(Text.typeface("Helvetica-Bold")(Text.toText(s)))));
+      93))(Text.height(36)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(s)))));
    };
    var title = function (t) {
-      return Graphics.Element.layers(_J.toList([A3(Graphics.Collage.collage,
-                                               100,
-                                               50,
-                                               _J.toList([Graphics.Collage.move({ctor: "_Tuple2"
-                                                                                ,_0: -20
-                                                                                ,_1: 3})(A2(Graphics.Collage.filled,
-                                               A3(Color.rgb,34,48,54),
-                                               Graphics.Collage.circle(24)))]))
-                                               ,Graphics.Element.link("http://www.codafi.me")(Text.text(Text.color(A3(Color.rgb,
-                                               132,
-                                               151,
-                                               161))(Text.height(24)(Text.typeface("Helvetica-Bold")(Text.toText(t))))))]));
+      return Graphics.Element.layers(_L.fromArray([A3(Graphics.Collage.collage,
+                                                  100,
+                                                  50,
+                                                  _L.fromArray([Graphics.Collage.move({ctor: "_Tuple2"
+                                                                                      ,_0: -20
+                                                                                      ,_1: 3})(A2(Graphics.Collage.filled,
+                                                  A3(Color.rgb,34,48,54),
+                                                  Graphics.Collage.circle(24)))]))
+                                                  ,Graphics.Element.link("http://www.codafi.me")(Text.asText(Text.color(A3(Color.rgb,
+                                                  132,
+                                                  151,
+                                                  161))(Text.height(24)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(t))))))]));
    };
    var formatImagefulTitle = F3(function (_v0,
    t,
@@ -235,17 +241,17 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
          {case "_Tuple2":
             return A2(Graphics.Element.flow,
               Graphics.Element.outward,
-              _J.toList([A3(Graphics.Element.fittedImage,
-                        _v0._0,
-                        _v0._1,
-                        im)
-                        ,A4(Graphics.Element.container,
-                        100,
-                        _v0._1,
-                        A2(Graphics.Element.topLeftAt,
-                        Graphics.Element.absolute(10),
-                        Graphics.Element.absolute(4)),
-                        title(t))]));}
+              _L.fromArray([A3(Graphics.Element.fittedImage,
+                           _v0._0,
+                           _v0._1,
+                           im)
+                           ,A4(Graphics.Element.container,
+                           100,
+                           _v0._1,
+                           A2(Graphics.Element.topLeftAt,
+                           Graphics.Element.absolute(10),
+                           Graphics.Element.absolute(4)),
+                           title(t))]));}
          _E.Case($moduleName,
          "between lines 10 and 12");
       }();

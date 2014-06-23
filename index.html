@@ -1,14 +1,15 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>CodaFi</title><script type="text/javascript" src="/elm-runtime.js"></script><script type="text/javascript">Elm.Main = Elm.Main || {};
+<html><head><meta charset="UTF-8"><title>CodaFi</title><script type="text/javascript" src="_elm/elm-runtime.js"></script><script type="text/javascript">Elm.Main = Elm.Main || {};
 Elm.Main.make = function (_elm) {
+   "use strict";
    _elm.Main = _elm.Main || {};
    if (_elm.Main.values)
    return _elm.Main.values;
    var _N = Elm.Native,
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
    _E = _N.Error.make(_elm),
-   _J = _N.JavaScript.make(_elm),
    $moduleName = "Main";
    var Basics = Elm.Basics.make(_elm);
    var Color = Elm.Color.make(_elm);
@@ -19,8 +20,9 @@ Elm.Main.make = function (_elm) {
    var List = Elm.List.make(_elm);
    var Maybe = Elm.Maybe.make(_elm);
    var Native = Native || {};
+   Native.Json = Elm.Native.Json.make(_elm);
+   var Native = Native || {};
    Native.Ports = Elm.Native.Ports.make(_elm);
-   var Prelude = Elm.Prelude.make(_elm);
    var Random = Elm.Random.make(_elm);
    var Signal = Elm.Signal.make(_elm);
    var String = Elm.String.make(_elm);
@@ -49,21 +51,21 @@ Elm.Main.make = function (_elm) {
    "55:17");
    var rubyClassElement = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><style type=\"text/css\">\n\n:link { text-decoration: none; color: white }\n:visited { text-decoration: none; color: white }\n:hover { text-decoration: none; color: white }\n\n.keyword          { font-size: 12pt; color: #EBC562; font-family: Menlo, Monaco, Helvetica, sans-serif; }\n.string           { color: #4A9D8F; }\n.plainCode        { font-size: 12pt; color: white; font-family: Menlo, Monaco, Helvetica, sans-serif; }\n.classObject      { font-size: 12pt; color: #89730c; font-family: Menlo, Monaco, Helvetica, sans-serif; }\n.method           { color: #1b75b4 }\n.method:link      { text-decoration: none; color: #1b75b4 }\n.method:visited   { text-decoration: none; color: #1b75b4 }\n.method:hover     { text-decoration: none; color: #1b75b4 }\n\n</style>\n\n<p><span class=\"plainCode\"> <span class=\"keyword\">module</span> URI <br>  Website &lt; <span class=\"classObject\">Generic</span></br> <span class=\"classObject\">    def </span><a class=\"method\"; href=\"https://github.com/CodaFi?tab=repositories\">projects</a> <br><span class=\"classObject\">    end</span></br> <br><span class=\"classObject\">    def </span><a class=\"method\"; href=\"http://www.codafi.me/blog\">blog</a> <br><span class=\"classObject\">    end</span></br> <br><span class=\"classObject\">    def </span><a class=\"method\"; href=\"http://www.codafi.me/about\">inspect</a></br> <span class=\"classObject\">    end</span> <br><span class=\"classObject\">  end</span></br> <span class=\"classObject\">end</span> </span></p><div style=\"height:0;width:0;\">&nbsp;</div>",
    "23:20");
-   var allElements = _J.toList([{ctor: "_Tuple2"
-                                ,_0: objcClassElement
-                                ,_1: 16}
-                               ,{ctor: "_Tuple2"
-                                ,_0: rubyClassElement
-                                ,_1: 13}
-                               ,{ctor: "_Tuple2"
-                                ,_0: haskellElement
-                                ,_1: 15}
-                               ,{ctor: "_Tuple2"
-                                ,_0: cClassElement
-                                ,_1: 18}]);
+   var allElements = _L.fromArray([{ctor: "_Tuple2"
+                                   ,_0: objcClassElement
+                                   ,_1: 16}
+                                  ,{ctor: "_Tuple2"
+                                   ,_0: rubyClassElement
+                                   ,_1: 13}
+                                  ,{ctor: "_Tuple2"
+                                   ,_0: haskellElement
+                                   ,_1: 15}
+                                  ,{ctor: "_Tuple2"
+                                   ,_0: cClassElement
+                                   ,_1: 18}]);
    var range = F2(function (n,m) {
       return _U.eq(n,
-      m) ? _J.toList([n]) : _U.cmp(n,
+      m) ? _L.fromArray([n]) : _U.cmp(n,
       m) < 0 ? {ctor: "::"
                ,_0: n
                ,_1: A2(range,
@@ -77,10 +79,12 @@ Elm.Main.make = function (_elm) {
       "between lines 17 and 20");
    });
    var formatInt = function (t) {
-      return Text.text(Text.color(A3(Color.rgb,
+      return Text.asText(Text.color(A3(Color.rgb,
       132,
       151,
-      161))(Text.typeface("Menlo, Monaco, Helvetica, sans-serif")(Text.height(14)(Text.toText(Prelude.show(t))))));
+      161))(Text.typeface(_L.fromArray(["Menlo"
+                                       ,"Monaco, Helvetica"
+                                       ,"sans-serif"]))(Text.height(14)(Text.toText(String.show(t))))));
    };
    var lineNumbersColumn = F2(function (_v1,
    nums) {
@@ -104,34 +108,34 @@ Elm.Main.make = function (_elm) {
    bdy) {
       return A2(Graphics.Element.flow,
       Graphics.Element.right,
-      _J.toList([A2(Graphics.Element.spacer,
-                10,
-                w)
-                ,Graphics.Element.color(A3(Color.rgb,
-                79,
-                96,
-                107))(A4(Graphics.Element.container,
-                30,
-                h,
-                Graphics.Element.topLeft,
-                A2(lineNumbersColumn,
-                {ctor: "_Tuple2",_0: w,_1: h},
-                A2(range,1,lns))))
-                ,bdy]));
+      _L.fromArray([A2(Graphics.Element.spacer,
+                   10,
+                   w)
+                   ,Graphics.Element.color(A3(Color.rgb,
+                   79,
+                   96,
+                   107))(A4(Graphics.Element.container,
+                   30,
+                   h,
+                   Graphics.Element.topLeft,
+                   A2(lineNumbersColumn,
+                   {ctor: "_Tuple2",_0: w,_1: h},
+                   A2(range,1,lns))))
+                   ,bdy]));
    });
    var title = function (t) {
-      return Graphics.Element.layers(_J.toList([A3(Graphics.Collage.collage,
-                                               100,
-                                               50,
-                                               _J.toList([Graphics.Collage.move({ctor: "_Tuple2"
-                                                                                ,_0: -20
-                                                                                ,_1: 3})(A2(Graphics.Collage.filled,
-                                               A3(Color.rgb,34,48,54),
-                                               Graphics.Collage.circle(24)))]))
-                                               ,Graphics.Element.link("http://www.codafi.me")(Text.text(Text.color(A3(Color.rgb,
-                                               132,
-                                               151,
-                                               161))(Text.height(24)(Text.typeface("Helvetica-Bold")(Text.toText(t))))))]));
+      return Graphics.Element.layers(_L.fromArray([A3(Graphics.Collage.collage,
+                                                  100,
+                                                  50,
+                                                  _L.fromArray([Graphics.Collage.move({ctor: "_Tuple2"
+                                                                                      ,_0: -20
+                                                                                      ,_1: 3})(A2(Graphics.Collage.filled,
+                                                  A3(Color.rgb,34,48,54),
+                                                  Graphics.Collage.circle(24)))]))
+                                                  ,Graphics.Element.link("http://www.codafi.me")(Text.asText(Text.color(A3(Color.rgb,
+                                                  132,
+                                                  151,
+                                                  161))(Text.height(24)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(t))))))]));
    };
    var scene = F2(function (_v5,
    n) {
@@ -147,28 +151,28 @@ Elm.Main.make = function (_elm) {
                  n));
                  return A2(Graphics.Element.flow,
                  Graphics.Element.down,
-                 _J.toList([Graphics.Element.color(A3(Color.rgb,
-                           57,
-                           74,
-                           85))(A4(Graphics.Element.container,
-                           A2(Basics.max,500,_v5._0),
-                           60,
-                           A2(Graphics.Element.midLeftAt,
-                           Graphics.Element.absolute(10),
-                           Graphics.Element.absolute(30)),
-                           title("  CF")))
-                           ,Graphics.Element.color(A3(Color.rgb,
-                           79,
-                           96,
-                           107))(A4(Graphics.Element.container,
-                           A2(Basics.max,500,_v5._0),
-                           A2(Basics.max,430,_v5._1),
-                           Graphics.Element.topLeft,
-                           A4(pageBody,
-                           _v5._0,
-                           _v5._1,
-                           lines,
-                           el)))]));
+                 _L.fromArray([Graphics.Element.color(A3(Color.rgb,
+                              57,
+                              74,
+                              85))(A4(Graphics.Element.container,
+                              A2(Basics.max,500,_v5._0),
+                              60,
+                              A2(Graphics.Element.midLeftAt,
+                              Graphics.Element.absolute(10),
+                              Graphics.Element.absolute(30)),
+                              title("  CF")))
+                              ,Graphics.Element.color(A3(Color.rgb,
+                              79,
+                              96,
+                              107))(A4(Graphics.Element.container,
+                              A2(Basics.max,500,_v5._0),
+                              A2(Basics.max,430,_v5._1),
+                              Graphics.Element.topLeft,
+                              A4(pageBody,
+                              _v5._0,
+                              _v5._1,
+                              lines,
+                              el)))]));
               }();}
          _E.Case($moduleName,
          "between lines 193 and 197");

@@ -1,6 +1,14 @@
 import Window
 import Graphics.Element as El
 
+monardsTitle = [markdown|
+<h2 style="margin-left:24px;">Monads Made Hard, Then Simple, Then Easy</h2>
+
+<span style="margin-left:24px;">
+In which we eschew aphoristic comparisons.  Because Monards.
+</span>
+|]
+
 errorHandlingTitle = [markdown|
 <h2 style="margin-left:24px;">Error Handling</h2>
 
@@ -28,10 +36,11 @@ In which we question the reason for this blog's inception.
 
 title : String -> Element
 title t = layers [ collage 100 50 [ filled (rgb 34 48 54) (circle 24) |> move (-20, 3) ],
-                   (toText t) |> typeface "Helvetica-Bold" |> Text.height (24) |> Text.color (rgb 132 151 161) |> text |> El.link "http://www.codafi.me" ]
+                   (toText t) |> typeface ["Helvetica-Bold"] |> Text.height (24) |> Text.color (rgb 132 151 161) |> asText |> El.link "http://www.codafi.me" ]
                    
                    
 scene (w,h) = flow down [ container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (title "  CF") |> color (rgb 57 74 85),
+                          container (max 500 w) 135 topLeft (box errorHandlingTitle "http://codafi.me/blog/Monards.html" w |> width w),
                           container (max 500 w) 135 topLeft (box errorHandlingTitle "http://codafi.me/blog/Error-Handling.html" w |> width w), 
                           container (max 500 w) 135 topLeft (box intercalTitle "http://codafi.me/blog/INTERCAL.html" w |> width w), 
                           container (max 500 w) 135 topLeft (box helloWorldTitle "http://codafi.me/blog/HelloWorld.html" w |> width w) 

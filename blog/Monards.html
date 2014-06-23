@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="UTF-8"><title>Monards</title><script type="text/javascript" src="_elm/elm-runtime.js"></script><script type="text/javascript">Elm.Main = Elm.Main || {};
+Elm.Main.make = function (_elm) {
+   "use strict";
+   _elm.Main = _elm.Main || {};
+   if (_elm.Main.values)
+   return _elm.Main.values;
+   var _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Main";
+   var Basics = Elm.Basics.make(_elm);
+   var Color = Elm.Color.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Element = Elm.Graphics.Element.make(_elm);
+   var List = Elm.List.make(_elm);
+   var Maybe = Elm.Maybe.make(_elm);
+   var Native = Native || {};
+   Native.Json = Elm.Native.Json.make(_elm);
+   var Native = Native || {};
+   Native.Ports = Elm.Native.Ports.make(_elm);
+   var Signal = Elm.Signal.make(_elm);
+   var String = Elm.String.make(_elm);
+   var Text = Elm.Text.make(_elm);
+   var Time = Elm.Time.make(_elm);
+   var Website = Website || {};
+   Website.Blog = Website.Blog || {};
+   Website.Blog.Skeleton = Elm.Website.Blog.Skeleton.make(_elm);
+   var Window = Elm.Window.make(_elm);
+   var _op = {};
+   var post = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>\n\n<h2 id=\"a-haskell-monad-is...\">A (Haskell) Monad Is...</h2>\n<p>A monoid in the category of endofunctors...</p>\n<p>Such that the following diagrams commute</p>\n<h2 id=\"mu-reduction\">Mu Reduction</h2>\n<pre><code>         μT\n    T³ -----→ T²\n    |         |\n Tμ |         | μ\n    |         |\n    ↓         ↓\n    T² -----→ T\n         μ</code></pre>\n<h2 id=\"eta-introduction-and-elmination\">Eta Introduction and Elmination</h2>\n<pre><code>    ηT       Tη\nTx ---&gt; T²x &lt;--- Tx\n   \\     |      /\n     \\   | μ  /\n       \\ |  /\n         \\/\n         Tx</code></pre>\n<h2 id=\"wtf\">WTF</h2>\n<p>They\'re just an application of category theory. When a mathematician says something is <em>in</em> something else, they mean that all the laws that the thing on the left obeys get shoved into the thing on the right, and it also gains some neat other functions in the process.</p>\n<h2 id=\"monoids\">Monoids</h2>\n<p>A monoid is a Set of stuff (we\'ll call S for now), and a 2-ary operator <code>•</code> (dot) that does composition of elements in S, and an <code>identity element</code> (called <code>e</code>) which does nothing to the other operand of <code>•</code> when used. For the natural numbers, we can call <code>•</code>, &quot;+&quot; and <code>identity element</code>, &quot;0&quot;, then go on to prove things about addition. In fact, what we can prove are precisely the monoid laws.</p>\n<pre class=\"sourceCode Haskell\"><code class=\"sourceCode haskell\"><span class=\"co\">-- e.g. the result of n+m if n : Nat and m : Nat is going to be a Nat as well.</span>\n<span class=\"co\">-- n+m doesn&#39;t just randomly turn into a Real or Integer all of a sudden</span>\n<span class=\"dt\">Closure</span> <span class=\"fu\">-</span> a •<span class=\"ot\"> a ::</span> a\n<span class=\"co\">-- e.g. (n + m) + o = n + (m + o)</span>\n<span class=\"dt\">Associativity</span> <span class=\"fu\">-</span> (a • b) • c <span class=\"fu\">==</span> a • (b • c)\n<span class=\"co\">-- (e.g. 0)</span>\n<span class=\"dt\">Identity</span> <span class=\"fu\">-</span> a • e <span class=\"fu\">=</span> a</code></pre>\n<p>Haskell has a Monoid typeclass that follows the same laws. Here she is in all her glory:</p>\n<pre class=\"sourceCode Haskell\"><code class=\"sourceCode haskell\"><span class=\"kw\">class</span> <span class=\"dt\">Monoid</span> a <span class=\"kw\">where</span>\n    <span class=\"co\">-- The identity of the monoid</span>\n<span class=\"ot\">    mempty ::</span> a\n    <span class=\"co\">-- &quot;•&quot;</span>\n<span class=\"ot\">    mappend ::</span> a <span class=\"ot\">-&gt;</span> a <span class=\"ot\">-&gt;</span> a\n    <span class=\"co\">-- Monoidic fold (fold mappend over a container of elements of the Monoid)</span>\n<span class=\"ot\">    mconcat ::</span> [a] <span class=\"ot\">-&gt;</span> a</code></pre>\n<p>Everything fits into place, and without one you can\'t have any of the others.</p>\n<h2 id=\"monards\">Monards</h2>\n<p>Now, we do the same thing with monads. But what is a monad?</p>\n<p>We gave the rigorous definition above, and there\'s a million different crappy analogies for what they are, so let\'s try to explore them mathematically. A monad is an endofunctor (a mapping from one category C right back to itself) and two natural transformations η (also called the Unit) and ν (also called the Multiplication).</p>\n<p>A distinction must be made between the unit <em>type</em> and our monad\'s unit <em>function</em>. The unit <em>type</em> is precisely what it sounds like: A type that functions as our identity element. It is also called &quot;absurdity&quot;, because it is the type from which you can extract no information. It just exists, but has no useful value. That\'s why monadic functions that perform side effects return it.</p>\n<p>So, our unit <em>function</em> η has the type</p>\n<pre class=\"sourceCode Haskell\"><code class=\"sourceCode haskell\">η<span class=\"ot\"> ::</span> a <span class=\"ot\">-&gt;</span> m a</code></pre>\n<p>Think of it as the ability to &quot;lift&quot; values into our monad. For example, if we make η the list constructor <code>[ ]</code>, then lifting some value &quot;a&quot; would be literally <code>[a]</code>. Your <code>a</code> now has the type <code>List a</code>, which slots into the needed <code>m a</code> from before. We call that lifting function <code>return</code>. It’s best to cast away any notion of <code>return</code> as a way of returning values from a function. In Haskell, every time you see <code>return</code>, even at the end of do blocks, it’s just lifting a value into a monad.</p>\n<p>Finally, the multiplication, <code>μ</code>, is a way of reducing the structure of nested monads. Practically, if I have something like <code>[[a]]</code>, then applying ν to the list of lists would strip away one set of brackets and concat the inner arrays, yielding a longer <code>[a]</code>. But notice, this corresponds precisely to <code>mconcat</code> in our Monad Typeclass! Haskell calls the monad version of this function <code>join</code>. Here is its type:</p>\n<pre class=\"sourceCode Haskell\"><code class=\"sourceCode haskell\"><span class=\"ot\">join ::</span> <span class=\"dt\">Monad</span> m <span class=\"ot\">=&gt;</span> m (m a) <span class=\"ot\">-&gt;</span> m a</code></pre>\n<p>Look familiar? Here’s mconcat again:</p>\n<pre class=\"sourceCode Haskell\"><code class=\"sourceCode haskell\"><span class=\"ot\">mconcat ::</span> [a] <span class=\"ot\">-&gt;</span> a</code></pre>\n<p>Replace the <code>m</code>’s with <code>[ ]</code>’s and you can translate between one and the other.</p>\n<p>What this means is that we can <em>encode</em> the monoid laws in a monad and still have all the benefits of being called Monoids.</p>\n<h2 id=\"lists-are-monads\">Lists Are Monads</h2>\n<p>Let\'s prove homogenous lists (<code>List a</code>, or in Haskell-ese <code>[a]</code>) are monads by providing a suitable implementation of the monad typeclass.</p>\n<pre class=\"sourceCode Haskell\"><code class=\"sourceCode haskell\"><span class=\"kw\">instance</span> <span class=\"dt\">Monad</span> [] <span class=\"kw\">where</span>  \n    return x <span class=\"fu\">=</span> [x]  \n    xs <span class=\"fu\">&gt;&gt;=</span> f <span class=\"fu\">=</span> join (map f xs)\n    \n  <span class=\"co\">-- Alternative definitions of bind</span>\n  <span class=\"co\">--xs &gt;&gt;= f = concatMap f xs</span>\n  <span class=\"co\">--xs &gt;&gt;= f = concat (map f xs)</span></code></pre>\n<p>But wait, there\'s more. How about proving that all Lists are monoids too?</p>\n<pre class=\"sourceCode Haskell\"><code class=\"sourceCode haskell\"><span class=\"kw\">instance</span> <span class=\"dt\">Monoid</span> [] <span class=\"kw\">where</span>\n  mempty <span class=\"fu\">=</span> []\n  mappend <span class=\"fu\">=</span> (<span class=\"fu\">++</span>)\n  mconcat <span class=\"fu\">=</span> concat <span class=\"co\">-- or join, whatever floats your boat</span></code></pre>\n<p>The definition of <code>return</code> should stand on its own. The definition of bind for lists is the truly interesting part of the typeclass. It takes a list in the left, then applies the function f and concats all the results together. This is where the confusion of monads with containers comes from. Monads <em>are</em> things that can be mapped over, but that is by nature of their structure. It is not a defining trait.</p>\n<h2 id=\"all-together-now\">All Together Now</h2>\n<p>So, now that we have all of our mappings from Monoids to Monads, let\'s derive sequencing. After all, what good are side effects if you can’t sequence? One important thing about monads is that they have “no way out” of the monad. If we could &quot;escape&quot; the monad, then it wouldn’t be an endofunctor, just a plain old functor! This is reflected in the all the function types in the monoid typeclass as well. There is no notion of any other type but “a”, nor should there be (it would violate the closure law). Just as there is no notion of pulling values out of the monad or switching monads willy-nilly. For that we have comonads and functors, and those requires their own treatises.</p>\n<p>Sequencing monads together (chaining) is accomplished by those scary looking arrow things you’ve seen once or twice denoted</p>\n<pre class=\"sourceCode Haskell\"><code class=\"sourceCode haskell\"><span class=\"ot\">(&gt;&gt;=) ::</span> (<span class=\"dt\">Monad</span> m) <span class=\"ot\">=&gt;</span> m a <span class=\"ot\">-&gt;</span> (a <span class=\"ot\">-&gt;</span> m b) <span class=\"ot\">-&gt;</span> m b</code></pre>\n<p>and</p>\n<pre><code>(&gt;&gt;) :: (Monad m) =&gt; m a -&gt; m b -&gt; m b</code></pre>\n<p>The first is pronounced “bind”, the second, “sequence”. From bind’s type, it’s easy to see what it does:</p>\n<p>First, it extracts the value from the monad to its left, applies the function to its right to that value, then gives you back the same monad with a changed value. Notice how there is no escape from the monad (m) part of the types, and there is no hopping between monads. The monad bind produces is the same one that went in, all that changed is the value it’s indexed by.</p>\n<p>Sequence can also be inferred from its type. It takes the monad to the left, evaluates whatever’s in it, discards the result, then evaluates the monad to the right and returns it. Sounds complicated, but we also have the exact same thing built into nearly every C-like language: the comma operator. In C, <code>f(), g();</code> calls f, throws away the result, then calls g and makes the result of the entire expression its return value.</p>\n<p>From there, all other operators are conveniences derived from the basic monad operators and the ones we discussed. Sequencing monads is so important that bind is a part of the minimal complete definition of a Haskell monad.</p>\n<h2 id=\"but-those-diagrams-doe\">But Those Diagrams Doe</h2>\n<p>Those are commutative digrams, commonplace in any field involving lots of functions. The first is called the associativity square, and all it says is that if I have some monad in a monad in a monad... ad nauseum, that I can keep <code>join</code>ing until I get to a single unnested monad with all of the previous values <code>mconcat</code>\'ed (or similarly) inside.</p>\n<p>This is trivial to illustrate with the List monad.</p>\n<p>Here\'s our monad in a monad in a monad...</p>\n<pre class=\"sourceCode Haskell\"><code class=\"sourceCode haskell\"><span class=\"kw\">let</span> l <span class=\"fu\">=</span> [[[<span class=\"st\">&quot;a&quot;</span>, <span class=\"st\">&quot;b&quot;</span>, <span class=\"st\">&quot;c&quot;</span>], [<span class=\"st\">&quot;d&quot;</span>, <span class=\"st\">&quot;e&quot;</span>, <span class=\"st\">&quot;f&quot;</span>], [<span class=\"st\">&quot;g&quot;</span>, <span class=\"st\">&quot;h&quot;</span>, <span class=\"st\">&quot;i&quot;</span>]], [[<span class=\"st\">&quot;j&quot;</span>, <span class=\"st\">&quot;k&quot;</span>, <span class=\"st\">&quot;l&quot;</span>], [<span class=\"st\">&quot;m&quot;</span>, <span class=\"st\">&quot;n&quot;</span>, <span class=\"st\">&quot;o&quot;</span>], [<span class=\"st\">&quot;p&quot;</span>, <span class=\"st\">&quot;q&quot;</span>, <span class=\"st\">&quot;r&quot;</span>]]]</code></pre>\n<p>The left and down arrows say that if I run <code>join</code> across this list, that it\'ll take away a pair of brackets.</p>\n<pre class=\"sourceCode Haskell\"><code class=\"sourceCode haskell\">join l\n<span class=\"fu\">&gt;</span> [[<span class=\"st\">&quot;a&quot;</span>,<span class=\"st\">&quot;b&quot;</span>,<span class=\"st\">&quot;c&quot;</span>],[<span class=\"st\">&quot;d&quot;</span>,<span class=\"st\">&quot;e&quot;</span>,<span class=\"st\">&quot;f&quot;</span>],[<span class=\"st\">&quot;g&quot;</span>,<span class=\"st\">&quot;h&quot;</span>,<span class=\"st\">&quot;i&quot;</span>],[<span class=\"st\">&quot;j&quot;</span>,<span class=\"st\">&quot;k&quot;</span>,<span class=\"st\">&quot;l&quot;</span>],[<span class=\"st\">&quot;m&quot;</span>,<span class=\"st\">&quot;n&quot;</span>,<span class=\"st\">&quot;o&quot;</span>],[<span class=\"st\">&quot;p&quot;</span>,<span class=\"st\">&quot;q&quot;</span>,<span class=\"st\">&quot;r&quot;</span>]]</code></pre>\n<p>Repetez!</p>\n<pre class=\"sourceCode Haskell\"><code class=\"sourceCode haskell\">join <span class=\"fu\">$</span> join l\n<span class=\"fu\">&gt;</span> [<span class=\"st\">&quot;a&quot;</span>,<span class=\"st\">&quot;b&quot;</span>,<span class=\"st\">&quot;c&quot;</span>,<span class=\"st\">&quot;d&quot;</span>,<span class=\"st\">&quot;e&quot;</span>,<span class=\"st\">&quot;f&quot;</span>,<span class=\"st\">&quot;g&quot;</span>,<span class=\"st\">&quot;h&quot;</span>,<span class=\"st\">&quot;i&quot;</span>,<span class=\"st\">&quot;j&quot;</span>,<span class=\"st\">&quot;k&quot;</span>,<span class=\"st\">&quot;l&quot;</span>,<span class=\"st\">&quot;m&quot;</span>,<span class=\"st\">&quot;n&quot;</span>,<span class=\"st\">&quot;o&quot;</span>,<span class=\"st\">&quot;p&quot;</span>,<span class=\"st\">&quot;q&quot;</span>,<span class=\"st\">&quot;r&quot;</span>]</code></pre>\n<p>And finally</p>\n<pre class=\"sourceCode Haskell\"><code class=\"sourceCode haskell\">join <span class=\"fu\">$</span> join <span class=\"fu\">$</span> join l\n<span class=\"fu\">&gt;</span> <span class=\"st\">&quot;abcdefghijklmnopqr&quot;</span></code></pre>\n<p>You can think of the exponents next to the T as the number of brackets you have to <code>join</code> to reach some &quot;minimal monad&quot; for which no more extraneous structure can be removed.</p>\n<p>The second is the unit triangle. It says that we can take our monad, add &quot;another set of brackets&quot; with <code>η</code> on the left or right, then <code>join</code> (<code>μ</code>) it and get the same thing back. This translates to Haskell as</p>\n<pre class=\"sourceCode Haskell\"><code class=\"sourceCode haskell\">join return <span class=\"fu\">$</span> return <span class=\"dv\">5</span>\n<span class=\"fu\">&gt;</span> <span class=\"dv\">5</span></code></pre>\n<p>What this means practically is that <code>join return</code> is an identity operation!</p>\n</p>\n\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+   "5:8");
+   var main = A4(Signal.lift3,
+   Website.Blog.Skeleton.generatePost,
+   Window.dimensions,
+   Signal.constant("Monards"),
+   Signal.constant(post));
+   _elm.Main.values = {_op: _op
+                      ,post: post
+                      ,main: main};
+   return _elm.Main.values;
+};Elm.Website = Elm.Website || {};
+Elm.Website.Blog = Elm.Website.Blog || {};
+Elm.Website.Blog.Skeleton = Elm.Website.Blog.Skeleton || {};
+Elm.Website.Blog.Skeleton.make = function (_elm) {
+   "use strict";
+   _elm.Website = _elm.Website || {};
+   _elm.Website.Blog = _elm.Website.Blog || {};
+   _elm.Website.Blog.Skeleton = _elm.Website.Blog.Skeleton || {};
+   if (_elm.Website.Blog.Skeleton.values)
+   return _elm.Website.Blog.Skeleton.values;
+   var _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Website.Blog.Skeleton";
+   var Basics = Elm.Basics.make(_elm);
+   var Color = Elm.Color.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Element = Elm.Graphics.Element.make(_elm);
+   var List = Elm.List.make(_elm);
+   var Maybe = Elm.Maybe.make(_elm);
+   var Native = Native || {};
+   Native.Json = Elm.Native.Json.make(_elm);
+   var Native = Native || {};
+   Native.Ports = Elm.Native.Ports.make(_elm);
+   var Signal = Elm.Signal.make(_elm);
+   var String = Elm.String.make(_elm);
+   var Text = Elm.Text.make(_elm);
+   var Time = Elm.Time.make(_elm);
+   var Website = Website || {};
+   Website.Blog = Website.Blog || {};
+   Website.Blog.Formatting = Elm.Website.Blog.Formatting.make(_elm);
+   var Window = Elm.Window.make(_elm);
+   var _op = {};
+   var generateImagefulPost = F4(function (_v0,
+   t,
+   im,
+   postBody) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var titleHeight = Graphics.Element.heightOf(Website.Blog.Formatting.formatTitleText(t));
+                 var bodyHeight = Graphics.Element.heightOf(A2(Graphics.Element.width,
+                 500,
+                 postBody));
+                 return A2(Graphics.Element.flow,
+                 Graphics.Element.down,
+                 _L.fromArray([Graphics.Element.color(A3(Color.rgb,
+                              57,
+                              74,
+                              85))(A4(Graphics.Element.container,
+                              A2(Basics.max,300,_v0._0),
+                              60,
+                              Graphics.Element.midLeft,
+                              A3(Website.Blog.Formatting.formatImagefulTitle,
+                              {ctor: "_Tuple2"
+                              ,_0: _v0._0
+                              ,_1: 60},
+                              "  CF",
+                              im)))
+                              ,A2(Graphics.Element.spacer,
+                              A2(Basics.max,300,_v0._0),
+                              100)
+                              ,Graphics.Element.height(160)(A4(Graphics.Element.container,
+                              _v0._0,
+                              titleHeight,
+                              Graphics.Element.midTop,
+                              Website.Blog.Formatting.formatTitleText(t)))
+                              ,A4(Graphics.Element.container,
+                              _v0._0,
+                              bodyHeight,
+                              Graphics.Element.midTop,
+                              A2(Graphics.Element.width,
+                              A2(Basics.min,550,_v0._0),
+                              postBody))
+                              ,A2(Graphics.Element.spacer,
+                              A2(Basics.max,300,_v0._0),
+                              30)]));
+              }();}
+         _E.Case($moduleName,
+         "between lines 18 and 25");
+      }();
+   });
+   var generatePost = F3(function (_v4,
+   t,
+   postBody) {
+      return function () {
+         switch (_v4.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var titleHeight = Graphics.Element.heightOf(Website.Blog.Formatting.formatTitleText(t));
+                 var bodyHeight = Graphics.Element.heightOf(A2(Graphics.Element.width,
+                 500,
+                 postBody));
+                 return A2(Graphics.Element.flow,
+                 Graphics.Element.down,
+                 _L.fromArray([Graphics.Element.color(A3(Color.rgb,
+                              57,
+                              74,
+                              85))(A4(Graphics.Element.container,
+                              A2(Basics.max,500,_v4._0),
+                              60,
+                              A2(Graphics.Element.midLeftAt,
+                              Graphics.Element.absolute(10),
+                              Graphics.Element.absolute(30)),
+                              Website.Blog.Formatting.title("  CF")))
+                              ,A2(Graphics.Element.spacer,
+                              A2(Basics.max,300,_v4._0),
+                              100)
+                              ,Graphics.Element.height(160)(A4(Graphics.Element.container,
+                              _v4._0,
+                              titleHeight,
+                              Graphics.Element.midTop,
+                              Website.Blog.Formatting.formatTitleText(t)))
+                              ,A4(Graphics.Element.container,
+                              _v4._0,
+                              bodyHeight,
+                              Graphics.Element.midTop,
+                              A2(Graphics.Element.width,
+                              A2(Basics.min,550,_v4._0),
+                              postBody))
+                              ,A2(Graphics.Element.spacer,
+                              A2(Basics.max,300,_v4._0),
+                              30)]));
+              }();}
+         _E.Case($moduleName,
+         "between lines 8 and 15");
+      }();
+   });
+   _elm.Website.Blog.Skeleton.values = {_op: _op
+                                       ,generatePost: generatePost
+                                       ,generateImagefulPost: generateImagefulPost};
+   return _elm.Website.Blog.Skeleton.values;
+};Elm.Website = Elm.Website || {};
+Elm.Website.Blog = Elm.Website.Blog || {};
+Elm.Website.Blog.Formatting = Elm.Website.Blog.Formatting || {};
+Elm.Website.Blog.Formatting.make = function (_elm) {
+   "use strict";
+   _elm.Website = _elm.Website || {};
+   _elm.Website.Blog = _elm.Website.Blog || {};
+   _elm.Website.Blog.Formatting = _elm.Website.Blog.Formatting || {};
+   if (_elm.Website.Blog.Formatting.values)
+   return _elm.Website.Blog.Formatting.values;
+   var _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Website.Blog.Formatting";
+   var Basics = Elm.Basics.make(_elm);
+   var Color = Elm.Color.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
+   var Graphics = Graphics || {};
+   Graphics.Element = Elm.Graphics.Element.make(_elm);
+   var List = Elm.List.make(_elm);
+   var Maybe = Elm.Maybe.make(_elm);
+   var Native = Native || {};
+   Native.Json = Elm.Native.Json.make(_elm);
+   var Native = Native || {};
+   Native.Ports = Elm.Native.Ports.make(_elm);
+   var Signal = Elm.Signal.make(_elm);
+   var String = Elm.String.make(_elm);
+   var Text = Elm.Text.make(_elm);
+   var Time = Elm.Time.make(_elm);
+   var _op = {};
+   var formatTitleText = function (s) {
+      return Text.asText(Text.color(A3(Color.rgb,
+      94,
+      94,
+      93))(Text.height(36)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(s)))));
+   };
+   var title = function (t) {
+      return Graphics.Element.layers(_L.fromArray([A3(Graphics.Collage.collage,
+                                                  100,
+                                                  50,
+                                                  _L.fromArray([Graphics.Collage.move({ctor: "_Tuple2"
+                                                                                      ,_0: -20
+                                                                                      ,_1: 3})(A2(Graphics.Collage.filled,
+                                                  A3(Color.rgb,34,48,54),
+                                                  Graphics.Collage.circle(24)))]))
+                                                  ,Graphics.Element.link("http://www.codafi.me")(Text.asText(Text.color(A3(Color.rgb,
+                                                  132,
+                                                  151,
+                                                  161))(Text.height(24)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(t))))))]));
+   };
+   var formatImagefulTitle = F3(function (_v0,
+   t,
+   im) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return A2(Graphics.Element.flow,
+              Graphics.Element.outward,
+              _L.fromArray([A3(Graphics.Element.fittedImage,
+                           _v0._0,
+                           _v0._1,
+                           im)
+                           ,A4(Graphics.Element.container,
+                           100,
+                           _v0._1,
+                           A2(Graphics.Element.topLeftAt,
+                           Graphics.Element.absolute(10),
+                           Graphics.Element.absolute(4)),
+                           title(t))]));}
+         _E.Case($moduleName,
+         "between lines 10 and 12");
+      }();
+   });
+   _elm.Website.Blog.Formatting.values = {_op: _op
+                                         ,title: title
+                                         ,formatImagefulTitle: formatImagefulTitle
+                                         ,formatTitleText: formatTitleText};
+   return _elm.Website.Blog.Formatting.values;
+};</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Main)</script><noscript></noscript></body></html>
