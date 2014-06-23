@@ -91,7 +91,7 @@ Elm.Main.make = function (_elm) {
                            title("  CF")))
                            ,A4(Graphics.Element.container,
                            A2(Basics.max,500,_v0._0),
-                           135,
+                           105,
                            Graphics.Element.topLeft,
                            Graphics.Element.width(_v0._0)(A3(box,
                            monardsTitle,
@@ -99,7 +99,7 @@ Elm.Main.make = function (_elm) {
                            _v0._0)))
                            ,A4(Graphics.Element.container,
                            A2(Basics.max,500,_v0._0),
-                           135,
+                           105,
                            Graphics.Element.topLeft,
                            Graphics.Element.width(_v0._0)(A3(box,
                            errorHandlingTitle,
@@ -107,7 +107,7 @@ Elm.Main.make = function (_elm) {
                            _v0._0)))
                            ,A4(Graphics.Element.container,
                            A2(Basics.max,500,_v0._0),
-                           135,
+                           105,
                            Graphics.Element.topLeft,
                            Graphics.Element.width(_v0._0)(A3(box,
                            intercalTitle,
@@ -115,8 +115,10 @@ Elm.Main.make = function (_elm) {
                            _v0._0)))
                            ,A4(Graphics.Element.container,
                            A2(Basics.max,500,_v0._0),
-                           135,
-                           Graphics.Element.topLeft,
+                           105,
+                           A2(Graphics.Element.midLeftAt,
+                           Graphics.Element.absolute(0),
+                           Graphics.Element.absolute(60)),
                            Graphics.Element.width(_v0._0)(A3(box,
                            helloWorldTitle,
                            "http://codafi.me/blog/HelloWorld.html",

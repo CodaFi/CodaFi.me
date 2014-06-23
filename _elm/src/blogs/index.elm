@@ -43,10 +43,10 @@ title t = layers [ collage 100 50 [ filled (rgb 34 48 54) (circle 24) |> move (-
                    
                    
 scene (w,h) = flow down [ container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (title "  CF") |> color (rgb 57 74 85),
-                          container (max 500 w) 135 topLeft (box monardsTitle "http://codafi.me/blog/Monards.html" w |> width w),
-                          container (max 500 w) 135 topLeft (box errorHandlingTitle "http://codafi.me/blog/Error-Handling.html" w |> width w), 
-                          container (max 500 w) 135 topLeft (box intercalTitle "http://codafi.me/blog/INTERCAL.html" w |> width w), 
-                          container (max 500 w) 135 topLeft (box helloWorldTitle "http://codafi.me/blog/HelloWorld.html" w |> width w) 
+                          container (max 500 w) 105 topLeft (box monardsTitle "http://codafi.me/blog/Monards.html" w |> width w),
+                          container (max 500 w) 105 topLeft (box errorHandlingTitle "http://codafi.me/blog/Error-Handling.html" w |> width w), 
+                          container (max 500 w) 105 topLeft (box intercalTitle "http://codafi.me/blog/INTERCAL.html" w |> width w), 
+                          container (max 500 w) 105 (midLeftAt (absolute 0) (absolute 60)) (box helloWorldTitle "http://codafi.me/blog/HelloWorld.html" w |> width w) 
                         ]
 
 box e l w =
