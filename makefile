@@ -1,5 +1,5 @@
 CC=elm
-CFLAGS=--cache-dir="_elm/cache" --build-dir="_elm/build" --src-dir="_elm" --set-runtime="_elm/elm-runtime.js" --make
+CFLAGS=--cache-dir="_elm/cache" --build-dir="_elm/build" --src-dir="_elm" --set-runtime="elm-runtime.js" --make
 SRC=./_elm
 
 all: CodaFi Error404 BlogIndex HelloWorldBlog INTERCALBlog ErrorBlog MonardsBlog
