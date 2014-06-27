@@ -3,8 +3,8 @@ module Website.Blog.Formatting where
 import Graphics.Element as El
 
 title : String -> Element
-title t = layers [ collage 100 50 [ filled (rgb 34 48 54) (circle 24) |> move (-20, 3) ],
-                   flow down [spacer 0 8,
+title t = layers [ collage 100 50 [ filled (rgb 34 48 54) (circle 24) |> move (-20, 0) ],
+                   flow down [spacer 0 12,
                               (toText t) |> typeface ["Helvetica-Bold"] |> Text.height (24) |> Text.color (rgb 132 151 161) |> Text.justified  |> El.link "http://www.codafi.me"
                    ]
                  ]
