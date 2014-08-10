@@ -35,10 +35,10 @@ In which we question the reason for this blog's inception.
 |]
                    
 scene (w,h) = flow down [ container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (Format.title "  CF") |> color (rgb 57 74 85),
-                          container (max 500 w) 105 topLeft (box monardsTitle "http://codafi.me/blog/Monards.html" w |> width w),
-                          container (max 500 w) 105 topLeft (box errorHandlingTitle "http://codafi.me/blog/Error-Handling.html" w |> width w), 
-                          container (max 500 w) 105 topLeft (box intercalTitle "http://codafi.me/blog/INTERCAL.html" w |> width w), 
-                          container (max 500 w) 105 (midLeftAt (absolute 0) (absolute 60)) (box helloWorldTitle "http://codafi.me/blog/HelloWorld.html" w |> width w) 
+                          container (max 500 w) 105 topLeft (box monardsTitle "http://λπω.com/blog/Monards.html" w |> width w),
+                          container (max 500 w) 105 topLeft (box errorHandlingTitle "http://λπω.com/blog/Error-Handling.html" w |> width w), 
+                          container (max 500 w) 105 topLeft (box intercalTitle "http://λπω.com/blog/INTERCAL.html" w |> width w), 
+                          container (max 500 w) 105 (midLeftAt (absolute 0) (absolute 60)) (box helloWorldTitle "http://λπω.com/blog/HelloWorld.html" w |> width w) 
                         ]
 
 box e l w =
