@@ -48,15 +48,44 @@ Elm.Main.make = function (_elm) {
                            Graphics.Element.absolute(10),
                            Graphics.Element.absolute(30)),
                            Website.Blog.Formatting.title("  CF")))
+                           ,A2(Graphics.Element.spacer,
+                           _v0._0,
+                           300)
                            ,A3(Graphics.Element.container,
                            _v0._0,
-                           _v0._1,
+                           300,
                            Graphics.Element.middle)(Text.justified(Text.color(A3(Color.rgb,
                            94,
                            94,
-                           93))(Text.height(200)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText("λ∏ω"))))))]));}
+                           93))(Text.height(200)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(" λ∏ω"))))))
+                           ,A3(Graphics.Element.container,
+                           _v0._0,
+                           60,
+                           Graphics.Element.middle)(A2(Graphics.Element.flow,
+                           Graphics.Element.right,
+                           _L.fromArray([A3(Graphics.Element.container,
+                                        180,
+                                        60,
+                                        Graphics.Element.midLeft)(Text.justified(Text.link("λ∏ω.com/blog")(Text.color(A3(Color.rgb,
+                                        94,
+                                        94,
+                                        93))(Text.height(36)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText("blog")))))))
+                                        ,A3(Graphics.Element.container,
+                                        200,
+                                        60,
+                                        Graphics.Element.middle)(Text.justified(Text.link("https://github.com/CodaFi")(Text.color(A3(Color.rgb,
+                                        94,
+                                        94,
+                                        93))(Text.height(36)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText("projects")))))))
+                                        ,A3(Graphics.Element.container,
+                                        180,
+                                        60,
+                                        Graphics.Element.midRight)(Text.justified(Text.link("λ∏ω.com/About-Me")(Text.color(A3(Color.rgb,
+                                        94,
+                                        94,
+                                        93))(Text.height(36)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText("about")))))))])))]));}
          _E.Case($moduleName,
-         "between lines 6 and 12");
+         "between lines 6 and 33");
       }();
    };
    var main = A2(Signal.lift,
