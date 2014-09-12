@@ -50,13 +50,15 @@ Elm.Main.make = function (_elm) {
       }();
    });
    var helloWorldTitle = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px; margin-top:0px;\">\nHello World\n</h2>\n\n<p><span style=\"margin-left:24px;\"> In which we question the reason for this blog\'s inception. </span></p><div style=\"height:0;width:0;\">&nbsp;</div>",
-   "29:19");
+   "38:19");
    var intercalTitle = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">\nVariations on a RoCocoa Theme\n</h2>\n\n<p><span style=\"margin-left:24px;\"> In which the relevance of Esolangs is examined. </span></p><div style=\"height:0;width:0;\">&nbsp;</div>",
-   "21:17");
+   "30:17");
    var errorHandlingTitle = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">\nError Handling\n</h2>\n\n<p><span style=\"margin-left:24px;\"> In which the BSOD is praised for its innovative qualities. </span></p><div style=\"height:0;width:0;\">&nbsp;</div>",
-   "13:22");
+   "22:22");
    var monardsTitle = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">\nMonads Made Hard, Then Simple, Then Easy\n</h2>\n\n<p><span style=\"margin-left:24px;\"> In which we eschew aphoristic comparisons. Because Monards. </span></p><div style=\"height:0;width:0;\">&nbsp;</div>",
-   "5:16");
+   "14:16");
+   var fpInSwiftIntroTitle = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">\nFP in Swi... Compilation Aborted: SEGFAULT\n</h2>\n\n<p><span style=\"margin-left:24px;\"> In which we begin something new and exciting. </span></p><div style=\"height:0;width:0;\">&nbsp;</div>",
+   "5:23");
    var scene = function (_v0) {
       return function () {
          switch (_v0.ctor)
@@ -73,6 +75,14 @@ Elm.Main.make = function (_elm) {
                            Graphics.Element.absolute(10),
                            Graphics.Element.absolute(30)),
                            Website.Blog.Formatting.title("  CF")))
+                           ,A4(Graphics.Element.container,
+                           A2(Basics.max,500,_v0._0),
+                           105,
+                           Graphics.Element.topLeft,
+                           Graphics.Element.width(_v0._0)(A3(box,
+                           fpInSwiftIntroTitle,
+                           "http://λπω.com/blog/FP-In-Swift.html",
+                           _v0._0)))
                            ,A4(Graphics.Element.container,
                            A2(Basics.max,500,_v0._0),
                            105,
@@ -108,13 +118,14 @@ Elm.Main.make = function (_elm) {
                            "http://λπω.com/blog/HelloWorld.html",
                            _v0._0)))]));}
          _E.Case($moduleName,
-         "between lines 37 and 42");
+         "between lines 46 and 52");
       }();
    };
    var main = A2(Signal.lift,
    scene,
    Window.dimensions);
    _elm.Main.values = {_op: _op
+                      ,fpInSwiftIntroTitle: fpInSwiftIntroTitle
                       ,monardsTitle: monardsTitle
                       ,errorHandlingTitle: errorHandlingTitle
                       ,intercalTitle: intercalTitle
