@@ -15,7 +15,7 @@ scene (w, h) = flow down [container (max 500 w) 60 (midLeftAt (absolute 10) (abs
                                                       typeface ["Helvetica-Bold"] |>
                                                       Text.height (36) |>
                                                       Text.color (rgb 94 94 93) |>
-                                                      Text.link  "λ∏ω.com/blog" |>
+                                                      Text.link  "http://λ∏ω.com/blog" |>
                                                       Text.justified),
                                        container 200 (60) middle   <| (toText "projects" |>
                                                       typeface ["Helvetica-Bold"] |>
@@ -27,7 +27,7 @@ scene (w, h) = flow down [container (max 500 w) 60 (midLeftAt (absolute 10) (abs
                                                       typeface ["Helvetica-Bold"] |>
                                                       Text.height (36) |>
                                                       Text.color (rgb 94 94 93) |>
-                                                      Text.link  "λ∏ω.com/About-Me" |>
+                                                      Text.link  "http://λ∏ω.com/About-Me" |>
                                                       Text.justified)
                                      ]
                          ]
