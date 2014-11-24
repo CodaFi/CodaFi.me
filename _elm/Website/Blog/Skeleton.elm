@@ -20,7 +20,7 @@ generatePost (w,h) t postBody = let bodyHeight = heightOf (width 500 postBody)
 generateImagefulPost : (Int, Int) -> String -> String -> Element -> Element
 generateImagefulPost (w,h) t im postBody = let bodyHeight = heightOf (width 500 postBody)
                                                titleHeight = heightOf (Fmt.formatTitleText t)
-                                           in flow down [ titlebar w (Fmt.formatImagefulTitle (w,60) im "  CF"),
+                                           in flow down [ titlebar w (Fmt.formatImagefulTitle (w,60) "  CF" im),
                                                           spacer (max 300 w) 100,
                                                           container w titleHeight midTop (Fmt.formatTitleText t) |> El.height 160,                             
                                                           container w bodyHeight midTop (width (min 550 w) postBody),
