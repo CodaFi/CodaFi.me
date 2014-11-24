@@ -67,7 +67,7 @@ func idiotstar<A, B>(f: A -> B) -> A -> B {
 }
 ```
 
-Here we also define its cousin, the Trush, which does the same thing but with its arguments flipped.
+Here we also define its cousin, the Thrush, which does the same thing but with its arguments flipped.
 
 ```
 func thrush<A, B>(x : A) -> (A -> B) -> B {
@@ -105,7 +105,7 @@ func psi<A, B, C>(f : (B -> B -> C)) -> (A -> B) -> A -> A -> C {
 
 There's a veritable [Aviary of Birds](https://gist.github.com/CodaFi/10afdd77e42bb8ad18ab) that can be written in terms of the S and K combinators.  Going further, every function ever written has just been S's and K's hidden by syntax and abstractions we all take for granted.  This is because the SKI calculus (or a calculus literally consisting of Starlings, Kestrels, and Idiots) is Turing Complete. 
 
-But this interdefinability is precisely what makes combinators so powerful.  They're neat little atomic units of computation that can be strung together with ease.  As we've shown here today, all it takes it just a little creativity and some function application and you can do anything.  After all, that's one of the underlying principles behind declarative programming: we can build bigger better things vertically rather than horizontally.  Let your types worry about the plumbing and start throwing birds around until something works!    
+But this interdefinability is precisely what makes combinators so powerful.  They're neat little atomic units of computation that can be strung together to make bigger, more useful units.  As we've shown here today, all it takes it just a little creativity and some function application and you can do anything.  After all, that's one of the underlying principles behind declarative programming: we can build bigger better things vertically rather than horizontally.  Let your types worry about the plumbing and start throwing birds around until something works!    
 
 </p>
 |]
