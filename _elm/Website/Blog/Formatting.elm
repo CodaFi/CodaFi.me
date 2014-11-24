@@ -5,7 +5,7 @@ import Text as T
 
 title : String -> Element
 title t = layers [ collage 100 50 [ filled (rgb 34 48 54) (circle 24) |> move (-20, 0) ],
-                   flow down [spacer 0 12,
+                   flow down [spacer 0 16,
                               (toText t) |> typeface ["Helvetica-Bold"] 
                                          |> T.height 24 
                                          |> T.color (rgb 132 151 161) 

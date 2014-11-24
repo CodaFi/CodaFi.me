@@ -3,7 +3,7 @@ import Website.Blog.Skeleton as Blog
 
 post : Element
 post = [markdown|
-##Programming is mathematics.
+## Programming is mathematics.
 
 To say otherwise is blasphemous.  Machines engineered from the ground up exploiting the spin of electrons to light up pixels for our amusement do not arise through anything other than mathematical processes.  It stands to reason then, that those machines run a flexible logic to produce results that we call "computation".  Arbitrary computation powers the world around us.  It enriches our lives and makes them easier, more fulfilling, more productive.
 

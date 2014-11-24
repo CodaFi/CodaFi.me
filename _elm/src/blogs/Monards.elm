@@ -5,13 +5,13 @@ post : Element
 post = [markdown|
 <p>
 
-##A (Haskell) Monad Is...
+## A (Haskell) Monad Is...
 
 A monoid in the category of endofunctors...
 
 Such that the following diagrams commute
 
-##Mu Reduction
+## Mu Reduction
 
 ```
          μT
@@ -24,7 +24,7 @@ Such that the following diagrams commute
          μ
 ```
 
-##Eta Introduction and Elmination
+## Eta Introduction and Elmination
 
 ```
     ηT       Tη
@@ -36,11 +36,11 @@ Tx ---> T²x <--- Tx
          Tx
 ```
 
-##WTF
+## WTF
 
 They're just an application of category theory.  When a mathematician says something is *in* something else, they mean that all the laws that the thing on the left obeys get shoved into the thing on the right, and it also gains some neat other functions in the process.
 
-##Monoids
+## Monoids
 
 A monoid is a Set of stuff (we'll call S for now), and a 2-ary operator `•` (dot) that does composition of elements in S, and an `identity element` (called `e`) which does nothing to the other operand of `•` when used.  For the natural numbers, we can call `•`, "+" and `identity element`, "0", then go on to prove things about addition.  In fact, what we can prove are precisely the monoid laws.
 
@@ -68,7 +68,7 @@ class Monoid a where
 
 Everything fits into place, and without one you can't have any of the others.
 
-##Monards
+## Monards
 
 Now, we do the same thing with monads.  But what is a monad?
 
@@ -100,7 +100,7 @@ Replace the `m`’s with `[ ]`’s and you can translate between one and the oth
 
 What this means is that we can *encode* the monoid laws in a monad and still have all the benefits of being called Monoids.
 
-##Lists Are Monads
+## Lists Are Monads
 
 Let's prove homogenous lists (`List a`, or in Haskell-ese `[a]`) are monads by providing a suitable implementation of the monad typeclass.
 
@@ -125,7 +125,7 @@ instance Monoid [] where
 
 The definition of `return` should stand on its own.  The definition of bind for lists is the truly interesting part of the typeclass.  It takes a list in the left, then applies the function f and concats all the results together.  This is where the confusion of monads with containers comes from.  Monads *are* things that can be mapped over, but that is by nature of their structure.  It is not a defining trait.
 
-##All Together Now
+## All Together Now
 
 So, now that we have all of our mappings from Monoids to Monads, let's derive sequencing.  After all, what good are side effects if you can’t sequence?  One important thing about monads is that they have “no way out” of the monad.  If we could "escape" the monad, then it wouldn’t be an endofunctor, just a plain old functor!  This is reflected in the all the function types in the monoid typeclass as well.  There is no notion of any other type but “a”, nor should there be (it would violate the closure law).  Just as there is no notion of pulling values out of the monad or switching monads willy-nilly.  For that we have comonads and functors, and those requires their own treatises.
 
@@ -149,7 +149,7 @@ Sequence can also be inferred from its type.  It takes the monad to the left, ev
 
 From there, all other operators are conveniences derived from the basic monad operators and the ones we discussed.  Sequencing monads is so important that bind is a part of the minimal complete definition of a Haskell monad.
 
-##But Those Diagrams Doe
+## But Those Diagrams Doe
 
 Those are commutative digrams, commonplace in any field involving lots of functions.  The first is called the associativity square, and all it says is that if I have some monad in a monad in a monad... ad nauseum, that I can keep `join`ing until I get to a single unnested monad with all of the previous values `mconcat`'ed (or similarly) inside.
 

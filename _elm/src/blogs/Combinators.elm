@@ -5,11 +5,11 @@ post : Element
 post = [markdown|
 <p>
 
-##It's When You Put A Thing In A Thing And It's A Thing
+## It's When You Put A Thing In A Thing And It's A Thing
 
 A combinator is any function that lends itself well to, obviously, combinations.  They're functions that you can chain together to make larger, more important functions do heavy lifting.  But one of the coolest things about them is that you only need 3 to write any function at all.  To prove it to you, I'll define them and use them to build the rest of the [combinators in the Basis](https://github.com/typelift/Basis/blob/master/Basis/Combinator.swift).
 
-##Idiots, I'm Surrounded By Idiots
+## Idiots, I'm Surrounded By Idiots
 
 This first combinator is called I, id, identity, or (my favorite) the [Idiot Bird](http://www.angelfire.com/tx4/cus/combinator/birds.html).  It is the combinator that returns any argument that is given to it completely unevaluated.  Its definition is trivial:
 
@@ -19,7 +19,7 @@ func idiot<A>(x : A) -> A {
 }
 ```
 
-##Vanity Faire
+## Vanity Faire
 
 This combinator is called the K, const, constant, or Kestral Combinator.  It takes two arguments, completely ignores the second, and returns the first always.  That's why it's called constant: no matter what you give it as a second argument you'll always get back the first argument.  Its definition is less trivial than the Idiot Bird, but it is still quite simple:
 
@@ -29,7 +29,7 @@ func kestral<A, B>(a : A) -> B -> A {
 }
 ```
 
-##Birds of a Feather
+## Birds of a Feather
 
 The final combinator is called the S, or Starling combinator.  Serendipitously, it is also the definition of [fmap](http://hackage.haskell.org/package/base-4.7.0.1/docs/Prelude.html#v:fmap) for functions, but we'll get into that later.  It is complex at first glance, but what it does is quite simple.  It takes two functions, f and g, and a single argument compatible with the first part of both of them.  It then procedes to apply the function g to its argument, then apply the argument and the new g'd argument to f to give a result.  It's much easier to see it in code than in english, so:
 
@@ -39,7 +39,7 @@ func starling<A, B, C>(f : (A -> B -> C)) -> (A -> B) -> A -> C {
 }
 ```
 
-##The Fun Begins
+## The Fun Begins
 
 The first combinator we're going to build with our new gang of 3 is... id.  Yes, the Idiot Bird combinator, as it turns out, need not be a part of our gang because it can be defined using Starlings and Kestrals.
 
