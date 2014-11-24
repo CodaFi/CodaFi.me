@@ -5,9 +5,9 @@ post : Element
 post = [markdown|
 <p>
 
-## It's When You Put A Thing In A Thing And It's A Thing
+## Combine Harvester
 
-A combinator is any function that lends itself well to, obviously, combinations.  They're functions that you can chain together to make larger, more important functions do heavy lifting.  But one of the coolest things about them is that you only need 3 to write any function at all.  To prove it to you, I'll define them and use them to build the rest of the [combinators in the Basis](https://github.com/typelift/Basis/blob/master/Basis/Combinator.swift).
+A combinator is any function that lends itself well to, obviously, combinations.  They're functions that you can chain together to make larger, more important functions do heavy lifting with one caveat: they must only use the arguments given to them.  Global state, explicit variables, and mutation are forbidden in their definitions.  But one of the coolest things about them is that you only need 3 to write any other combinator at all.  To prove it to you, I'll define them and use them to build the rest of the [combinators in the Basis](https://github.com/typelift/Basis/blob/master/Basis/Combinator.swift).
 
 ## Idiots, I'm Surrounded By Idiots
 
@@ -103,9 +103,9 @@ func psi<A, B, C>(f : (B -> B -> C)) -> (A -> B) -> A -> A -> C {
 }
 ```   
 
-There's a veritable [Aviary of Birds](https://gist.github.com/CodaFi/10afdd77e42bb8ad18ab) that can be written in terms of the S and K combinators.  In fact, S and K are so important that every single combinator you or I or anyone else can ever write can be defined in terms of them.  Every function ever written has just been S's and K's hidden by syntax and abstractions we all take for granted.  
+There's a veritable [Aviary of Birds](https://gist.github.com/CodaFi/10afdd77e42bb8ad18ab) that can be written in terms of the S and K combinators.  Going further, every function ever written has just been S's and K's hidden by syntax and abstractions we all take for granted.  This is because the SKI calculus (or a calculus literally consisting of Starlings, Kestrels, and Idiots) is Turing Complete. 
 
-That's what makes combinators so powerful.  They're neat little atomic units of computation that can be strung together with ease.  As we've shown here today, all it takes it just a little creativity and some function application and you can do anything.  After all, that's one of the underlying principles behind declarative programming: we can build bigger better things vertically rather than horizontally.  Let your types worry about the plumbing and start throwing birds around until something works!    
+But this interdefinability is precisely what makes combinators so powerful.  They're neat little atomic units of computation that can be strung together with ease.  As we've shown here today, all it takes it just a little creativity and some function application and you can do anything.  After all, that's one of the underlying principles behind declarative programming: we can build bigger better things vertically rather than horizontally.  Let your types worry about the plumbing and start throwing birds around until something works!    
 
 </p>
 |]
