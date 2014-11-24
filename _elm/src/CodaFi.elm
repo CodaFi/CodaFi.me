@@ -1,10 +1,11 @@
 import Window
 import Graphics.Element as E
+import Website.Blog.Skeleton as S
 import Website.Blog.Formatting as Format
 import Text as T
 
 scene : (Int, Int) -> Element
-scene (w, h) = flow down [container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (Format.title "  CF") |> color (rgb 57 74 85),
+scene (w, h) = flow down [S.titlebar w (Format.title "  CF"),
                           spacer w 300,
                           container w 300 middle <| (toText " λ∏ω" |> typeface ["Helvetica-Bold"] 
                                                                    |> T.height (200) 

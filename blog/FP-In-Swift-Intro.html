@@ -50,9 +50,21 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
    $Color = Elm.Color.make(_elm),
    $Graphics$Element = Elm.Graphics.Element.make(_elm),
    $Website$Blog$Formatting = Elm.Website.Blog.Formatting.make(_elm);
-   var generateImagefulPost = F4(function (_v0,
+   var titlebar = F2(function (w,
+   t) {
+      return $Graphics$Element.color(A3($Color.rgb,
+      57,
+      74,
+      85))(A4($Graphics$Element.container,
+      A2($Basics.max,500,w),
+      60,
+      A2($Graphics$Element.midLeftAt,
+      $Graphics$Element.absolute(10),
+      $Graphics$Element.absolute(30)),
+      t));
+   });
+   var generatePost = F3(function (_v0,
    t,
-   im,
    postBody) {
       return function () {
          switch (_v0.ctor)
@@ -64,19 +76,7 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
                  postBody));
                  return A2($Graphics$Element.flow,
                  $Graphics$Element.down,
-                 _L.fromArray([$Graphics$Element.color(A3($Color.rgb,
-                              57,
-                              74,
-                              85))(A4($Graphics$Element.container,
-                              A2($Basics.max,300,_v0._0),
-                              60,
-                              $Graphics$Element.midLeft,
-                              A3($Website$Blog$Formatting.formatImagefulTitle,
-                              {ctor: "_Tuple2"
-                              ,_0: _v0._0
-                              ,_1: 60},
-                              "  CF",
-                              im)))
+                 _L.fromArray([titlebar(_v0._0)($Website$Blog$Formatting.title("  CF"))
                               ,A2($Graphics$Element.spacer,
                               A2($Basics.max,300,_v0._0),
                               100)
@@ -97,11 +97,12 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
                               30)]));
               }();}
          _E.Case($moduleName,
-         "between lines 18 and 25");
+         "between lines 11 and 18");
       }();
    });
-   var generatePost = F3(function (_v4,
+   var generateImagefulPost = F4(function (_v4,
    t,
+   im,
    postBody) {
       return function () {
          switch (_v4.ctor)
@@ -113,16 +114,14 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
                  postBody));
                  return A2($Graphics$Element.flow,
                  $Graphics$Element.down,
-                 _L.fromArray([$Graphics$Element.color(A3($Color.rgb,
-                              57,
-                              74,
-                              85))(A4($Graphics$Element.container,
-                              A2($Basics.max,500,_v4._0),
-                              60,
-                              A2($Graphics$Element.midLeftAt,
-                              $Graphics$Element.absolute(10),
-                              $Graphics$Element.absolute(30)),
-                              $Website$Blog$Formatting.title("  CF")))
+                 _L.fromArray([A2(titlebar,
+                              _v4._0,
+                              A3($Website$Blog$Formatting.formatImagefulTitle,
+                              {ctor: "_Tuple2"
+                              ,_0: _v4._0
+                              ,_1: 60},
+                              im,
+                              "  CF"))
                               ,A2($Graphics$Element.spacer,
                               A2($Basics.max,300,_v4._0),
                               100)
@@ -143,10 +142,11 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
                               30)]));
               }();}
          _E.Case($moduleName,
-         "between lines 8 and 15");
+         "between lines 21 and 28");
       }();
    });
    _elm.Website.Blog.Skeleton.values = {_op: _op
+                                       ,titlebar: titlebar
                                        ,generatePost: generatePost
                                        ,generateImagefulPost: generateImagefulPost};
    return _elm.Website.Blog.Skeleton.values;

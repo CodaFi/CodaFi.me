@@ -18,6 +18,7 @@ Elm.Main.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm),
    $Text = Elm.Text.make(_elm),
    $Website$Blog$Formatting = Elm.Website.Blog.Formatting.make(_elm),
+   $Website$Blog$Skeleton = Elm.Website.Blog.Skeleton.make(_elm),
    $Window = Elm.Window.make(_elm);
    var scene = function (_v0) {
       return function () {
@@ -25,16 +26,9 @@ Elm.Main.make = function (_elm) {
          {case "_Tuple2":
             return A2($Graphics$Element.flow,
               $Graphics$Element.down,
-              _L.fromArray([$Graphics$Element.color(A3($Color.rgb,
-                           57,
-                           74,
-                           85))(A4($Graphics$Element.container,
-                           A2($Basics.max,500,_v0._0),
-                           60,
-                           A2($Graphics$Element.midLeftAt,
-                           $Graphics$Element.absolute(10),
-                           $Graphics$Element.absolute(30)),
-                           $Website$Blog$Formatting.title("  CF")))
+              _L.fromArray([A2($Website$Blog$Skeleton.titlebar,
+                           _v0._0,
+                           $Website$Blog$Formatting.title("  CF"))
                            ,A2($Graphics$Element.spacer,
                            _v0._0,
                            300)
@@ -72,7 +66,7 @@ Elm.Main.make = function (_elm) {
                                         94,
                                         93))($Text.height(36)($Text.typeface(_L.fromArray(["Helvetica-Bold"]))($Text.toText("about")))))))])))]));}
          _E.Case($moduleName,
-         "between lines 7 and 30");
+         "between lines 8 and 31");
       }();
    };
    var main = A2($Signal.lift,
@@ -82,6 +76,127 @@ Elm.Main.make = function (_elm) {
                       ,scene: scene
                       ,main: main};
    return _elm.Main.values;
+};Elm.Website = Elm.Website || {};
+Elm.Website.Blog = Elm.Website.Blog || {};
+Elm.Website.Blog.Skeleton = Elm.Website.Blog.Skeleton || {};
+Elm.Website.Blog.Skeleton.make = function (_elm) {
+   "use strict";
+   _elm.Website = _elm.Website || {};
+   _elm.Website.Blog = _elm.Website.Blog || {};
+   _elm.Website.Blog.Skeleton = _elm.Website.Blog.Skeleton || {};
+   if (_elm.Website.Blog.Skeleton.values)
+   return _elm.Website.Blog.Skeleton.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Website.Blog.Skeleton",
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Website$Blog$Formatting = Elm.Website.Blog.Formatting.make(_elm);
+   var titlebar = F2(function (w,
+   t) {
+      return $Graphics$Element.color(A3($Color.rgb,
+      57,
+      74,
+      85))(A4($Graphics$Element.container,
+      A2($Basics.max,500,w),
+      60,
+      A2($Graphics$Element.midLeftAt,
+      $Graphics$Element.absolute(10),
+      $Graphics$Element.absolute(30)),
+      t));
+   });
+   var generatePost = F3(function (_v0,
+   t,
+   postBody) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var titleHeight = $Graphics$Element.heightOf($Website$Blog$Formatting.formatTitleText(t));
+                 var bodyHeight = $Graphics$Element.heightOf(A2($Graphics$Element.width,
+                 500,
+                 postBody));
+                 return A2($Graphics$Element.flow,
+                 $Graphics$Element.down,
+                 _L.fromArray([titlebar(_v0._0)($Website$Blog$Formatting.title("  CF"))
+                              ,A2($Graphics$Element.spacer,
+                              A2($Basics.max,300,_v0._0),
+                              100)
+                              ,$Graphics$Element.height(160)(A4($Graphics$Element.container,
+                              _v0._0,
+                              titleHeight,
+                              $Graphics$Element.midTop,
+                              $Website$Blog$Formatting.formatTitleText(t)))
+                              ,A4($Graphics$Element.container,
+                              _v0._0,
+                              bodyHeight,
+                              $Graphics$Element.midTop,
+                              A2($Graphics$Element.width,
+                              A2($Basics.min,550,_v0._0),
+                              postBody))
+                              ,A2($Graphics$Element.spacer,
+                              A2($Basics.max,300,_v0._0),
+                              30)]));
+              }();}
+         _E.Case($moduleName,
+         "between lines 11 and 18");
+      }();
+   });
+   var generateImagefulPost = F4(function (_v4,
+   t,
+   im,
+   postBody) {
+      return function () {
+         switch (_v4.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var titleHeight = $Graphics$Element.heightOf($Website$Blog$Formatting.formatTitleText(t));
+                 var bodyHeight = $Graphics$Element.heightOf(A2($Graphics$Element.width,
+                 500,
+                 postBody));
+                 return A2($Graphics$Element.flow,
+                 $Graphics$Element.down,
+                 _L.fromArray([A2(titlebar,
+                              _v4._0,
+                              A3($Website$Blog$Formatting.formatImagefulTitle,
+                              {ctor: "_Tuple2"
+                              ,_0: _v4._0
+                              ,_1: 60},
+                              im,
+                              "  CF"))
+                              ,A2($Graphics$Element.spacer,
+                              A2($Basics.max,300,_v4._0),
+                              100)
+                              ,$Graphics$Element.height(160)(A4($Graphics$Element.container,
+                              _v4._0,
+                              titleHeight,
+                              $Graphics$Element.midTop,
+                              $Website$Blog$Formatting.formatTitleText(t)))
+                              ,A4($Graphics$Element.container,
+                              _v4._0,
+                              bodyHeight,
+                              $Graphics$Element.midTop,
+                              A2($Graphics$Element.width,
+                              A2($Basics.min,550,_v4._0),
+                              postBody))
+                              ,A2($Graphics$Element.spacer,
+                              A2($Basics.max,300,_v4._0),
+                              30)]));
+              }();}
+         _E.Case($moduleName,
+         "between lines 21 and 28");
+      }();
+   });
+   _elm.Website.Blog.Skeleton.values = {_op: _op
+                                       ,titlebar: titlebar
+                                       ,generatePost: generatePost
+                                       ,generateImagefulPost: generateImagefulPost};
+   return _elm.Website.Blog.Skeleton.values;
 };Elm.Website = Elm.Website || {};
 Elm.Website.Blog = Elm.Website.Blog || {};
 Elm.Website.Blog.Formatting = Elm.Website.Blog.Formatting || {};
