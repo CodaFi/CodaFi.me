@@ -103,7 +103,9 @@ func psi<A, B, C>(f : (B -> B -> C)) -> (A -> B) -> A -> A -> C {
 }
 ```   
 
-There's a veritable [Aviary of Birds](https://gist.github.com/CodaFi/10afdd77e42bb8ad18ab) that can be written in terms of the S and K combinators.  In fact, S and K are so important that every single combinator you or I or anyone else can ever write can be defined in terms of them.  Every function ever written has just been S's and K's hidden by syntax and abstractions we all take for granted.  That's what makes them so powerful.  A combinator is a nearly atomic unit of computation that can be strung together with ease.  As we've shown here today, all it takes it just a little creativity and some function application and you can do anything.  That's one of the underlying principles behind declarative programming: we can build bigger better things vertically rather than horizontally.  Let your types worry about the plumbing and start throwing birds around until something works!    
+There's a veritable [Aviary of Birds](https://gist.github.com/CodaFi/10afdd77e42bb8ad18ab) that can be written in terms of the S and K combinators.  In fact, S and K are so important that every single combinator you or I or anyone else can ever write can be defined in terms of them.  Every function ever written has just been S's and K's hidden by syntax and abstractions we all take for granted.  
+
+That's what makes combinators so powerful.  They're neat little atomic units of computation that can be strung together with ease.  As we've shown here today, all it takes it just a little creativity and some function application and you can do anything.  After all, that's one of the underlying principles behind declarative programming: we can build bigger better things vertically rather than horizontally.  Let your types worry about the plumbing and start throwing birds around until something works!    
 
 </p>
 |]
