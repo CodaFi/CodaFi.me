@@ -5,41 +5,26 @@ Elm.Main.make = function (_elm) {
    _elm.Main = _elm.Main || {};
    if (_elm.Main.values)
    return _elm.Main.values;
-   var _N = Elm.Native,
+   var _op = {},
+   _N = Elm.Native,
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
    _A = _N.Array.make(_elm),
    _E = _N.Error.make(_elm),
-   $moduleName = "Main";
-   var Basics = Elm.Basics.make(_elm);
-   var Color = Elm.Color.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Element = Elm.Graphics.Element.make(_elm);
-   var List = Elm.List.make(_elm);
-   var Maybe = Elm.Maybe.make(_elm);
-   var Native = Native || {};
-   Native.Json = Elm.Native.Json.make(_elm);
-   var Native = Native || {};
-   Native.Ports = Elm.Native.Ports.make(_elm);
-   var Signal = Elm.Signal.make(_elm);
-   var String = Elm.String.make(_elm);
-   var Text = Elm.Text.make(_elm);
-   var Time = Elm.Time.make(_elm);
-   var Website = Website || {};
-   Website.Blog = Website.Blog || {};
-   Website.Blog.Skeleton = Elm.Website.Blog.Skeleton.make(_elm);
-   var Window = Elm.Window.make(_elm);
-   var _op = {};
-   var post = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 id=\"programming-is-mathematics.\">Programming is mathematics.</h2>\n<p>To say otherwise is blasphemous. Machines engineered from the ground up exploiting the spin of electrons to light up pixels for our amusement do not arise through anything other than mathematical processes. It stands to reason then, that those machines run a flexible logic to produce results that we call &quot;computation&quot;. Arbitrary computation powers the world around us. It enriches our lives and makes them easier, more fulfilling, more productive.</p>\n<p>But computation alone is boring. Ask any mathematician about the asthetics of machine-checked proofs and they\'ll turn dour in an instant. A proof is beautiful not because it consists of <a href=\"http://en.wikipedia.org/wiki/Classification_of_finite_simple_groups\">20,000 pages</a>, but because of the insight the process reveals about the nature of the overall structure. Merely brute-forcing our way to insight is profoundly unsatisfying, and so proofs are not usually done this way. The larger point is that we can use computation to arise from the same ashes of profoundly unsatisfying programs. Computers don\'t just mix light beams in patterns, they can store and move and read and write. They\'re dynamic systems that we\'ve been modelling with static objects and mutation not because it was hard, but because it was easy. The best most of the programs sitting in your dock or Applications folder can do are prove ⊥. Have we learned nothing?</p>\n<p>This is why I respect the Functional Programming movement: they get it. Functional Programmers understand that (at a minimum) 50 years of research and refinement is a pretty good thing to stake your data types on. They understand that composition is more powerful than inheritance (in more ways than one). They understand that we don\'t just model <a href=\"http://www.haskell.org/haskellwiki/Zygohistomorphic_prepromorphisms\">Zygohistomorphic Prepromorphisms</a> because it sounded like a fun weeked project. There\'s powerful reasoning behind the structure of Monad and Functor and Folds and Zippers other than ease of use and monetary interests. And it is because of these interests that these structures were able to maintain their semantics through a minimalist approach, rather than a &quot;cram all the methods into this object&quot; approach.</p>\n<p>But there is a larger problem with all of this structure: grokking it is <em>insanely</em> difficult for the average person. Now, I\'m firmly of the belief that mathematics itself scares most people off more than the terms, because you don\'t really have conversations with your parents about Link-Time Optimizations, SCRUM, Object-Oriented Programming, or why it\'s called a <a href=\"http://clang.llvm.org/docs/AutomaticReferenceCounting.html\">Reference Count not a Retain Count dammit</a>. But this doesn\'t mean I should take the hyperintellectualist route and stay stuck up in my own world (with only the Monads to comfort me). No! The more people that know how to deserialize jargon and understand mathematical structures and actually be able to explain valid use cases, the higher quality of code can be produced. Even if that doesn\'t convince you, it\'s helpful to at least know what you\'re doing so that when someone says that M word, you don\'t just sit there and drool, or tune them out because you presume a stream of incomprehensible words will follow. Mathematics is the simplest and most precise language mankind has ever invented, and you should be able to speak it.</p>\n<p>To that end, I\'ve decided to start a series on Functional Programming techniques in Swift to be accompanied by a library, <a href=\"https://github.com/CodaFi/Swift-Extras\">Swift-Extras</a>, that will grow and serve as a repository for ideas and a reference for documentation. Posts presume that you can program, and have at least <em>seen</em> Haskell code, and will build upon each other. I will never assume that you know anything you can\'t find in plain english buried in the docs of your favorite language (again, unless I have introduced it in some earlier post). I should be able to produce about 1 every few days to for the first few, and it will hopefully slow down and eventually cease when the repository begins to asymptotically approach the complexity of <a href=\"https://github.com/ekmett/category-extras\">Category-Extras</a> (Kidding!).</p>\n<p>Finally, please, don\'t just take my word for it. The internet is a huge place full of very reputable sources written by people who have actual degrees and lots of letters after their names. <a href=\"http://www.wikipedia.org/\">Wikipedia</a>, the <a href=\"http://ncatlab.org/nlab/show/HomePage\">nLab</a>, and even <a href=\"http://scholar.google.com/\">Google</a> are all excellent sources of information (the nLab especially). I cannot, in good conscience, recommend a lot of other blogs, however. I find ceaseless metaphors tiring and counterproductive and confusing, and yet that seems to cover the majority of blog posts. Please, be careful and don\'t waste time on things that purport to explain monads with burritos or functors with boxes. Stick to actual mathematics. You\'ll have to learn it eventually, you may as well not cloud your own thinking in the process.</p>\n<p>Good luck, and let\'s make the world a bit less scary.</p><div style=\"height:0;width:0;\">&nbsp;</div>",
+   $moduleName = "Main",
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Text = Elm.Text.make(_elm),
+   $Website$Blog$Skeleton = Elm.Website.Blog.Skeleton.make(_elm),
+   $Window = Elm.Window.make(_elm);
+   var post = $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><p>##Programming is mathematics.</p>\n<p>To say otherwise is blasphemous. Machines engineered from the ground up exploiting the spin of electrons to light up pixels for our amusement do not arise through anything other than mathematical processes. It stands to reason then, that those machines run a flexible logic to produce results that we call &quot;computation&quot;. Arbitrary computation powers the world around us. It enriches our lives and makes them easier, more fulfilling, more productive.</p>\n<p>But computation alone is boring. Ask any mathematician about the asthetics of machine-checked proofs and they&#39;ll turn dour in an instant. A proof is beautiful not because it consists of <a href=\"http://en.wikipedia.org/wiki/Classification_of_finite_simple_groups\">20,000 pages</a>, but because of the insight the process reveals about the nature of the overall structure. Merely brute-forcing our way to insight is profoundly unsatisfying, and so proofs are not usually done this way. The larger point is that we can use computation to arise from the same ashes of profoundly unsatisfying programs. Computers don&#39;t just mix light beams in patterns, they can store and move and read and write. They&#39;re dynamic systems that we&#39;ve been modelling with static objects and mutation not because it was hard, but because it was easy. The best most of the programs sitting in your dock or Applications folder can do are prove ⊥. Have we learned nothing?</p>\n<p>This is why I respect the Functional Programming movement: they get it. Functional Programmers understand that (at a minimum) 50 years of research and refinement is a pretty good thing to stake your data types on. They understand that composition is more powerful than inheritance (in more ways than one). They understand that we don&#39;t just model <a href=\"http://www.haskell.org/haskellwiki/Zygohistomorphic_prepromorphisms\">Zygohistomorphic Prepromorphisms</a> because it sounded like a fun weeked project. There&#39;s powerful reasoning behind the structure of Monad and Functor and Folds and Zippers other than ease of use and monetary interests. And it is because of these interests that these structures were able to maintain their semantics through a minimalist approach, rather than a &quot;cram all the methods into this object&quot; approach.</p>\n<p>But there is a larger problem with all of this structure: grokking it is <em>insanely</em> difficult for the average person. Now, I&#39;m firmly of the belief that mathematics itself scares most people off more than the terms, because you don&#39;t really have conversations with your parents about Link-Time Optimizations, SCRUM, Object-Oriented Programming, or why it&#39;s called a <a href=\"http://clang.llvm.org/docs/AutomaticReferenceCounting.html\">Reference Count not a Retain Count dammit</a>. But this doesn&#39;t mean I should take the hyperintellectualist route and stay stuck up in my own world (with only the Monads to comfort me). No! The more people that know how to deserialize jargon and understand mathematical structures and actually be able to explain valid use cases, the higher quality of code can be produced. Even if that doesn&#39;t convince you, it&#39;s helpful to at least know what you&#39;re doing so that when someone says that M word, you don&#39;t just sit there and drool, or tune them out because you presume a stream of incomprehensible words will follow. Mathematics is the simplest and most precise language mankind has ever invented, and you should be able to speak it.</p>\n<p>To that end, I&#39;ve decided to start a series on Functional Programming techniques in Swift to be accompanied by a library, the <a href=\"https://github.com/CodaFi/Swift-Extras\">Basis</a>, that will grow and serve as a repository for ideas and a reference for documentation. Posts presume that you can program, and have at least <em>seen</em> Haskell code, and will build upon each other. I will never assume that you know anything you can&#39;t find in plain english buried in the docs of your favorite language (again, unless I have introduced it in some earlier post). I should be able to produce about 1 every few days to for the first few, and it will hopefully slow down and eventually cease when the repository begins to asymptotically approach the complexity of <a href=\"https://github.com/ekmett/category-extras\">Category-Extras</a> (Kidding!).</p>\n<p>Finally, please, don&#39;t just take my word for it. The internet is a huge place full of very reputable sources written by people who have actual degrees and lots of letters after their names. <a href=\"http://www.wikipedia.org/\">Wikipedia</a>, the <a href=\"http://ncatlab.org/nlab/show/HomePage\">nLab</a>, and even <a href=\"http://scholar.google.com/\">Google</a> are all excellent sources of information (the nLab especially). I cannot, in good conscience, recommend a lot of other blogs, however. I find ceaseless metaphors tiring and counterproductive and confusing, and yet that seems to cover the majority of blog posts. Please, be careful and don&#39;t waste time on things that purport to explain monads with burritos or functors with boxes. Stick to actual mathematics. You&#39;ll have to learn it eventually, you may as well not cloud your own thinking in the process.</p>\n<p>Good luck, and let&#39;s make the world a bit less scary.</p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
    "5:8");
-   var main = A5(Signal.lift4,
-   Website.Blog.Skeleton.generateImagefulPost,
-   Window.dimensions,
-   Signal.constant("FP In Swift"),
-   Signal.constant("http://onenameglobal.com/wp-content/uploads/2014/07/swift-logo-hero.jpg"),
-   Signal.constant(post));
+   var main = A5($Signal.lift4,
+   $Website$Blog$Skeleton.generateImagefulPost,
+   $Window.dimensions,
+   $Signal.constant("FP In Swift"),
+   $Signal.constant("http://onenameglobal.com/wp-content/uploads/2014/07/swift-logo-hero.jpg"),
+   $Signal.constant(post));
    _elm.Main.values = {_op: _op
                       ,post: post
                       ,main: main};
@@ -54,33 +39,17 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
    _elm.Website.Blog.Skeleton = _elm.Website.Blog.Skeleton || {};
    if (_elm.Website.Blog.Skeleton.values)
    return _elm.Website.Blog.Skeleton.values;
-   var _N = Elm.Native,
+   var _op = {},
+   _N = Elm.Native,
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
    _A = _N.Array.make(_elm),
    _E = _N.Error.make(_elm),
-   $moduleName = "Website.Blog.Skeleton";
-   var Basics = Elm.Basics.make(_elm);
-   var Color = Elm.Color.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Element = Elm.Graphics.Element.make(_elm);
-   var List = Elm.List.make(_elm);
-   var Maybe = Elm.Maybe.make(_elm);
-   var Native = Native || {};
-   Native.Json = Elm.Native.Json.make(_elm);
-   var Native = Native || {};
-   Native.Ports = Elm.Native.Ports.make(_elm);
-   var Signal = Elm.Signal.make(_elm);
-   var String = Elm.String.make(_elm);
-   var Text = Elm.Text.make(_elm);
-   var Time = Elm.Time.make(_elm);
-   var Website = Website || {};
-   Website.Blog = Website.Blog || {};
-   Website.Blog.Formatting = Elm.Website.Blog.Formatting.make(_elm);
-   var Window = Elm.Window.make(_elm);
-   var _op = {};
+   $moduleName = "Website.Blog.Skeleton",
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Website$Blog$Formatting = Elm.Website.Blog.Formatting.make(_elm);
    var generateImagefulPost = F4(function (_v0,
    t,
    im,
@@ -89,42 +58,42 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
          switch (_v0.ctor)
          {case "_Tuple2":
             return function () {
-                 var titleHeight = Graphics.Element.heightOf(Website.Blog.Formatting.formatTitleText(t));
-                 var bodyHeight = Graphics.Element.heightOf(A2(Graphics.Element.width,
+                 var titleHeight = $Graphics$Element.heightOf($Website$Blog$Formatting.formatTitleText(t));
+                 var bodyHeight = $Graphics$Element.heightOf(A2($Graphics$Element.width,
                  500,
                  postBody));
-                 return A2(Graphics.Element.flow,
-                 Graphics.Element.down,
-                 _L.fromArray([Graphics.Element.color(A3(Color.rgb,
+                 return A2($Graphics$Element.flow,
+                 $Graphics$Element.down,
+                 _L.fromArray([$Graphics$Element.color(A3($Color.rgb,
                               57,
                               74,
-                              85))(A4(Graphics.Element.container,
-                              A2(Basics.max,300,_v0._0),
+                              85))(A4($Graphics$Element.container,
+                              A2($Basics.max,300,_v0._0),
                               60,
-                              Graphics.Element.midLeft,
-                              A3(Website.Blog.Formatting.formatImagefulTitle,
+                              $Graphics$Element.midLeft,
+                              A3($Website$Blog$Formatting.formatImagefulTitle,
                               {ctor: "_Tuple2"
                               ,_0: _v0._0
                               ,_1: 60},
                               "  CF",
                               im)))
-                              ,A2(Graphics.Element.spacer,
-                              A2(Basics.max,300,_v0._0),
+                              ,A2($Graphics$Element.spacer,
+                              A2($Basics.max,300,_v0._0),
                               100)
-                              ,Graphics.Element.height(160)(A4(Graphics.Element.container,
+                              ,$Graphics$Element.height(160)(A4($Graphics$Element.container,
                               _v0._0,
                               titleHeight,
-                              Graphics.Element.midTop,
-                              Website.Blog.Formatting.formatTitleText(t)))
-                              ,A4(Graphics.Element.container,
+                              $Graphics$Element.midTop,
+                              $Website$Blog$Formatting.formatTitleText(t)))
+                              ,A4($Graphics$Element.container,
                               _v0._0,
                               bodyHeight,
-                              Graphics.Element.midTop,
-                              A2(Graphics.Element.width,
-                              A2(Basics.min,550,_v0._0),
+                              $Graphics$Element.midTop,
+                              A2($Graphics$Element.width,
+                              A2($Basics.min,550,_v0._0),
                               postBody))
-                              ,A2(Graphics.Element.spacer,
-                              A2(Basics.max,300,_v0._0),
+                              ,A2($Graphics$Element.spacer,
+                              A2($Basics.max,300,_v0._0),
                               30)]));
               }();}
          _E.Case($moduleName,
@@ -138,39 +107,39 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
          switch (_v4.ctor)
          {case "_Tuple2":
             return function () {
-                 var titleHeight = Graphics.Element.heightOf(Website.Blog.Formatting.formatTitleText(t));
-                 var bodyHeight = Graphics.Element.heightOf(A2(Graphics.Element.width,
+                 var titleHeight = $Graphics$Element.heightOf($Website$Blog$Formatting.formatTitleText(t));
+                 var bodyHeight = $Graphics$Element.heightOf(A2($Graphics$Element.width,
                  500,
                  postBody));
-                 return A2(Graphics.Element.flow,
-                 Graphics.Element.down,
-                 _L.fromArray([Graphics.Element.color(A3(Color.rgb,
+                 return A2($Graphics$Element.flow,
+                 $Graphics$Element.down,
+                 _L.fromArray([$Graphics$Element.color(A3($Color.rgb,
                               57,
                               74,
-                              85))(A4(Graphics.Element.container,
-                              A2(Basics.max,500,_v4._0),
+                              85))(A4($Graphics$Element.container,
+                              A2($Basics.max,500,_v4._0),
                               60,
-                              A2(Graphics.Element.midLeftAt,
-                              Graphics.Element.absolute(10),
-                              Graphics.Element.absolute(30)),
-                              Website.Blog.Formatting.title("  CF")))
-                              ,A2(Graphics.Element.spacer,
-                              A2(Basics.max,300,_v4._0),
+                              A2($Graphics$Element.midLeftAt,
+                              $Graphics$Element.absolute(10),
+                              $Graphics$Element.absolute(30)),
+                              $Website$Blog$Formatting.title("  CF")))
+                              ,A2($Graphics$Element.spacer,
+                              A2($Basics.max,300,_v4._0),
                               100)
-                              ,Graphics.Element.height(160)(A4(Graphics.Element.container,
+                              ,$Graphics$Element.height(160)(A4($Graphics$Element.container,
                               _v4._0,
                               titleHeight,
-                              Graphics.Element.midTop,
-                              Website.Blog.Formatting.formatTitleText(t)))
-                              ,A4(Graphics.Element.container,
+                              $Graphics$Element.midTop,
+                              $Website$Blog$Formatting.formatTitleText(t)))
+                              ,A4($Graphics$Element.container,
                               _v4._0,
                               bodyHeight,
-                              Graphics.Element.midTop,
-                              A2(Graphics.Element.width,
-                              A2(Basics.min,550,_v4._0),
+                              $Graphics$Element.midTop,
+                              A2($Graphics$Element.width,
+                              A2($Basics.min,550,_v4._0),
                               postBody))
-                              ,A2(Graphics.Element.spacer,
-                              A2(Basics.max,300,_v4._0),
+                              ,A2($Graphics$Element.spacer,
+                              A2($Basics.max,300,_v4._0),
                               30)]));
               }();}
          _E.Case($moduleName,
@@ -191,56 +160,45 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
    _elm.Website.Blog.Formatting = _elm.Website.Blog.Formatting || {};
    if (_elm.Website.Blog.Formatting.values)
    return _elm.Website.Blog.Formatting.values;
-   var _N = Elm.Native,
+   var _op = {},
+   _N = Elm.Native,
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
    _A = _N.Array.make(_elm),
    _E = _N.Error.make(_elm),
-   $moduleName = "Website.Blog.Formatting";
-   var Basics = Elm.Basics.make(_elm);
-   var Color = Elm.Color.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Element = Elm.Graphics.Element.make(_elm);
-   var List = Elm.List.make(_elm);
-   var Maybe = Elm.Maybe.make(_elm);
-   var Native = Native || {};
-   Native.Json = Elm.Native.Json.make(_elm);
-   var Native = Native || {};
-   Native.Ports = Elm.Native.Ports.make(_elm);
-   var Signal = Elm.Signal.make(_elm);
-   var String = Elm.String.make(_elm);
-   var Text = Elm.Text.make(_elm);
-   var Time = Elm.Time.make(_elm);
-   var _op = {};
+   $moduleName = "Website.Blog.Formatting",
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Graphics$Collage = Elm.Graphics.Collage.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Text = Elm.Text.make(_elm);
    var formatFunctionText = function (s) {
-      return Text.justified(Text.height(36)(Text.typeface(_L.fromArray(["Computer Modern Roman"]))(Text.toText(s))));
+      return $Text.justified($Text.height(36)($Text.typeface(_L.fromArray(["Computer Modern Roman"]))($Text.toText(s))));
    };
    var formatTitleText = function (s) {
-      return Text.justified(Text.color(A3(Color.rgb,
+      return $Text.justified($Text.color(A3($Color.rgb,
       94,
       94,
-      93))(Text.height(36)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(s)))));
+      93))($Text.height(36)($Text.typeface(_L.fromArray(["Helvetica-Bold"]))($Text.toText(s)))));
    };
    var title = function (t) {
-      return Graphics.Element.layers(_L.fromArray([A3(Graphics.Collage.collage,
-                                                  100,
-                                                  50,
-                                                  _L.fromArray([Graphics.Collage.move({ctor: "_Tuple2"
-                                                                                      ,_0: -20
-                                                                                      ,_1: 0})(A2(Graphics.Collage.filled,
-                                                  A3(Color.rgb,34,48,54),
-                                                  Graphics.Collage.circle(24)))]))
-                                                  ,A2(Graphics.Element.flow,
-                                                  Graphics.Element.down,
-                                                  _L.fromArray([A2(Graphics.Element.spacer,
-                                                               0,
-                                                               12)
-                                                               ,Graphics.Element.link("http://λπω.com")(Text.justified(Text.color(A3(Color.rgb,
-                                                               132,
-                                                               151,
-                                                               161))(Text.height(24)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(t))))))]))]));
+      return $Graphics$Element.layers(_L.fromArray([A3($Graphics$Collage.collage,
+                                                   100,
+                                                   50,
+                                                   _L.fromArray([$Graphics$Collage.move({ctor: "_Tuple2"
+                                                                                        ,_0: -20
+                                                                                        ,_1: 0})(A2($Graphics$Collage.filled,
+                                                   A3($Color.rgb,34,48,54),
+                                                   $Graphics$Collage.circle(24)))]))
+                                                   ,A2($Graphics$Element.flow,
+                                                   $Graphics$Element.down,
+                                                   _L.fromArray([A2($Graphics$Element.spacer,
+                                                                0,
+                                                                12)
+                                                                ,$Graphics$Element.link("http://λπω.com")($Text.justified($Text.color(A3($Color.rgb,
+                                                                132,
+                                                                151,
+                                                                161))($Text.height(24)($Text.typeface(_L.fromArray(["Helvetica-Bold"]))($Text.toText(t))))))]))]));
    };
    var formatImagefulTitle = F3(function (_v0,
    t,
@@ -248,21 +206,21 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
       return function () {
          switch (_v0.ctor)
          {case "_Tuple2":
-            return A2(Graphics.Element.flow,
-              Graphics.Element.outward,
-              _L.fromArray([A3(Graphics.Element.fittedImage,
+            return A2($Graphics$Element.flow,
+              $Graphics$Element.outward,
+              _L.fromArray([A3($Graphics$Element.fittedImage,
                            _v0._0,
                            _v0._1,
                            im)
-                           ,A4(Graphics.Element.container,
+                           ,A4($Graphics$Element.container,
                            100,
                            _v0._1,
-                           A2(Graphics.Element.topLeftAt,
-                           Graphics.Element.absolute(10),
-                           Graphics.Element.absolute(4)),
+                           A2($Graphics$Element.topLeftAt,
+                           $Graphics$Element.absolute(10),
+                           $Graphics$Element.absolute(4)),
                            title(t))]));}
          _E.Case($moduleName,
-         "between lines 13 and 15");
+         "between lines 18 and 20");
       }();
    });
    _elm.Website.Blog.Formatting.values = {_op: _op

@@ -19,8 +19,7 @@ scene (w,h) = flow down [container (max 500 w) 60 (midLeftAt (absolute 10) (abso
 box e =
   let w = widthOf e
       h = heightOf e
-  in  flow down [ color black . container (w+40) (h+10) midTop .
-                  color white . container (w+38) (h+10) midTop <| e
+  in  flow down [ color black << container (w+40) (h+10) midTop << color white << container (w+38) (h+10) midTop <| e
                 ]
 
 main = lift scene Window.dimensions

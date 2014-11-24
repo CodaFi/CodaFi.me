@@ -2,7 +2,7 @@ CC=elm
 CFLAGS=--cache-dir="_elm/cache" --build-dir="_elm/build" --src-dir="_elm" --set-runtime="elm-runtime.js" --make
 SRC=./_elm
 
-all: CodaFi Error404 AboutMe BlogIndex HelloWorldBlog INTERCALBlog ErrorBlog MonardsBlog FPInSwiftIntro
+all: CodaFi Error404 AboutMe BlogIndex HelloWorldBlog INTERCALBlog ErrorBlog MonardsBlog FPInSwiftIntro Combinators
 
 CodaFi: $(SRC)/src/CodaFi.elm
 	$(CC) $(CFLAGS) $<
@@ -40,3 +40,7 @@ MonardsBlog: $(SRC)/src/blogs/Monards.elm
 FPInSwiftIntro: $(SRC)/src/blogs/FP-In-Swift-Intro.elm
 	$(CC) $(CFLAGS) $<
 	mv $(SRC)/build/_elm/src/blogs/FP-In-Swift-Intro.html ./blog/FP-In-Swift-Intro.html
+
+Combinators: $(SRC)/src/blogs/Combinators.elm
+	$(CC) $(CFLAGS) $<
+	mv $(SRC)/build/_elm/src/blogs/Combinators.html ./blog/Combinators.html

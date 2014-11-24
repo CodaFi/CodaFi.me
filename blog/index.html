@@ -5,126 +5,124 @@ Elm.Main.make = function (_elm) {
    _elm.Main = _elm.Main || {};
    if (_elm.Main.values)
    return _elm.Main.values;
-   var _N = Elm.Native,
+   var _op = {},
+   _N = Elm.Native,
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
    _A = _N.Array.make(_elm),
    _E = _N.Error.make(_elm),
-   $moduleName = "Main";
-   var Basics = Elm.Basics.make(_elm);
-   var Color = Elm.Color.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Element = Elm.Graphics.Element.make(_elm);
-   var List = Elm.List.make(_elm);
-   var Maybe = Elm.Maybe.make(_elm);
-   var Native = Native || {};
-   Native.Json = Elm.Native.Json.make(_elm);
-   var Native = Native || {};
-   Native.Ports = Elm.Native.Ports.make(_elm);
-   var Signal = Elm.Signal.make(_elm);
-   var String = Elm.String.make(_elm);
-   var Text = Elm.Text.make(_elm);
-   var Time = Elm.Time.make(_elm);
-   var Website = Website || {};
-   Website.Blog = Website.Blog || {};
-   Website.Blog.Formatting = Elm.Website.Blog.Formatting.make(_elm);
-   var Window = Elm.Window.make(_elm);
-   var _op = {};
+   $moduleName = "Main",
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Text = Elm.Text.make(_elm),
+   $Website$Blog$Formatting = Elm.Website.Blog.Formatting.make(_elm),
+   $Window = Elm.Window.make(_elm);
    var box = F3(function (e,l,w) {
       return function () {
-         var h = Graphics.Element.heightOf(e);
-         return Graphics.Element.link(l)(A2(Graphics.Element.flow,
-         Graphics.Element.down,
-         _L.fromArray([Graphics.Element.color(A3(Color.rgb,
+         var h = $Graphics$Element.heightOf(e);
+         return $Graphics$Element.link(l)(A2($Graphics$Element.flow,
+         $Graphics$Element.down,
+         _L.fromArray([$Graphics$Element.color(A3($Color.rgb,
          132,
          151,
-         161))(A3(Graphics.Element.container,
+         161))(A3($Graphics$Element.container,
          w,
          h + 1,
-         Graphics.Element.midTop)(Graphics.Element.color(Color.white)(A3(Graphics.Element.container,
+         $Graphics$Element.midTop)($Graphics$Element.color($Color.white)(A3($Graphics$Element.container,
          w + 2,
          h,
-         Graphics.Element.midLeft)(e))))])));
+         $Graphics$Element.midLeft)(e))))])));
       }();
    });
-   var helloWorldTitle = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px; margin-top:0px;\">\nHello World\n</h2>\n\n<p><span style=\"margin-left:24px;\"> In which we question the reason for this blog\'s inception. </span></p><div style=\"height:0;width:0;\">&nbsp;</div>",
-   "38:19");
-   var intercalTitle = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">\nVariations on a RoCocoa Theme\n</h2>\n\n<p><span style=\"margin-left:24px;\"> In which the relevance of Esolangs is examined. </span></p><div style=\"height:0;width:0;\">&nbsp;</div>",
-   "30:17");
-   var errorHandlingTitle = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">\nError Handling\n</h2>\n\n<p><span style=\"margin-left:24px;\"> In which the BSOD is praised for its innovative qualities. </span></p><div style=\"height:0;width:0;\">&nbsp;</div>",
-   "22:22");
-   var monardsTitle = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">\nMonads Made Hard, Then Simple, Then Easy\n</h2>\n\n<p><span style=\"margin-left:24px;\"> In which we eschew aphoristic comparisons. Because Monards. </span></p><div style=\"height:0;width:0;\">&nbsp;</div>",
-   "14:16");
-   var fpInSwiftIntroTitle = Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">\nFP in Swi... Compilation Aborted: SEGFAULT\n</h2>\n\n<p><span style=\"margin-left:24px;\"> In which we begin something new and exciting. </span></p><div style=\"height:0;width:0;\">&nbsp;</div>",
-   "5:23");
+   var helloWorldTitle = $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px; margin-top:0px;\">Hello World</h2>\n<p><span style=\"margin-left:24px;\">\nIn which we question the reason for this blog&#39;s inception.\n</span></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+   "45:19");
+   var intercalTitle = $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">Variations on a RoCocoa Theme</h2>\n<p><span style=\"margin-left:24px;\">\nIn which the relevance of Esolangs is examined.\n</span></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+   "37:17");
+   var errorHandlingTitle = $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">Error Handling</h2>\n<p><span style=\"margin-left:24px;\">\nIn which the BSOD is praised for its innovative qualities.\n</span></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+   "29:22");
+   var monardsTitle = $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">Monads Made Hard, Then Simple, Then Easy</h2>\n<p><span style=\"margin-left:24px;\">\nIn which we eschew aphoristic comparisons. Because Monards.\n</span></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+   "21:16");
+   var fpInSwiftIntroTitle = $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">FP in Swi... Compilation Aborted: SEGFAULT</h2>\n<p><span style=\"margin-left:24px;\">\nIn which we begin something new and exciting.\n</span></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+   "13:23");
+   var combinatorsTitle = $Text.markdown("<div style=\"height:0;width:0;\">&nbsp;</div><h2 style=\"margin-left:24px;\">Birds and Building Blocks</h2>\n<p><span style=\"margin-left:24px;\">\nIn which we use angry birds to build, rather than destroy, things.\n</span></p>\n<div style=\"height:0;width:0;\">&nbsp;</div>",
+   "5:20");
    var scene = function (_v0) {
       return function () {
          switch (_v0.ctor)
          {case "_Tuple2":
-            return A2(Graphics.Element.flow,
-              Graphics.Element.down,
-              _L.fromArray([Graphics.Element.color(A3(Color.rgb,
+            return A2($Graphics$Element.flow,
+              $Graphics$Element.down,
+              _L.fromArray([$Graphics$Element.color(A3($Color.rgb,
                            57,
                            74,
-                           85))(A4(Graphics.Element.container,
-                           A2(Basics.max,500,_v0._0),
+                           85))(A4($Graphics$Element.container,
+                           A2($Basics.max,500,_v0._0),
                            60,
-                           A2(Graphics.Element.midLeftAt,
-                           Graphics.Element.absolute(10),
-                           Graphics.Element.absolute(30)),
-                           Website.Blog.Formatting.title("  CF")))
-                           ,A4(Graphics.Element.container,
-                           A2(Basics.max,500,_v0._0),
+                           A2($Graphics$Element.midLeftAt,
+                           $Graphics$Element.absolute(10),
+                           $Graphics$Element.absolute(30)),
+                           $Website$Blog$Formatting.title("  CF")))
+                           ,A4($Graphics$Element.container,
+                           A2($Basics.max,500,_v0._0),
                            105,
-                           Graphics.Element.topLeft,
-                           Graphics.Element.width(_v0._0)(A3(box,
+                           $Graphics$Element.topLeft,
+                           $Graphics$Element.width(_v0._0)(A3(box,
+                           combinatorsTitle,
+                           "http://λπω.com/blog/Combinators.html",
+                           _v0._0)))
+                           ,A4($Graphics$Element.container,
+                           A2($Basics.max,500,_v0._0),
+                           105,
+                           $Graphics$Element.topLeft,
+                           $Graphics$Element.width(_v0._0)(A3(box,
                            fpInSwiftIntroTitle,
                            "http://λπω.com/blog/FP-In-Swift-Intro.html",
                            _v0._0)))
-                           ,A4(Graphics.Element.container,
-                           A2(Basics.max,500,_v0._0),
+                           ,A4($Graphics$Element.container,
+                           A2($Basics.max,500,_v0._0),
                            105,
-                           Graphics.Element.topLeft,
-                           Graphics.Element.width(_v0._0)(A3(box,
+                           $Graphics$Element.topLeft,
+                           $Graphics$Element.width(_v0._0)(A3(box,
                            monardsTitle,
                            "http://λπω.com/blog/Monards.html",
                            _v0._0)))
-                           ,A4(Graphics.Element.container,
-                           A2(Basics.max,500,_v0._0),
+                           ,A4($Graphics$Element.container,
+                           A2($Basics.max,500,_v0._0),
                            105,
-                           Graphics.Element.topLeft,
-                           Graphics.Element.width(_v0._0)(A3(box,
+                           $Graphics$Element.topLeft,
+                           $Graphics$Element.width(_v0._0)(A3(box,
                            errorHandlingTitle,
                            "http://λπω.com/blog/Error-Handling.html",
                            _v0._0)))
-                           ,A4(Graphics.Element.container,
-                           A2(Basics.max,500,_v0._0),
+                           ,A4($Graphics$Element.container,
+                           A2($Basics.max,500,_v0._0),
                            105,
-                           Graphics.Element.topLeft,
-                           Graphics.Element.width(_v0._0)(A3(box,
+                           $Graphics$Element.topLeft,
+                           $Graphics$Element.width(_v0._0)(A3(box,
                            intercalTitle,
                            "http://λπω.com/blog/INTERCAL.html",
                            _v0._0)))
-                           ,A4(Graphics.Element.container,
-                           A2(Basics.max,500,_v0._0),
+                           ,A4($Graphics$Element.container,
+                           A2($Basics.max,500,_v0._0),
                            105,
-                           A2(Graphics.Element.midLeftAt,
-                           Graphics.Element.absolute(0),
-                           Graphics.Element.absolute(60)),
-                           Graphics.Element.width(_v0._0)(A3(box,
+                           A2($Graphics$Element.midLeftAt,
+                           $Graphics$Element.absolute(0),
+                           $Graphics$Element.absolute(60)),
+                           $Graphics$Element.width(_v0._0)(A3(box,
                            helloWorldTitle,
                            "http://λπω.com/blog/HelloWorld.html",
                            _v0._0)))]));}
          _E.Case($moduleName,
-         "between lines 46 and 52");
+         "between lines 53 and 60");
       }();
    };
-   var main = A2(Signal.lift,
+   var main = A2($Signal.lift,
    scene,
-   Window.dimensions);
+   $Window.dimensions);
    _elm.Main.values = {_op: _op
+                      ,combinatorsTitle: combinatorsTitle
                       ,fpInSwiftIntroTitle: fpInSwiftIntroTitle
                       ,monardsTitle: monardsTitle
                       ,errorHandlingTitle: errorHandlingTitle
@@ -144,56 +142,45 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
    _elm.Website.Blog.Formatting = _elm.Website.Blog.Formatting || {};
    if (_elm.Website.Blog.Formatting.values)
    return _elm.Website.Blog.Formatting.values;
-   var _N = Elm.Native,
+   var _op = {},
+   _N = Elm.Native,
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
    _A = _N.Array.make(_elm),
    _E = _N.Error.make(_elm),
-   $moduleName = "Website.Blog.Formatting";
-   var Basics = Elm.Basics.make(_elm);
-   var Color = Elm.Color.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Collage = Elm.Graphics.Collage.make(_elm);
-   var Graphics = Graphics || {};
-   Graphics.Element = Elm.Graphics.Element.make(_elm);
-   var List = Elm.List.make(_elm);
-   var Maybe = Elm.Maybe.make(_elm);
-   var Native = Native || {};
-   Native.Json = Elm.Native.Json.make(_elm);
-   var Native = Native || {};
-   Native.Ports = Elm.Native.Ports.make(_elm);
-   var Signal = Elm.Signal.make(_elm);
-   var String = Elm.String.make(_elm);
-   var Text = Elm.Text.make(_elm);
-   var Time = Elm.Time.make(_elm);
-   var _op = {};
+   $moduleName = "Website.Blog.Formatting",
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Graphics$Collage = Elm.Graphics.Collage.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Text = Elm.Text.make(_elm);
    var formatFunctionText = function (s) {
-      return Text.justified(Text.height(36)(Text.typeface(_L.fromArray(["Computer Modern Roman"]))(Text.toText(s))));
+      return $Text.justified($Text.height(36)($Text.typeface(_L.fromArray(["Computer Modern Roman"]))($Text.toText(s))));
    };
    var formatTitleText = function (s) {
-      return Text.justified(Text.color(A3(Color.rgb,
+      return $Text.justified($Text.color(A3($Color.rgb,
       94,
       94,
-      93))(Text.height(36)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(s)))));
+      93))($Text.height(36)($Text.typeface(_L.fromArray(["Helvetica-Bold"]))($Text.toText(s)))));
    };
    var title = function (t) {
-      return Graphics.Element.layers(_L.fromArray([A3(Graphics.Collage.collage,
-                                                  100,
-                                                  50,
-                                                  _L.fromArray([Graphics.Collage.move({ctor: "_Tuple2"
-                                                                                      ,_0: -20
-                                                                                      ,_1: 0})(A2(Graphics.Collage.filled,
-                                                  A3(Color.rgb,34,48,54),
-                                                  Graphics.Collage.circle(24)))]))
-                                                  ,A2(Graphics.Element.flow,
-                                                  Graphics.Element.down,
-                                                  _L.fromArray([A2(Graphics.Element.spacer,
-                                                               0,
-                                                               12)
-                                                               ,Graphics.Element.link("http://λπω.com")(Text.justified(Text.color(A3(Color.rgb,
-                                                               132,
-                                                               151,
-                                                               161))(Text.height(24)(Text.typeface(_L.fromArray(["Helvetica-Bold"]))(Text.toText(t))))))]))]));
+      return $Graphics$Element.layers(_L.fromArray([A3($Graphics$Collage.collage,
+                                                   100,
+                                                   50,
+                                                   _L.fromArray([$Graphics$Collage.move({ctor: "_Tuple2"
+                                                                                        ,_0: -20
+                                                                                        ,_1: 0})(A2($Graphics$Collage.filled,
+                                                   A3($Color.rgb,34,48,54),
+                                                   $Graphics$Collage.circle(24)))]))
+                                                   ,A2($Graphics$Element.flow,
+                                                   $Graphics$Element.down,
+                                                   _L.fromArray([A2($Graphics$Element.spacer,
+                                                                0,
+                                                                12)
+                                                                ,$Graphics$Element.link("http://λπω.com")($Text.justified($Text.color(A3($Color.rgb,
+                                                                132,
+                                                                151,
+                                                                161))($Text.height(24)($Text.typeface(_L.fromArray(["Helvetica-Bold"]))($Text.toText(t))))))]))]));
    };
    var formatImagefulTitle = F3(function (_v0,
    t,
@@ -201,21 +188,21 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
       return function () {
          switch (_v0.ctor)
          {case "_Tuple2":
-            return A2(Graphics.Element.flow,
-              Graphics.Element.outward,
-              _L.fromArray([A3(Graphics.Element.fittedImage,
+            return A2($Graphics$Element.flow,
+              $Graphics$Element.outward,
+              _L.fromArray([A3($Graphics$Element.fittedImage,
                            _v0._0,
                            _v0._1,
                            im)
-                           ,A4(Graphics.Element.container,
+                           ,A4($Graphics$Element.container,
                            100,
                            _v0._1,
-                           A2(Graphics.Element.topLeftAt,
-                           Graphics.Element.absolute(10),
-                           Graphics.Element.absolute(4)),
+                           A2($Graphics$Element.topLeftAt,
+                           $Graphics$Element.absolute(10),
+                           $Graphics$Element.absolute(4)),
                            title(t))]));}
          _E.Case($moduleName,
-         "between lines 13 and 15");
+         "between lines 18 and 20");
       }();
    });
    _elm.Website.Blog.Formatting.values = {_op: _op
