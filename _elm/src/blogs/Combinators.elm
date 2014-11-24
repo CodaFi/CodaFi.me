@@ -21,10 +21,10 @@ func idiot<A>(x : A) -> A {
 
 ## Vanity Faire
 
-This combinator is called the K, const, constant, or Kestral Combinator.  It takes two arguments, completely ignores the second, and returns the first always.  That's why it's called constant: no matter what you give it as a second argument you'll always get back the first argument.  Its definition is less trivial than the Idiot Bird, but it is still quite simple:
+This combinator is called the K, const, constant, or Kestrel Combinator.  It takes two arguments, completely ignores the second, and returns the first always.  That's why it's called constant: no matter what you give it as a second argument you'll always get back the first argument.  Its definition is less trivial than the Idiot Bird, but it is still quite simple:
 
 ```
-func kestral<A, B>(a : A) -> B -> A {
+func kestrel<A, B>(a : A) -> B -> A {
     return { _ in a }
 }
 ```
@@ -41,7 +41,7 @@ func starling<A, B, C>(f : (A -> B -> C)) -> (A -> B) -> A -> C {
 
 ## The Fun Begins
 
-The first combinator we're going to build with our new gang of 3 is... id.  Yes, the Idiot Bird combinator, as it turns out, need not be a part of our gang because it can be defined using Starlings and Kestrals.
+The first combinator we're going to build with our new gang of 3 is... id.  Yes, the Idiot Bird combinator, as it turns out, need not be a part of our gang because it can be defined using Starlings and Kestrels.
 
 ```
 func idiot<A>(a : A) -> A {
