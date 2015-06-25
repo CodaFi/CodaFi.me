@@ -1,6 +1,5 @@
-<!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>Main</title><style>html,head,body { padding:0; margin:0; }
-body { font-family: calibri, helvetica, arial, sans-serif; }</style><script type="text/javascript">var Elm = Elm || { Native: {} };Elm.Array = Elm.Array || {};
+var Elm = Elm || { Native: {} };
+Elm.Array = Elm.Array || {};
 Elm.Array.make = function (_elm) {
    "use strict";
    _elm.Array = _elm.Array || {};
@@ -92,7 +91,8 @@ Elm.Array.make = function (_elm) {
                        ,foldl: foldl
                        ,foldr: foldr};
    return _elm.Array.values;
-};Elm.Basics = Elm.Basics || {};
+};
+Elm.Basics = Elm.Basics || {};
 Elm.Basics.make = function (_elm) {
    "use strict";
    _elm.Basics = _elm.Basics || {};
@@ -269,7 +269,8 @@ Elm.Basics.make = function (_elm) {
                         ,EQ: EQ
                         ,GT: GT};
    return _elm.Basics.values;
-};Elm.Char = Elm.Char || {};
+};
+Elm.Char = Elm.Char || {};
 Elm.Char.make = function (_elm) {
    "use strict";
    _elm.Char = _elm.Char || {};
@@ -332,7 +333,8 @@ Elm.Char.make = function (_elm) {
                       ,toCode: toCode
                       ,fromCode: fromCode};
    return _elm.Char.values;
-};Elm.Color = Elm.Color || {};
+};
+Elm.Color = Elm.Color || {};
 Elm.Color.make = function (_elm) {
    "use strict";
    _elm.Color = _elm.Color || {};
@@ -782,7 +784,8 @@ Elm.Color.make = function (_elm) {
                        ,gray: gray
                        ,darkGray: darkGray};
    return _elm.Color.values;
-};Elm.Debug = Elm.Debug || {};
+};
+Elm.Debug = Elm.Debug || {};
 Elm.Debug.make = function (_elm) {
    "use strict";
    _elm.Debug = _elm.Debug || {};
@@ -807,7 +810,8 @@ Elm.Debug.make = function (_elm) {
                        ,watchSummary: watchSummary
                        ,trace: trace};
    return _elm.Debug.values;
-};Elm.Dict = Elm.Dict || {};
+};
+Elm.Dict = Elm.Dict || {};
 Elm.Dict.make = function (_elm) {
    "use strict";
    _elm.Dict = _elm.Dict || {};
@@ -1795,7 +1799,8 @@ Elm.Dict.make = function (_elm) {
                       ,toList: toList
                       ,fromList: fromList};
    return _elm.Dict.values;
-};Elm.Graphics = Elm.Graphics || {};
+};
+Elm.Graphics = Elm.Graphics || {};
 Elm.Graphics.Collage = Elm.Graphics.Collage || {};
 Elm.Graphics.Collage.make = function (_elm) {
    "use strict";
@@ -2148,7 +2153,8 @@ Elm.Graphics.Collage.make = function (_elm) {
                                   ,Sharp: Sharp
                                   ,Clipped: Clipped};
    return _elm.Graphics.Collage.values;
-};Elm.Graphics = Elm.Graphics || {};
+};
+Elm.Graphics = Elm.Graphics || {};
 Elm.Graphics.Element = Elm.Graphics.Element || {};
 Elm.Graphics.Element.make = function (_elm) {
    "use strict";
@@ -2681,7 +2687,8 @@ Elm.Graphics.Element.make = function (_elm) {
                                   ,Element: Element
                                   ,Position: Position};
    return _elm.Graphics.Element.values;
-};Elm.Html = Elm.Html || {};
+};
+Elm.Html = Elm.Html || {};
 Elm.Html.make = function (_elm) {
    "use strict";
    _elm.Html = _elm.Html || {};
@@ -2902,7 +2909,8 @@ Elm.Html.make = function (_elm) {
                       ,menuitem: menuitem
                       ,menu: menu};
    return _elm.Html.values;
-};Elm.Json = Elm.Json || {};
+};
+Elm.Json = Elm.Json || {};
 Elm.Json.Decode = Elm.Json.Decode || {};
 Elm.Json.Decode.make = function (_elm) {
    "use strict";
@@ -3011,7 +3019,8 @@ Elm.Json.Decode.make = function (_elm) {
                              ,customDecoder: customDecoder
                              ,Decoder: Decoder};
    return _elm.Json.Decode.values;
-};Elm.Json = Elm.Json || {};
+};
+Elm.Json = Elm.Json || {};
 Elm.Json.Encode = Elm.Json.Encode || {};
 Elm.Json.Encode.make = function (_elm) {
    "use strict";
@@ -3048,7 +3057,8 @@ Elm.Json.Encode.make = function (_elm) {
                              ,object: object
                              ,Value: Value};
    return _elm.Json.Encode.values;
-};Elm.List = Elm.List || {};
+};
+Elm.List = Elm.List || {};
 Elm.List.make = function (_elm) {
    "use strict";
    _elm.List = _elm.List || {};
@@ -3402,7 +3412,8 @@ Elm.List.make = function (_elm) {
                       ,sortBy: sortBy
                       ,sortWith: sortWith};
    return _elm.List.values;
-};Elm.Main = Elm.Main || {};
+};
+Elm.Main = Elm.Main || {};
 Elm.Main.make = function (_elm) {
    "use strict";
    _elm.Main = _elm.Main || {};
@@ -3418,17 +3429,19 @@ Elm.Main.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm),
    $Website$Blog$Skeleton = Elm.Website.Blog.Skeleton.make(_elm),
    $Window = Elm.Window.make(_elm);
-   var post = $Markdown.toElement("\n## A (Haskell) Monad Is...\n\nA monoid in the category of endofunctors...\n\nSuch that the following diagrams commute\n\n## Mu Reduction\n\n```\n         μT\n    T³ -----→ T²\n    |         |\n Tμ |         | μ\n    |         |\n    ↓         ↓\n    T² -----→ T\n         μ\n```\n\n## Eta Introduction and Elmination\n\n```\n    ηT       Tη\nTx ---> T²x <--- Tx\n   \\     |      /\n     \\   | μ  /\n       \\ |  /\n         \\/\n         Tx\n```\n\n## WTF\n\nThey\'re just an application of category theory.  When a mathematician says\nsomething is *in* something else, they mean that all the laws that the thing on\nthe left obeys get shoved into the thing on the right, and it also gains some\nneat other functions in the process.\n\n## Monoids\n\nA monoid is a Set of stuff (we\'ll call S for now), and a 2-ary operator `•`\n(dot) that does composition of elements in S, and an `identity element` (called\n`e`) which does nothing to the other operand of `•` when used.  For the natural\nnumbers, we can call `•`, \"+\" and `identity element`, \"0\", then go on to prove\nthings about addition.  In fact, what we can prove are precisely the monoid\nlaws.\n\n```Haskell\n-- e.g. the result of n+m if n : Nat and m : Nat is going to be a Nat as well.\n-- n+m doesn\'t just randomly turn into a Real or Integer all of a sudden\nClosure - a • a :: a\n-- e.g. (n + m) + o = n + (m + o)\nAssociativity - (a • b) • c == a • (b • c)\n-- (e.g. 0)\nIdentity - a • e = a\n```\n\nHaskell has a Monoid typeclass that follows the same laws.  Here she is in all her glory:\n\n```Haskell\nclass Monoid a where\n    -- The identity of the monoid\n    mempty :: a\n    -- \"•\"\n    mappend :: a -> a -> a\n    -- Monoidic fold (fold mappend over a container of elements of the Monoid)\n    mconcat :: [a] -> a\n```\n\nEverything fits into place, and without one you can\'t have any of the others.\n\n## Monards\n\nNow, we do the same thing with monads.  But what is a monad?\n\nWe gave the rigorous definition above, and there\'s a million different crappy\nanalogies for what they are, so let\'s try to explore them mathematically.\nA monad is an endofunctor (a mapping from one category C right back to itself)\nand two natural transformations η (also called the Unit) and ν (also called the\nMultiplication).\n\nA distinction must be made between the unit *type* and our monad\'s unit\n*function*.  The unit *type* is precisely what it sounds like: A type that\nfunctions as our identity element.  It is also called \"absurdity\", because it is\nthe type from which you can extract no information.  It just exists, but has no\nuseful value.  That\'s why monadic functions that perform side effects return it.\n\nSo, our unit *function* η has the type\n\n```Haskell\nη :: a -> m a\n```\n\nThink of it as the ability to \"lift\" values into our monad.  For example, if we\nmake η the list constructor `[ ]`, then lifting some value \"a\" would be\nliterally `[a]`.  Your `a` now has the type `List a`, which slots into the\nneeded `m a` from before.  We call that lifting function `return`.  It’s best to\ncast away any notion of `return` as a way of returning values from a function.\nIn Haskell, every time you see `return`, even at the end of do blocks, it’s just\nlifting a value into a monad.\n\nFinally, the multiplication, `μ`, is a way of reducing the structure of nested\nmonads.  Practically, if I have something like `[[a]]`, then applying ν to the\nlist of lists would strip away one set of brackets and concat the inner arrays,\nyielding a longer `[a]`.  But notice, this corresponds precisely to `mconcat` in\nour Monad Typeclass!  Haskell calls the monad version of this function `join`.\nHere is its type:\n\n```Haskell\njoin :: Monad m => m (m a) -> m a\n```\n\nLook familiar?  Here’s mconcat again:\n\n```Haskell\nmconcat :: [a] -> a\n```\n\nReplace the `m`’s with `[ ]`’s and you can translate between one and the other.\n\nWhat this means is that we can *encode* the monoid laws in a monad and still\nhave all the benefits of being called Monoids.\n\n## Lists Are Monads\n\nLet\'s prove homogenous lists (`List a`, or in Haskell-ese `[a]`) are monads by\nproviding a suitable implementation of the monad typeclass.\n\n```Haskell\ninstance Monad [] where  \n    return x = [x]  \n    xs >>= f = join (map f xs)\n    \n  -- Alternative definitions of bind\n  --xs >>= f = concatMap f xs\n  --xs >>= f = concat (map f xs)\n```\n\nBut wait, there\'s more.  How about proving that all Lists are monoids too?\n\n```Haskell\ninstance Monoid [] where\n  mempty = []\n  mappend = (++)\n  mconcat = concat -- or join, whatever floats your boat\n```\n\nThe definition of `return` should stand on its own.  The definition of bind for\nlists is the truly interesting part of the typeclass.  It takes a list in the\nleft, then applies the function f and concats all the results together.  This is\nwhere the confusion of monads with containers comes from.  Monads *are* things\nthat can be mapped over, but that is by nature of their structure.  It is not\na defining trait.\n\n## All Together Now\n\nSo, now that we have all of our mappings from Monoids to Monads, let\'s derive\nsequencing.  After all, what good are side effects if you can’t sequence?  One\nimportant thing about monads is that they have “no way out” of the monad.  If we\ncould \"escape\" the monad, then it wouldn’t be an endofunctor, just a plain old\nfunctor!  This is reflected in the all the function types in the monoid\ntypeclass as well.  There is no notion of any other type but “a”, nor should\nthere be (it would violate the closure law).  Just as there is no notion of\npulling values out of the monad or switching monads willy-nilly.  For that we\nhave comonads and functors, and those requires their own treatises.\n\nSequencing monads together (chaining) is accomplished by those scary looking\narrow things you’ve seen once or twice denoted\n\n```Haskell\n(>>=) :: (Monad m) => m a -> (a -> m b) -> m b\n```\n\nand\n\n```\n(>>) :: (Monad m) => m a -> m b -> m b\n```\n\nThe first is pronounced “bind”, the second, “sequence”.  From bind’s type, it’s\neasy to see what it does:\n\nFirst, it extracts the value from the monad to its left, applies the function to\nits right to that value, then gives you back the same monad with a changed\nvalue.  Notice how there is no escape from the monad (m) part of the types, and\nthere is no hopping between monads.  The monad bind produces is the same one\nthat went in, all that changed is the value it’s indexed by.\n\nSequence can also be inferred from its type.  It takes the monad to the left,\nevaluates whatever’s in it, discards the result, then evaluates the monad to the\nright and returns it. Sounds complicated, but we also have the exact same thing\nbuilt into nearly every C-like language: the comma operator.  In C, `f(), g();`\ncalls f, throws away the result, then calls g and makes the result of the entire\nexpression its return value.\n\nFrom there, all other operators are conveniences derived from the basic monad\noperators and the ones we discussed.  Sequencing monads is so important that\nbind is a part of the minimal complete definition of a Haskell monad.\n\n## But Those Diagrams Doe\n\nThose are commutative digrams, commonplace in any field involving lots of\nfunctions.  The first is called the associativity square, and all it says is\nthat if I have some monad in a monad in a monad... ad nauseum, that I can keep\n`join`ing until I get to a single unnested monad with all of the previous values\n`mconcat`\'ed (or similarly) inside.\n\nThis is trivial to illustrate with the List monad.\n\nHere\'s our monad in a monad in a monad...\n\n```\nlet l = [[[\"a\", \"b\", \"c\"], [\"d\", \"e\", \"f\"], [\"g\", \"h\", \"i\"]], [[\"j\", \"k\", \"l\"], [\"m\", \"n\", \"o\"], [\"p\", \"q\", \"r\"]]]\n```\n\nThe left and down arrows say that if I run `join` across this list, that it\'ll\ntake away a pair of brackets.\n\n```\njoin l\n> [[\"a\",\"b\",\"c\"],[\"d\",\"e\",\"f\"],[\"g\",\"h\",\"i\"],[\"j\",\"k\",\"l\"],[\"m\",\"n\",\"o\"],[\"p\",\"q\",\"r\"]]\n```\n\nRepetez!\n\n```\njoin $ join l\n> [\"a\",\"b\",\"c\",\"d\",\"e\",\"f\",\"g\",\"h\",\"i\",\"j\",\"k\",\"l\",\"m\",\"n\",\"o\",\"p\",\"q\",\"r\"]\n```\n\nAnd finally\n\n```Haskell\njoin $ join $ join l\n> \"abcdefghijklmnopqr\"\n```\n\nYou can think of the exponents next to the T as the number of brackets you have\nto `join` to reach some \"minimal monad\" for which no more extraneous structure\ncan be removed.\n\nThe second is the unit triangle.  It says that we can take our monad, add\n\"another set of brackets\" with `η` on the left or right, then `join` (`μ`) it\nand get the same thing back.  This translates to Haskell as\n\n```Haskell\njoin return $ return 5\n> 5\n```\n\nWhat this means practically is that `join return` is an identity operation!\n");
-   var main = A4($Signal.map3,
-   $Website$Blog$Skeleton.generatePost,
+   var post = $Markdown.toElement("\n<p>\n## Introduction\n\nI have been writing Objective-C for the entirety of my (arguably short)\nprogramming career, and the only conclusion I can draw from all that time spent\nin the world of square-brackets and verbosity is that it forces me to think in\nextremely provincially about my code.  While the language itself is founded on\nvery powerful ideas, and the libraries and tools provided by Apple’s walled\ngarden are of an agreeable quality, there was always an urge within me to \"peek\nout over the garden walls\", as it were, and experiment with other languages.\nI’ve dabbled in the web, and left with a sour taste.  I’ve poked and prodded the\nlist comprehension languages, forced the functional ones, and written\nself-reorganizing code in the ones promising to satisfy that code-as-data fetish\nfor those of us so inclined that way.  But, paradoxically enough, the esoteric\nlanguages have, by far, been the most educational and satisfying.  To be fair,\nI’m not saying that you should run out and immediately install\n[Malbolge](http://en.wikipedia.org/wiki/Malbolge) on your computer -just to\nwatch your precious RAM fill with garbage and have to program entirely in\nrandom, cryptographically-restructured, pointer arithmetic- but rather that it\nis those languages that seem most foreign that often have the most to offer.  It\nis in this spirit that I am going to discuss one of my great loves: INTERCAL.\n\n> The names you are about to ignore are true. However, the story has been\n> changed significantly. Any resemblance of the programming language portrayed\n> here to other programming languages, living or dead, is purely coincidental.\n> - INTERCAL-72 Language Specification, Introduction\n\nINTERCAL began one May morning as a joke between two residents of Princeton\nUniversity, Donald R. Woods and James M. Lyon.  INTERCAL (affectionately\nexpanded as the Compiler Language With No Pronounceable Acronym) was literally\nmeant to be a compiler language that had nothing in common with any of the major\nlanguages of the period, eschewing everything but assignment statements,\nvariables, arrays, and “IO”.  INTERCAL has no notion of pointers, strings,\nsubroutines, boolean logic, and features a type system that’s little more than\na sick joke wrapped in a cruel irony.  This strict adherence to a perverted\ndefinition of simplicity lead to a language innovative for its unconventional\nuse of the ASCII character set, its nonsensical syntax, and its voluminous\navenues for errors and confusion.  The INTERCAL-72 spec puts it best:\n\n> It has few capabilities, and thus there are few restrictions to be kept in\n> mind. Since it is an exceedingly easy language to learn, one might expect it\n> would be a good language for initiating novice programmers. Perhaps surprising,\n> than, is the fact that it would be more likely to initiate a novice into\n> a search for another line of work.\n> - INTERCAL-72 Language Specification, Section 2.2\n\n## Character Set\n\nINTERCAL\'s unique use of the ASCII character set means that the creators of the\nlanguage had ample opportunity to rename certain obscure characters.  This being\nINTERCAL, they also took the opportunity to rename several more common\ncharacters.  Going forward, any characters mentioned specific to the language\nwill be written in their INTERCAL-72 form, which is as follows (taken from the\n[Tonsil](http://www.muppetlabs.com/~breadbox/intercal-man/tonsila.html)):\n\n```\nCharacter        Name                            Use (if any)\n.                spot                            identify 16-bit variable\n:                two-spot                        identify 32-bit variable\n,                tail                            identify 16-bit array\n;                hybrid                          identify 32-bit array\n#                mesh                            identify constant\n=                half-mesh\n\'                spark                           grouper\n`                backspark\n!                wow                             equivalent to spark-spot\n?                what                            unary XOR\n\"               rabbit-ears                     grouper\n\".              rabbit                          equivalent to ears-spot\n|                spike\n%                double-oh-seven                 percentage qualifier\n-                worm                            used with angles\n<                angle                           used with worms\n>                right angle\n(                wax                             precedes line label\n)                wane                            follows line label\n[                U turn\n]                U turn back\n{                embrace\n}                bracelet\n&                ampersand *                     unary AND\nV                V (or book)                     unary OR\n$                big money                       binary interleave\n¢                change                          binary interleave\n~                sqiggle                         binary select\n_                flat worm\n¯                overline                        indicates \"times 1000\"\n+                intersection                    separates list items\n/                slat\n\\               backslat\n¬                hookworm\n```\n\n## Structure\n\n```\n    ICL778I UNEXPLAINED COMPILER BUG\n    ON THE WAY TO 2\n        CORRECT SOURCE AND RESUBNIT\n```\n> An error code from ICK, the INTERCAL compiler\n\nINTERCAL is built around the notion of optionally-numbered ordered statements\nconsisting of either an operator and its argument, or a DO-prefixed expression.\nAll statements that are not explicitly operators must be prepended with a `DO`.\nBut, as telling the compiler -called ICK - to `DO` your bidding is rude, every\nthird-ish statement must be prepended with a `PLEASE DO`.  Failure to make at\nleast 1/5th of all statements `PLEASE` statements will result in ICK rejecting\nyour program as insufficiently polite.  Conversely, if more than 1/3rd of\nstatements are prepended with a `PLEASE`, your program will be rejected as\noverly polite.  Thus, INTERCAL forces the programmer to contort their code so as\nnot to trample on the Politesse Checking mechanism.  Anything that does not\ncompile is a comment, often leading to statements such as `PLEASE DONT` or\n`DONT` being used as common comment delimiters.  Care must be exercised when\nwriting comments, as any occurence of `N\'T` and `NOT` at the start of a program\nare abstensions from the previous operators.  This will become clear in later\nsections.\n\nLine numbers must be explicitly reserved by the programmer or the library writer\nso as to avoid clashes with existing line numbers.  For example, the INTERCAL\nsystem libraries reside on line numbers 1000-1999, and any program making use of\nlines or labels in that range are subject to undefined behavior.  C-INTERCAL\ncorrects this with the `-E` option, but this obstructs inclusion of the standard\nlibraries).  Every line may be preceded by a double-oh-seven (%) and a number\nfrom 0-100 inclusive which indicates the probability a given line may be\nexecuted when it is reached, allowing some notion of randomness to any INTERCAL\nprogram.\n\nVariables must be of type spot, two-spot, tail, or hybrid, and may only be named\nnumerically.  All INTERCAL variables are miniature stacks that can be pushed to\nwith the `STASH` command, and popped off with the `RETRIEVE` command.\nAttempting to `RETRIEVE` variables that have not been `STASH`\'ed to results in\nthe runtime error message `THROW STICK BEFORE RETRIEVING`.  Variables may also\nbe `IGNORE`\'d, that is made immune to the effects of any subsequent statements\nexcept the `REMEMBER` command, which annuls the effects of an `IGNORE`.\nAssignment is acchieved through the use of the `<-` operator (pronounced\ncalculate).  For example, to declare a 16-bit integer `:1` containing the value\n16, then terminating, the following program could be written:\n\n```\nDO :1 <- #16\nDO GIVE UP\n```\n\n## Operators\n\nINTERCAL-72 includes 5 operators, of which 2 are binary and 3 are unary.  While\nthese operators may share names with many common operators in other languages,\nthey have literally nothing in common with them, and often perform unnecessarily\ncomplex mathematical operations on the bits of a variable to arrive at an\nanswer.  The binary operators are mingle, represented by big-money ($) and\nselect, represented by a worm (~).  Mingle takes the bits of two numbers,\ninterleaves them, then returns the result with any overflow than doesn\'t fit\ninto the type of the second variable being lopped off, or causing a runtime\nerror (whichever the compiler finds most convenient).  It\'s always best to\nvisualize this operator, so here is 22 being mingled with 8:\n\n```\nDO .1 <- #22$#8\nDO GIVE UP\n\n0 0 0 1 0 1 1 0  // Bits of 22 with left-padding\n 0 0 0 0 1 0 0 0 // Bits of 8 with left-padding\n0000001001101000 // Bits are interleaved to yield 616\n```\n\nSelect is far more complicated, and is said to be based on [Warmenhovian Logic\nGates](http://www.muppetlabs.com/~breadbox/intercal-man/figure1.html), an\nextremely obscure offshoot of boolean algebra that often leads to New York, but\nmight lead to Philly if you do it right.  Select takes the bits of the first\nnumber, left pads them, then takes the bits of the right number, aligns them,\nand uses the 1\'s in the second variable to \"select\" bits from the first, then\nleft-padding the result.  Again, visualizing this operator is always much easier\nthan words:\n\n```\nDO .1 <- #22~#8\nDO GIVE UP\n\n0 0 0 1 0 1 1 0  // Bits of 22 with left-padding\n0 0 0 1 1 0 0 0  // Bits of 24 with left-padding\n_______________\n0 0 0 0 0 0 1 0  // Bits are selected to yield 2\n```\n\nBrilliant.  This isn\'t so hard to deal with in practice, it\'s just quite a bit\nmore math than it should be.  Now for the Unary Operators:\n\nINTERCAL\'s unary operators work in much the same way its binary operators do.\nBit manipulation is the name of the game when dealing with unary operators, and\nINTERCAL cares so much about its unary operators that they may actually be used\nin succession.  The only downside is the restrictions on where these operators\nmay be used:    after the type of a variable in its declarations.\n\nThe Ampersand (curiously, the only character that retains its proper name) goes\nthrough each pair of bits in a number, `AND`s them together, the Book (V)\noperator performs logical `OR`\'ing of the bits of a number, and What (?)\nperforms logical XOR\'ing of the bits of a number.\n\n``` DO .1 <- #&100\n\n0 1 1 0 0 1 0 0  // Bits of 100 with left-padding\n0 0 1 0 0 0 0 0  // Bits are AND\'ed together to yield 32\n\nDO .12<- #V100\n\n0 1 1 0 0 1 0 0  // Bits of 100 with left-padding\n0 1 1 1 0 0 1 0  // Bits are OR\'ed together to yield 114\n\nDO .3 <- #?100\n\n0 1 1 0 0 1 0 0  // Bits of 100 with left-padding\n0 1 0 1 0 1 1 0  // Bits are XOR\'ed together to yield 86\n\nDO GIVE UP\n```\n\n## A Turing Tarpit\n\nINTERCAL is the original Turing Tarpit language.  That is, it is a language that\nis Turing complete through the most ridiculous or useless constructs.  Bearing\nthat in mind, INTERCAL\'s Turing-completeness stems from its `COME FROM` and\n`NEXT` statements.  `COME FROM` is really `GOTO` implemented \"backwards in\ntime\", and thus can be used to insert certain statements after a line\nis executed.  For example:\n\n```\n(1)     DO <any statement>\n        .\n        .\n        .\n(2)     DO COME FROM (1)\n```\n\nshould be thought of as being equivalent to\n\n```\n(1)     DO <any statement>\n(2)     DO GOTO (3)\n        .\n        .\n        .\n(3)     DO NOTHING\n```\n\nOf course, the 2nd part of the example above is flawed, in that GOTO is not an\noperator in INTERCAL, and it will not compile.\n\nThe `NEXT` operator is used to implement the shadow of subroutines, and like\nvariables, maintains a stack of line labels that have been `NEXT`\'ed to.  True\nto form, INTERCAL only allows 79 line labels to be pushed onto the `NEXT` stack.\nAttempting to `NEXT` an 80th statement results in the error message `PROGRAM HAS\nDISAPPEARED INTO THE BLACK LAGOON` and immediate program termination.  This\nmeans the programmer has to take great care to ensure that most `NEXT`\'s are\nbalanced with a `FORGET`, which pops a variable number of statements off the\n`NEXT`\'ing stack and continues program execution.  It\'s easy to see how this\ncould be used to implement looping constructs, and even recursion if done\nproperly.\n\nAny notion of conditional behavior must be accomlished with the `ABSTAIN` and\n`REINSTATE` statements.  As the name implies, `ABSTAIN` causes a statement or\nline label to not be executed, or have its effects nullified when it is\nencoutered.  `REINSTATE` does the opposite.  It\'s important to note that\n`ABSTAIN` and `REINSTATE` do not take simple statements are arguments, rather\nthey take gerund lists of statements.  Thus, to nullify the effects of the\ncalculate operator, the following is invalid:\n\n```\nPLEASE ABSTAIN FROM CALCULATE\n```\n\nRather, its gerund should be used.\n\n```\nPLEASE ABSTAIN FROM CALCULATING\n```\n\nAs noted by the spec:\n\n> `DO ABSTAIN FROM ABSTAINING` is perfectly valid, as is `DO ABSTAIN FROM \n> REINSTATING` (although this latter is not usually recommended). However, the\n> statement `DO ABSTAIN FROM GIVING UP` is not accepted, even though `DON\'T GIVE\n> UP` is.\n\n\n## \"IO\"\n\nThe input side of IO is accomplished through the `WRITE IN` statement.  Rather\nthan restrict the types of the variables input will be written to, INTERCAL\nseverely restricts the languages and forms of any input.  Numbers to be read in\nmust be written out in all caps in english and the digits must be separated by\nat least one space.  For example, the range of 32-bit numbers is `ZERO`, or `OH`\nthrough `FOUR TWO NINE FOUR NINE SIX SEVEN TWO NINE FIVE`.  In an attempt to\nappear more \"international\", INTERCAL also recognizes input in the following\nlanguages: Sanskrit, Basque, Tagalog, Classical Nahuatl, Georgian, Kwakiutl, and\nVolapuk.\n\n> Attempting to write in a value greater than or equal to `SIX FIVE FIVE THREE\n> SIX` for a 16-bit variable will result in the error message, `DON\'T BYTE OFF\n> MORE THAN YOU CAN CHEW`.\n> - INTERCAL-72 Language Specification, Section 2.4.4.12\n\nOutput is acchieved through butchered Roman Numerals, which are as awful as the\nname implies.  Overlines indicate that the value below is to be multiplied by\n1000, and lowercase letters indicate the value should be multiplied by 1000000.\nZero is represented by just an overline.  Thus, the constant `#6,000` is written\nout as:\n\n```\n__\nVI\n```\n\n## It Gets So Very Much Worse\n\nINTERCAL also comes in a dialect known as TriNTERCAL, or Trinary INTERCAL.\nWhereas classical INTERCAL concerns itself with mangling binary operators,\nTriNTERCAL deals with trits, or 3-bit values.  TriNTERCAL introduces two new\noperators, whirlpool (@) and sharkfin (^), and overloads What (?) to be\nsubstraction without borrowing.  Despite how complicated this all may sound, the\nTriNTERCAL spec actually presents it excellently using the metaphor of \"choice\"\nand \"preference\".  For example, binary `AND` is said to \"prefer returning 0, but\nreturning 1 given no other choice\", and binary OR is said to \"prefer returning\n1, but returning 0 given no other choice.\" Trinary `OR` means given 0, 1, 2, the\noperator prefers to return 2, then 0, and will return 1 given no other choice.\nTrinary `AND` wants to return 0, will accept returning 1, and returns 2 given no\nother choice.  The only operator left is whirlpool, or logical `BUT`, which the\nspec puts best:\n\n> In TriINTERCAL programs the whirlpool (@) denotes the unary tritwise BUT\n> operation. You can think of the whirlpool as drawing values preferentially\n> towards the central value 1. Alternatively, you can think of it as drawing your\n> soul and your sanity inexorably down....\n> - INTERCAL-72 Language Specification, Section 6.5.2.1\n\n## Finding Value Among Garbage\n\nIf you\'ve made it this far without either dying of laughter or gouging your\neyeballs out or considering Office-Space\'ing your computer at the stupidity of\nprogramming language jokes in the 70\'s, then there has to be a question as to\nwhy languages like INTERCAL have any value aside from demonstration purposes.\nINTERCAL is not a language I would ever want to program in for client work, nor\nis a language that makes much in the way of useful work possible.  Where the\nvalue of esolangs lies is in strengthening the logical aspects of my mind.\nINTERCAL and others like it force me to think about my code far more\nstructurally than ever before, and logic must be inherent in the program itself\nand not datatypes, interfaces, or collections.  By lowering the amount of\navenues and alternatives that I have to consider when trying to even get\na program \"running\" in one of these languages, they have the effect of focusing\nmy efforts rather than hindering them.\n\nOne final note: For the love of god, don\'t specify the optimizer option when\ntrying to compile INTERCAL.  The optimizer will run for hours or days at a time\nattempting to \"optimize\" (ha!) your code.\n\n</p>\n");
+   var main = A5($Signal.map4,
+   $Website$Blog$Skeleton.generateImagefulPost,
    $Window.dimensions,
-   $Signal.constant("Monards"),
+   $Signal.constant("Variations on a RoCocoa Theme"),
+   $Signal.constant("http://images03.olx.co.za/ui/19/87/99/1328006455_309297899_1-Intercal-Calibration-Services-CC-Newton-Park.jpg"),
    $Signal.constant(post));
    _elm.Main.values = {_op: _op
                       ,post: post
                       ,main: main};
    return _elm.Main.values;
-};Elm.Markdown = Elm.Markdown || {};
+};
+Elm.Markdown = Elm.Markdown || {};
 Elm.Markdown.make = function (_elm) {
    "use strict";
    _elm.Markdown = _elm.Markdown || {};
@@ -3477,7 +3490,8 @@ Elm.Markdown.make = function (_elm) {
                           ,toHtmlWith: toHtmlWith
                           ,toElementWith: toElementWith};
    return _elm.Markdown.values;
-};Elm.Maybe = Elm.Maybe || {};
+};
+Elm.Maybe = Elm.Maybe || {};
 Elm.Maybe.make = function (_elm) {
    "use strict";
    _elm.Maybe = _elm.Maybe || {};
@@ -3549,7 +3563,8 @@ Elm.Maybe.make = function (_elm) {
                        ,Just: Just
                        ,Nothing: Nothing};
    return _elm.Maybe.values;
-};Elm.Native.Array = {};
+};
+Elm.Native.Array = {};
 Elm.Native.Array.make = function(localRuntime) {
 
 	localRuntime.Native = localRuntime.Native || {};
@@ -4530,6 +4545,7 @@ Elm.Native.Array.make = function(localRuntime) {
 	return localRuntime.Native.Array.values = Elm.Native.Array.values;
 
 }
+
 Elm.Native.Basics = {};
 Elm.Native.Basics.make = function(localRuntime) {
 
@@ -4667,6 +4683,7 @@ Elm.Native.Basics.make = function(localRuntime) {
 		isInfinite: isInfinite
 	};
 };
+
 Elm.Native.Char = {};
 Elm.Native.Char.make = function(localRuntime) {
 	localRuntime.Native = localRuntime.Native || {};
@@ -4687,6 +4704,7 @@ Elm.Native.Char.make = function(localRuntime) {
 		toLocaleLower : function(c) { return Utils.chr(c.toLocaleLowerCase()); },
 	};
 };
+
 Elm.Native.Color = {};
 Elm.Native.Color.make = function(localRuntime) {
 	localRuntime.Native = localRuntime.Native || {};
@@ -4727,6 +4745,7 @@ Elm.Native.Color.make = function(localRuntime) {
 	};
 
 };
+
 Elm.Native.Debug = {};
 Elm.Native.Debug.make = function(localRuntime) {
 	localRuntime.Native = localRuntime.Native || {};
@@ -4793,6 +4812,7 @@ Elm.Native.Debug.make = function(localRuntime) {
 		watchSummary:F3(watchSummary),
 	};
 };
+
 
 // setup
 Elm.Native = Elm.Native || {};
@@ -5453,6 +5473,7 @@ Elm.Native.Graphics.Collage.make = function(localRuntime) {
 	};
 
 };
+
 
 // setup
 Elm.Native = Elm.Native || {};
@@ -6168,6 +6189,7 @@ Elm.Native.Graphics.Element.make = function(localRuntime) {
 	};
 
 };
+
 Elm.Native.Json = {};
 Elm.Native.Json.make = function(localRuntime) {
 
@@ -6654,6 +6676,7 @@ Elm.Native.Json.make = function(localRuntime) {
 	};
 
 };
+
 Elm.Native.List = {};
 Elm.Native.List.make = function(localRuntime) {
 	localRuntime.Native = localRuntime.Native || {};
@@ -6880,6 +6903,7 @@ Elm.Native.List.make = function(localRuntime) {
 
 };
 
+
 // setup
 Elm.Native = Elm.Native || {};
 Elm.Native.Markdown = Elm.Native.Markdown || {};
@@ -6967,7 +6991,8 @@ Elm.Native.Markdown.make = function(localRuntime) {
         toHtmlWith: F2(toHtmlWith),
         toElementWith: F2(toElementWith)
     };
-};Elm.Native.Port = {};
+};
+Elm.Native.Port = {};
 Elm.Native.Port.make = function(localRuntime) {
 
 	localRuntime.Native = localRuntime.Native || {};
@@ -7100,6 +7125,7 @@ Elm.Native.Port.make = function(localRuntime) {
 		outboundSignal: outboundSignal
 	};
 };
+
 
 if (!Elm.fullscreen) {
 
@@ -7738,6 +7764,7 @@ if (!Elm.fullscreen) {
 			: fun(a)(b)(c)(d)(e)(f)(g)(h)(i);
 	}
 }
+
 Elm.Native.Show = {};
 Elm.Native.Show.make = function(localRuntime) {
 	localRuntime.Native = localRuntime.Native || {};
@@ -7929,6 +7956,7 @@ Elm.Native.Show.make = function(localRuntime) {
 		toString: toString
 	};
 };
+
 Elm.Native.Signal = {};
 Elm.Native.Signal.make = function(localRuntime) {
 
@@ -8401,6 +8429,7 @@ Elm.Native.Signal.make = function(localRuntime) {
 		delay: F2(delay)
 	};
 };
+
 Elm.Native.String = {};
 Elm.Native.String.make = function(localRuntime) {
 
@@ -8743,6 +8772,7 @@ Elm.Native.String.make = function(localRuntime) {
 		fromList: fromList
 	};
 };
+
 Elm.Native.Task = {};
 Elm.Native.Task.make = function(localRuntime) {
 
@@ -8966,6 +8996,7 @@ Elm.Native.Task.make = function(localRuntime) {
 		sleep: sleep
 	};
 };
+
 Elm.Native.Text = {};
 Elm.Native.Text.make = function(localRuntime) {
 	localRuntime.Native = localRuntime.Native || {};
@@ -9253,6 +9284,7 @@ Elm.Native.Text.make = function(localRuntime) {
 		renderHtml: renderHtml
 	};
 };
+
 Elm.Native.Transform2D = {};
 Elm.Native.Transform2D.make = function(localRuntime) {
 
@@ -9365,6 +9397,7 @@ Elm.Native.Transform2D.make = function(localRuntime) {
 	};
 
 };
+
 Elm.Native = Elm.Native || {};
 Elm.Native.Utils = {};
 Elm.Native.Utils.make = function(localRuntime) {
@@ -9727,6 +9760,7 @@ Elm.Native.Utils.make = function(localRuntime) {
 		badPort: badPort
 	};
 };
+
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = createHash
 
@@ -11709,6 +11743,7 @@ Elm.Native.VirtualDom.make = function(elm)
 },{"data-set":2,"dom-delegator":8,"vdom/create-element":18,"vdom/patch":24,"vtree/diff":26,"vtree/is-vhook":29,"vtree/vnode":36,"vtree/vtext":38}],40:[function(require,module,exports){
 
 },{}]},{},[39]);
+
 Elm.Native = Elm.Native || {};
 Elm.Native.Window = {};
 Elm.Native.Window.make = function(localRuntime) {
@@ -11777,6 +11812,7 @@ Elm.Native.Window.make = function(localRuntime) {
 		resizeIfNeeded: resizeIfNeeded
 	};
 };
+
 Elm.Result = Elm.Result || {};
 Elm.Result.make = function (_elm) {
    "use strict";
@@ -12020,7 +12056,8 @@ Elm.Result.make = function (_elm) {
                         ,Ok: Ok
                         ,Err: Err};
    return _elm.Result.values;
-};Elm.Signal = Elm.Signal || {};
+};
+Elm.Signal = Elm.Signal || {};
 Elm.Signal.make = function (_elm) {
    "use strict";
    _elm.Signal = _elm.Signal || {};
@@ -12163,7 +12200,8 @@ Elm.Signal.make = function (_elm) {
                         ,forwardTo: forwardTo
                         ,Mailbox: Mailbox};
    return _elm.Signal.values;
-};Elm.String = Elm.String || {};
+};
+Elm.String = Elm.String || {};
 Elm.String.make = function (_elm) {
    "use strict";
    _elm.String = _elm.String || {};
@@ -12263,7 +12301,8 @@ Elm.String.make = function (_elm) {
                         ,any: any
                         ,all: all};
    return _elm.String.values;
-};Elm.Task = Elm.Task || {};
+};
+Elm.Task = Elm.Task || {};
 Elm.Task.make = function (_elm) {
    "use strict";
    _elm.Task = _elm.Task || {};
@@ -12487,7 +12526,8 @@ Elm.Task.make = function (_elm) {
                       ,spawn: spawn
                       ,sleep: sleep};
    return _elm.Task.values;
-};Elm.Text = Elm.Text || {};
+};
+Elm.Text = Elm.Text || {};
 Elm.Text.make = function (_elm) {
    "use strict";
    _elm.Text = _elm.Text || {};
@@ -12572,7 +12612,8 @@ Elm.Text.make = function (_elm) {
                       ,Over: Over
                       ,Through: Through};
    return _elm.Text.values;
-};Elm.Transform2D = Elm.Transform2D || {};
+};
+Elm.Transform2D = Elm.Transform2D || {};
 Elm.Transform2D.make = function (_elm) {
    "use strict";
    _elm.Transform2D = _elm.Transform2D || {};
@@ -12636,7 +12677,8 @@ Elm.Transform2D.make = function (_elm) {
                              ,scaleX: scaleX
                              ,scaleY: scaleY};
    return _elm.Transform2D.values;
-};Elm.VirtualDom = Elm.VirtualDom || {};
+};
+Elm.VirtualDom = Elm.VirtualDom || {};
 Elm.VirtualDom.make = function (_elm) {
    "use strict";
    _elm.VirtualDom = _elm.VirtualDom || {};
@@ -12677,7 +12719,8 @@ Elm.VirtualDom.make = function (_elm) {
                             ,lazy2: lazy2
                             ,lazy3: lazy3};
    return _elm.VirtualDom.values;
-};Elm.Website = Elm.Website || {};
+};
+Elm.Website = Elm.Website || {};
 Elm.Website.Blog = Elm.Website.Blog || {};
 Elm.Website.Blog.Formatting = Elm.Website.Blog.Formatting || {};
 Elm.Website.Blog.Formatting.make = function (_elm) {
@@ -12718,23 +12761,20 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
                     ,line: $Maybe.Nothing
                     ,typeface: _L.fromArray(["Helvetica"])};
    var title = function (t) {
-      return $Graphics$Element.link("http://λπω.com")($Graphics$Element.layers(_L.fromArray([A3($Graphics$Collage.collage,
-                                                                                            100,
-                                                                                            50,
-                                                                                            _L.fromArray([$Graphics$Collage.move({ctor: "_Tuple2"
-                                                                                                                                 ,_0: -20
-                                                                                                                                 ,_1: 0})(A2($Graphics$Collage.filled,
-                                                                                            A3($Color.rgb,
-                                                                                            34,
-                                                                                            48,
-                                                                                            54),
-                                                                                            $Graphics$Collage.circle(24)))]))
-                                                                                            ,A2($Graphics$Element.flow,
-                                                                                            $Graphics$Element.down,
-                                                                                            _L.fromArray([A2($Graphics$Element.spacer,
-                                                                                                         0,
-                                                                                                         12)
-                                                                                                         ,$Graphics$Element.justified($Text.style(titleStyle)($Text.fromString(t)))]))])));
+      return $Graphics$Element.layers(_L.fromArray([A3($Graphics$Collage.collage,
+                                                   100,
+                                                   50,
+                                                   _L.fromArray([$Graphics$Collage.move({ctor: "_Tuple2"
+                                                                                        ,_0: -20
+                                                                                        ,_1: 0})(A2($Graphics$Collage.filled,
+                                                   A3($Color.rgb,34,48,54),
+                                                   $Graphics$Collage.circle(24)))]))
+                                                   ,A2($Graphics$Element.flow,
+                                                   $Graphics$Element.down,
+                                                   _L.fromArray([A2($Graphics$Element.spacer,
+                                                                0,
+                                                                16)
+                                                                ,$Graphics$Element.justified($Text.link("http://λπω.com")($Text.style(titleStyle)($Text.fromString(t))))]))]));
    };
    var formatImagefulTitle = F3(function (_v0,
    t,
@@ -12756,7 +12796,7 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
                            $Graphics$Element.absolute(4)),
                            title(t))]));}
          _U.badCase($moduleName,
-         "between lines 25 and 27");
+         "between lines 30 and 32");
       }();
    });
    _elm.Website.Blog.Formatting.values = {_op: _op
@@ -12766,7 +12806,8 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
                                          ,formatTitleText: formatTitleText
                                          ,formatFunctionText: formatFunctionText};
    return _elm.Website.Blog.Formatting.values;
-};Elm.Website = Elm.Website || {};
+};
+Elm.Website = Elm.Website || {};
 Elm.Website.Blog = Elm.Website.Blog || {};
 Elm.Website.Blog.Skeleton = Elm.Website.Blog.Skeleton || {};
 Elm.Website.Blog.Skeleton.make = function (_elm) {
@@ -12885,7 +12926,8 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
                                        ,generatePost: generatePost
                                        ,generateImagefulPost: generateImagefulPost};
    return _elm.Website.Blog.Skeleton.values;
-};Elm.Window = Elm.Window || {};
+};
+Elm.Window = Elm.Window || {};
 Elm.Window.make = function (_elm) {
    "use strict";
    _elm.Window = _elm.Window || {};
@@ -12911,4 +12953,4 @@ Elm.Window.make = function (_elm) {
                         ,width: width
                         ,height: height};
    return _elm.Window.values;
-};</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Main)</script></body></html>
+};
