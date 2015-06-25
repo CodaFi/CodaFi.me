@@ -3418,7 +3418,7 @@ Elm.Main.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm),
    $Website$Blog$Skeleton = Elm.Website.Blog.Skeleton.make(_elm),
    $Window = Elm.Window.make(_elm);
-   var post = $Markdown.toElement("\n<p>\n++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.\n</p>\n");
+   var post = $Markdown.toElement("\n<p>\n++++++++[>+>++>+++>++++>+++++>++++++>+++++++>++++++++>+++++++++>++++++++++>++++\n+++++++>++++++++++++>+++++++++++++>++++++++++++++>+++++++++++++++>+++++++++++++\n+++<<<<<<<<<<<<<<<<-]>>>>>>>>>>-.+<<<<<<<<<<>>>>>>>>>>>>>>++.--<<<<<<<<<<<<<<>>\n>>.<<<<>>>>>>>>>>>>>>--.++<<<<<<<<<<<<<<>>>>>>>>>>>>+.-<<<<<<<<<<<<>>>>>>>>>>>>\n>.<<<<<<<<<<<<<.\n</p>\n");
    var main = A4($Signal.map3,
    $Website$Blog$Skeleton.generatePost,
    $Window.dimensions,
