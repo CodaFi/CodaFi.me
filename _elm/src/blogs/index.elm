@@ -1,54 +1,58 @@
 import Window
-import Graphics.Element as El
 import Website.Blog.Formatting as Format
+import Signal exposing (constant, map)
+import Markdown exposing (toElement)
+import Color exposing (..)
+import Graphics.Element exposing (Element, flow, down, left, color, link, width, widthOf, height, heightOf)
+import Graphics.Element exposing (container, midLeft, midLeftAt, midTop, midTopAt, topLeft, absolute)
 
-combinatorsTitle = [markdown|
+combinatorsTitle = toElement """
 <h2 style="margin-left:24px;">Birds and Building Blocks</h2>
 
 <span style="margin-left:24px;">
 In which we use angry birds to build, rather than destroy, things.
 </span>
-|]
+"""
 
-fpInSwiftIntroTitle = [markdown|
+fpInSwiftIntroTitle = toElement """
 <h2 style="margin-left:24px;">FP in Swi... Compilation Aborted: SEGFAULT</h2>
 
 <span style="margin-left:24px;">
 In which we begin something new and exciting.
 </span>
-|]
+"""
 
-monardsTitle = [markdown|
+monardsTitle = toElement """
 <h2 style="margin-left:24px;">Monads Made Hard, Then Simple, Then Easy</h2>
 
 <span style="margin-left:24px;">
 In which we eschew aphoristic comparisons.  Because Monards.
 </span>
-|]
+"""
 
-errorHandlingTitle = [markdown|
+errorHandlingTitle = toElement """
 <h2 style="margin-left:24px;">Error Handling</h2>
 
 <span style="margin-left:24px;">
 In which the BSOD is praised for its innovative qualities.
 </span>
-|]
+"""
 
-intercalTitle = [markdown|
+intercalTitle = toElement """
 <h2 style="margin-left:24px;">Variations on a RoCocoa Theme</h2>
 
 <span style="margin-left:24px;">
 In which the relevance of Esolangs is examined.
 </span>
-|]
+"""
 
-helloWorldTitle = [markdown|
+helloWorldTitle = toElement """
 <h2 style="margin-left:24px; margin-top:0px;">Hello World</h2>
 
 <span style="margin-left:24px;">
 In which we question the reason for this blog's inception.
 </span>
-|]
+"""
 
 scene (w,h) = flow down [ container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (Format.title "  CF") |> color (rgb 57 74 85),
                           container (max 500 w) 105 topLeft (box combinatorsTitle "http://λπω.com/blog/Combinators.html" w |> width w),
@@ -65,4 +69,5 @@ box e l w =
                  color white << container (w+2) h midLeft <| e
                ] |> link l
 
-main = lift scene Window.dimensions
+main = map scene Window.dimensions
+

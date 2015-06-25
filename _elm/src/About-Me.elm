@@ -1,7 +1,11 @@
 import Window
-import Graphics.Element as El
+import Graphics.Element exposing (..)
+import Graphics.Collage exposing (..)
 import Website.Blog.Formatting as Format
-                   
+import Markdown exposing (toElement)
+import Signal exposing (map)
+import Color exposing (..)
+
 scene (w,h) = flow down [container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (Format.title "  CF") |> color (rgb 57 74 85),
                             layers [
                                 container (max 500 w) (h - 60) middle <|
@@ -28,16 +32,16 @@ scene (w,h) = flow down [container (max 500 w) 60 (midLeftAt (absolute 10) (abso
 
                                 container (max 750 w) (h - 60) middle <|
                                 flow down [
-                                      [markdown|<font size="6">μ<sub>A</sub>⊗id<sub>A</sub></font>|],
+                                      toElement """<font size="6">μ<sub>A</sub>⊗id<sub>A</sub></font>""",
                                       spacer 0 300,
-                                      [markdown|<font size="6">&nbsp;&nbsp;&nbsp;&nbsp;μ<sub>A</sub></font>|]
+                                      toElement """<font size="6">&nbsp;&nbsp;&nbsp;&nbsp;μ<sub>A</sub></font>"""
                                 ],
 
                                 container (max 750 w) (h - 60) middle <|
-                                [markdown|<font size="6">id<sub>A</sub>⊗μ<sub>A</sub></font>|] `beside` (spacer 400 0) `beside` 
-                                [markdown|<font size="6">μ<sub>A</sub></font>|] `beside` (spacer 60 0)
+                                (toElement """<font size="6">id<sub>A</sub>⊗μ<sub>A</sub></font>""") `beside` (spacer 400 0) `beside`
+                                (toElement """<font size="6">μ<sub>A</sub></font>""") `beside` (spacer 60 0)
                             ]
                         ]
 
 
-main = lift scene Window.dimensions
+main = map scene Window.dimensions
