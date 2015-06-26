@@ -3443,6 +3443,7 @@ Elm.Main.make = function (_elm) {
    var monardsTitle = $Markdown.toElement("\n<h2 style=\"margin-left:24px;\">Monads Made Hard, Then Simple, Then Easy</h2>\n\n<span style=\"margin-left:24px;\">\nIn which we eschew aphoristic comparisons.  Because Monards.\n</span>\n");
    var fpInSwiftIntroTitle = $Markdown.toElement("\n<h2 style=\"margin-left:24px;\">FP in Swi... Compilation Aborted: SEGFAULT</h2>\n\n<span style=\"margin-left:24px;\">\nIn which we begin something new and exciting.\n</span>\n");
    var combinatorsTitle = $Markdown.toElement("\n<h2 style=\"margin-left:24px;\">Birds and Building Blocks</h2>\n\n<span style=\"margin-left:24px;\">\nIn which we use angry birds to build, rather than destroy, things.\n</span>\n");
+   var monadicComputering = $Markdown.toElement("\n<h2 style=\"margin-left:24px;\">Monadic Computering</h2>\n\n<span style=\"margin-left:24px;\">\nMonads, they\'re not just for breakfast after you thought you could\neat that whole Chipotle order by yourself.\n</span>\n");
    var scene = function (_v0) {
       return function () {
          switch (_v0.ctor)
@@ -3459,6 +3460,14 @@ Elm.Main.make = function (_elm) {
                            $Graphics$Element.absolute(10),
                            $Graphics$Element.absolute(30)),
                            $Website$Blog$Formatting.title("  CF")))
+                           ,A4($Graphics$Element.container,
+                           A2($Basics.max,500,_v0._0),
+                           105,
+                           $Graphics$Element.topLeft,
+                           $Graphics$Element.width(_v0._0)(A3(box,
+                           monadicComputering,
+                           "http://λπω.com/blog/Monadic-Computering.html",
+                           _v0._0)))
                            ,A4($Graphics$Element.container,
                            A2($Basics.max,500,_v0._0),
                            105,
@@ -3510,13 +3519,14 @@ Elm.Main.make = function (_elm) {
                            "http://λπω.com/blog/HelloWorld.html",
                            _v0._0)))]));}
          _U.badCase($moduleName,
-         "between lines 57 and 64");
+         "between lines 66 and 74");
       }();
    };
    var main = A2($Signal.map,
    scene,
    $Window.dimensions);
    _elm.Main.values = {_op: _op
+                      ,monadicComputering: monadicComputering
                       ,combinatorsTitle: combinatorsTitle
                       ,fpInSwiftIntroTitle: fpInSwiftIntroTitle
                       ,monardsTitle: monardsTitle
