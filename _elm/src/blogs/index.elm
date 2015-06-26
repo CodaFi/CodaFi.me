@@ -6,6 +6,15 @@ import Color exposing (..)
 import Graphics.Element exposing (Element, flow, down, left, color, link, width, widthOf, height, heightOf)
 import Graphics.Element exposing (container, midLeft, midLeftAt, midTop, midTopAt, topLeft, absolute)
 
+monadicComputering = toElement """
+<h2 style="margin-left:24px;">Monadic Computering</h2>
+
+<span style="margin-left:24px;">
+Monads, they're not just for breakfast after you thought you could
+eat that whole Chipotle order by yourself.
+</span>
+"""
+
 combinatorsTitle = toElement """
 <h2 style="margin-left:24px;">Birds and Building Blocks</h2>
 
@@ -55,6 +64,7 @@ In which we question the reason for this blog's inception.
 """
 
 scene (w,h) = flow down [ container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (Format.title "  CF") |> color (rgb 57 74 85),
+                          container (max 500 w) 105 topLeft (box monadicComputering "http://λπω.com/blog/Monadic-Computering.html" w |> width w),
                           container (max 500 w) 105 topLeft (box combinatorsTitle "http://λπω.com/blog/Combinators.html" w |> width w),
                           container (max 500 w) 105 topLeft (box fpInSwiftIntroTitle "http://λπω.com/blog/FP-In-Swift-Intro.html" w |> width w),
                           container (max 500 w) 105 topLeft (box monardsTitle "http://λπω.com/blog/Monards.html" w |> width w),

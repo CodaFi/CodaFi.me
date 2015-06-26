@@ -16,3 +16,4 @@ post = toElement """
 """
 
 main = map3 Blog.generatePost Window.dimensions (constant "Hello, World") (constant post)
+

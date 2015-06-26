@@ -3413,128 +3413,19 @@ Elm.Main.make = function (_elm) {
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
    $moduleName = "Main",
-   $Basics = Elm.Basics.make(_elm),
-   $Color = Elm.Color.make(_elm),
    $Graphics$Element = Elm.Graphics.Element.make(_elm),
    $Markdown = Elm.Markdown.make(_elm),
    $Signal = Elm.Signal.make(_elm),
-   $Website$Blog$Formatting = Elm.Website.Blog.Formatting.make(_elm),
+   $Website$Blog$Skeleton = Elm.Website.Blog.Skeleton.make(_elm),
    $Window = Elm.Window.make(_elm);
-   var box = F3(function (e,l,w) {
-      return function () {
-         var h = $Graphics$Element.heightOf(e);
-         return $Graphics$Element.link(l)(A2($Graphics$Element.flow,
-         $Graphics$Element.down,
-         _L.fromArray([$Graphics$Element.color(A3($Color.rgb,
-         132,
-         151,
-         161))(A3($Graphics$Element.container,
-         w,
-         h + 1,
-         $Graphics$Element.midTop)($Graphics$Element.color($Color.white)(A3($Graphics$Element.container,
-         w + 2,
-         h,
-         $Graphics$Element.midLeft)(e))))])));
-      }();
-   });
-   var helloWorldTitle = $Markdown.toElement("\n<h2 style=\"margin-left:24px; margin-top:0px;\">Hello World</h2>\n\n<span style=\"margin-left:24px;\">\nIn which we question the reason for this blog\'s inception.\n</span>\n");
-   var intercalTitle = $Markdown.toElement("\n<h2 style=\"margin-left:24px;\">Variations on a RoCocoa Theme</h2>\n\n<span style=\"margin-left:24px;\">\nIn which the relevance of Esolangs is examined.\n</span>\n");
-   var errorHandlingTitle = $Markdown.toElement("\n<h2 style=\"margin-left:24px;\">Error Handling</h2>\n\n<span style=\"margin-left:24px;\">\nIn which the BSOD is praised for its innovative qualities.\n</span>\n");
-   var monardsTitle = $Markdown.toElement("\n<h2 style=\"margin-left:24px;\">Monads Made Hard, Then Simple, Then Easy</h2>\n\n<span style=\"margin-left:24px;\">\nIn which we eschew aphoristic comparisons.  Because Monards.\n</span>\n");
-   var fpInSwiftIntroTitle = $Markdown.toElement("\n<h2 style=\"margin-left:24px;\">FP in Swi... Compilation Aborted: SEGFAULT</h2>\n\n<span style=\"margin-left:24px;\">\nIn which we begin something new and exciting.\n</span>\n");
-   var combinatorsTitle = $Markdown.toElement("\n<h2 style=\"margin-left:24px;\">Birds and Building Blocks</h2>\n\n<span style=\"margin-left:24px;\">\nIn which we use angry birds to build, rather than destroy, things.\n</span>\n");
-   var monadicComputering = $Markdown.toElement("\n<h2 style=\"margin-left:24px;\">Monadic Computering</h2>\n\n<span style=\"margin-left:24px;\">\nMonads, they\'re not just for breakfast after you thought you could\neat that whole Chipotle order by yourself.\n</span>\n");
-   var scene = function (_v0) {
-      return function () {
-         switch (_v0.ctor)
-         {case "_Tuple2":
-            return A2($Graphics$Element.flow,
-              $Graphics$Element.down,
-              _L.fromArray([$Graphics$Element.color(A3($Color.rgb,
-                           57,
-                           74,
-                           85))(A4($Graphics$Element.container,
-                           A2($Basics.max,500,_v0._0),
-                           60,
-                           A2($Graphics$Element.midLeftAt,
-                           $Graphics$Element.absolute(10),
-                           $Graphics$Element.absolute(30)),
-                           $Website$Blog$Formatting.title("  CF")))
-                           ,A4($Graphics$Element.container,
-                           A2($Basics.max,500,_v0._0),
-                           105,
-                           $Graphics$Element.topLeft,
-                           $Graphics$Element.width(_v0._0)(A3(box,
-                           monadicComputering,
-                           "http://λπω.com/blog/Monadic-Computering.html",
-                           _v0._0)))
-                           ,A4($Graphics$Element.container,
-                           A2($Basics.max,500,_v0._0),
-                           105,
-                           $Graphics$Element.topLeft,
-                           $Graphics$Element.width(_v0._0)(A3(box,
-                           combinatorsTitle,
-                           "http://λπω.com/blog/Combinators.html",
-                           _v0._0)))
-                           ,A4($Graphics$Element.container,
-                           A2($Basics.max,500,_v0._0),
-                           105,
-                           $Graphics$Element.topLeft,
-                           $Graphics$Element.width(_v0._0)(A3(box,
-                           fpInSwiftIntroTitle,
-                           "http://λπω.com/blog/FP-In-Swift-Intro.html",
-                           _v0._0)))
-                           ,A4($Graphics$Element.container,
-                           A2($Basics.max,500,_v0._0),
-                           105,
-                           $Graphics$Element.topLeft,
-                           $Graphics$Element.width(_v0._0)(A3(box,
-                           monardsTitle,
-                           "http://λπω.com/blog/Monards.html",
-                           _v0._0)))
-                           ,A4($Graphics$Element.container,
-                           A2($Basics.max,500,_v0._0),
-                           105,
-                           $Graphics$Element.topLeft,
-                           $Graphics$Element.width(_v0._0)(A3(box,
-                           errorHandlingTitle,
-                           "http://λπω.com/blog/Error-Handling.html",
-                           _v0._0)))
-                           ,A4($Graphics$Element.container,
-                           A2($Basics.max,500,_v0._0),
-                           105,
-                           $Graphics$Element.topLeft,
-                           $Graphics$Element.width(_v0._0)(A3(box,
-                           intercalTitle,
-                           "http://λπω.com/blog/INTERCAL.html",
-                           _v0._0)))
-                           ,A4($Graphics$Element.container,
-                           A2($Basics.max,500,_v0._0),
-                           105,
-                           A2($Graphics$Element.midLeftAt,
-                           $Graphics$Element.absolute(0),
-                           $Graphics$Element.absolute(60)),
-                           $Graphics$Element.width(_v0._0)(A3(box,
-                           helloWorldTitle,
-                           "http://λπω.com/blog/HelloWorld.html",
-                           _v0._0)))]));}
-         _U.badCase($moduleName,
-         "between lines 66 and 74");
-      }();
-   };
-   var main = A2($Signal.map,
-   scene,
-   $Window.dimensions);
+   var post = $Markdown.toElement("\nMonads, or as you know them: *What the hell, who let the god damned Math Major \nback into the codebase again?*  Like it or not, they\'re here to stay -my\neternal thanks to [Professor Wadler](https://www.youtube.com/watch?v=5TMojC0Nb6A).\n\nWhile you\'re here you may as well quit yer bellyachin\' and figure out why they\'re\nuseful [besides confusing your enemies] computationally.  For that, we need to\nunderstand why Professor Lambda Shirt decided to introduce them to the Haskell\ncommunity in the first place.\n\n## Each Monad Embodies a Particular Computation Strategy\n\nWelp, that was easy.\n\n## Examples?\n\nBut of course!  I\'m going to skip the nitty gritty and get on with it.  I, and\nmany others, have written, talked, lampooned, and various other synonyms for \nproselytized about what a Monad is.  If you need a refresher, pick an avenue\nand start walking!\n\nWe\'ll start easy: The Identity Monad.\n\n```\nstruct Id<T> {\n    let runId : T\n}\n```\n\nFrom its definition,  you can already tell this thing seems pretty useless, and\nthat\'s the point!  The Identity Monad embodies a computation that does *nothing*\nto inputs it\'s given.  Here\'s what that looks like in C:\n\n```\nint main(int argc, char **argv, char **envp, char **APPLE) {\n    return 1;\n}\n```\n\nNow the familiar: The Maybe Monad (heretofore referred to as Optional<T>).  It\nis the embodiement of a computation that may fail to produce a value (hence the\n`.None` constructor.  When such computations are sequenced together any values\nproduced are carried along with them, but a single failing `.None` will bring\nthe whole process to a halt.  Think about them as the exceptions you always\nwanted but could never have because language designers.\n\n```\nenum Optional<T> {\n    case .Some(T)\n    case .None\n}\n```\n\nBreaking away: The Either Monad (we get to call it that because you can\npartially apply the type constructor Either<T, U> as just Either<T, _> and\nsatisfy the kind requirement for Monad) embodies a computation that can branch.\nBecause of that kind restriction I brought up earlier, Haskellers have taken to\nusing the `Left` branch for \"failure\" and the right branch for \"value\", but\nthe distinction is entirely arbitrary.  `Either` is analogous to an if-else\nstatement.  By sequencing them, you get a computation that functions\nexactly like if-else if-...else statements.\n\n```\nenum Either<L, R> {\n    case Left(L)\n    case Right(R)\n}\n```\n\nContinuing the trend: The List Monad (hereafter, Array<T>) is a fascinating example\nof an almost universal Monad whose computational embodiement is relatively obscure.\nAn Array of values represents a series of unevaluated paths in a branching\ncomputation.  That is why map and filter are said to *realize* lists in lazy \nlanguages.  You\'re literally applying a function to each branch in the computation\ntree, and also how the [coolest god-damned piece of Haskell ever\nworks](http://evan-tech.livejournal.com/220036.html).  By way of analogy, a list \nfunctions much like a `switch` statement:\n\n```\nswitch x {\n    case 1812:\n        return \"*BOOM*, and other cannon noises.\"\n    case 90125:\n        return \"Leave It\"\n    case 10538:\n        return \"Did you hear the news?\" \n}\n```\n\nMore to the point: Laziness is a Monad!  At least, delaying the production of a value can\nbe represented in much the same way as the Identity Monad.  As an optimization, most\nauthors (myself included) choose to implement the Memoizing Laziness Monad:\n\n```\nprivate enum LazyState<A> {\n    case Eventually(() -> A)\n    case Now(A)\n}\n\npublic struct Lazy<A> {\n    let state : STRef<(), LazyState<A>>\n}\n```\n\nA statement of fact now: The State Monad is the realization of a computation that threads\na variable through each part (the state) and produces a value at the end, one that possibly\ndepends on that state value.  In a way, they\'re scoped versions of regular old variables.\nThat is, every pure function that declares variables can be lifted into a State Monad by\ntuple-ing them all up in the state parameter.\n\nLet\'s get funky: The Stream Monad (a list without end or bound) represents looping (more\nlike recursion, but whatever) infinitely.  It is a computation whose tree-structure contains\nan infinite amount of possible branches; to evaluate it is suicide.\n\nOK, now I\'m lost: For my final trick, a shocker [for some]: An arrow is a Monad.  That\'s\nright, the awkward little `->` we\'ve all had to get used to typing in Swift is itself a\nlittle [Plankalkül](https://en.wikipedia.org/wiki/Plankalkül), but we have to remember\nthe kind constraints on Monad first.  By partially applying `->` with an environment \n`((->) a)` of values, you get the Reader Monad, an embodiement of a computation that\nlooks up values to produce a result.  You can think of this one as a subscript.\n\nOne more thing: Reader has a dual called (duh) Writer.  Instead of values being pumped\nout of a context, values are pumped *into* one: Subscripting + assignment.\n");
+   var main = A4($Signal.map3,
+   $Website$Blog$Skeleton.generatePost,
+   $Window.dimensions,
+   $Signal.constant("Paragons Of Perfunctory Programs"),
+   $Signal.constant(post));
    _elm.Main.values = {_op: _op
-                      ,monadicComputering: monadicComputering
-                      ,combinatorsTitle: combinatorsTitle
-                      ,fpInSwiftIntroTitle: fpInSwiftIntroTitle
-                      ,monardsTitle: monardsTitle
-                      ,errorHandlingTitle: errorHandlingTitle
-                      ,intercalTitle: intercalTitle
-                      ,helloWorldTitle: helloWorldTitle
-                      ,scene: scene
-                      ,box: box
+                      ,post: post
                       ,main: main};
    return _elm.Main.values;
 };Elm.Markdown = Elm.Markdown || {};
@@ -12875,6 +12766,125 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
                                          ,formatTitleText: formatTitleText
                                          ,formatFunctionText: formatFunctionText};
    return _elm.Website.Blog.Formatting.values;
+};Elm.Website = Elm.Website || {};
+Elm.Website.Blog = Elm.Website.Blog || {};
+Elm.Website.Blog.Skeleton = Elm.Website.Blog.Skeleton || {};
+Elm.Website.Blog.Skeleton.make = function (_elm) {
+   "use strict";
+   _elm.Website = _elm.Website || {};
+   _elm.Website.Blog = _elm.Website.Blog || {};
+   _elm.Website.Blog.Skeleton = _elm.Website.Blog.Skeleton || {};
+   if (_elm.Website.Blog.Skeleton.values)
+   return _elm.Website.Blog.Skeleton.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   $moduleName = "Website.Blog.Skeleton",
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Website$Blog$Formatting = Elm.Website.Blog.Formatting.make(_elm);
+   var titlebar = F2(function (w,
+   t) {
+      return $Graphics$Element.color(A3($Color.rgb,
+      57,
+      74,
+      85))(A4($Graphics$Element.container,
+      A2($Basics.max,500,w),
+      60,
+      A2($Graphics$Element.midLeftAt,
+      $Graphics$Element.absolute(10),
+      $Graphics$Element.absolute(30)),
+      t));
+   });
+   var generatePost = F3(function (_v0,
+   t,
+   postBody) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var titleHeight = $Graphics$Element.heightOf($Website$Blog$Formatting.formatTitleText(t));
+                 var bodyHeight = $Graphics$Element.heightOf(A2($Graphics$Element.width,
+                 500,
+                 postBody));
+                 return A2($Graphics$Element.flow,
+                 $Graphics$Element.down,
+                 _L.fromArray([titlebar(_v0._0)($Website$Blog$Formatting.title("  CF"))
+                              ,A2($Graphics$Element.spacer,
+                              A2($Basics.max,300,_v0._0),
+                              100)
+                              ,$Graphics$Element.height(160)(A4($Graphics$Element.container,
+                              _v0._0,
+                              titleHeight,
+                              $Graphics$Element.midTop,
+                              $Website$Blog$Formatting.formatTitleText(t)))
+                              ,A4($Graphics$Element.container,
+                              _v0._0,
+                              bodyHeight,
+                              $Graphics$Element.midTop,
+                              A2($Graphics$Element.width,
+                              A2($Basics.min,550,_v0._0),
+                              postBody))
+                              ,A2($Graphics$Element.spacer,
+                              A2($Basics.max,300,_v0._0),
+                              30)]));
+              }();}
+         _U.badCase($moduleName,
+         "between lines 13 and 20");
+      }();
+   });
+   var generateImagefulPost = F4(function (_v4,
+   t,
+   im,
+   postBody) {
+      return function () {
+         switch (_v4.ctor)
+         {case "_Tuple2":
+            return function () {
+                 var titleHeight = $Graphics$Element.heightOf($Website$Blog$Formatting.formatTitleText(t));
+                 var bodyHeight = $Graphics$Element.heightOf(A2($Graphics$Element.width,
+                 500,
+                 postBody));
+                 return A2($Graphics$Element.flow,
+                 $Graphics$Element.down,
+                 _L.fromArray([A2(titlebar,
+                              _v4._0,
+                              A3($Website$Blog$Formatting.formatImagefulTitle,
+                              {ctor: "_Tuple2"
+                              ,_0: _v4._0
+                              ,_1: 60},
+                              "  CF",
+                              im))
+                              ,A2($Graphics$Element.spacer,
+                              A2($Basics.max,300,_v4._0),
+                              100)
+                              ,$Graphics$Element.height(160)(A4($Graphics$Element.container,
+                              _v4._0,
+                              titleHeight,
+                              $Graphics$Element.midTop,
+                              $Website$Blog$Formatting.formatTitleText(t)))
+                              ,A4($Graphics$Element.container,
+                              _v4._0,
+                              bodyHeight,
+                              $Graphics$Element.midTop,
+                              A2($Graphics$Element.width,
+                              A2($Basics.min,550,_v4._0),
+                              postBody))
+                              ,A2($Graphics$Element.spacer,
+                              A2($Basics.max,300,_v4._0),
+                              30)]));
+              }();}
+         _U.badCase($moduleName,
+         "between lines 23 and 30");
+      }();
+   });
+   _elm.Website.Blog.Skeleton.values = {_op: _op
+                                       ,titlebar: titlebar
+                                       ,generatePost: generatePost
+                                       ,generateImagefulPost: generateImagefulPost};
+   return _elm.Website.Blog.Skeleton.values;
 };Elm.Window = Elm.Window || {};
 Elm.Window.make = function (_elm) {
    "use strict";
