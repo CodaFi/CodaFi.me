@@ -5475,6 +5475,68 @@ Elm.Window.make = function (_elm) {
    var width = A2($Signal.map,$Basics.fst,dimensions);
    var height = A2($Signal.map,$Basics.snd,dimensions);
    return _elm.Window.values = {_op: _op,dimensions: dimensions,width: width,height: height};
+};Elm.Native.Scroll = {};
+Elm.Native.Scroll.make = function(elm) {
+
+    elm.Website = elm.Website || {};
+    elm.Native.Scroll = elm.Native.Scroll || {};
+    if (elm.Native.Scroll.values) return elm.Native.Scroll.values;
+
+    var Signal = Elm.Signal.make(elm);
+    var Utils  = Elm.Native.Utils.make(elm);
+
+    /*
+     * Thanks http://phrogz.net/JS/wheeldelta.html
+    */
+    var wheelDistance = function(evt){
+        if (!evt) evt = event;
+        var w=evt.wheelDelta, d=evt.detail, r=0.0;
+        if (d){
+            if (w) r = w/d/40*d>0?1:-1; // Opera
+            else r = -d/3;              // Firefox;         TODO: do not /3 for OS X
+        } else r = w/120;             // IE/Safari/Chrome TODO: /3 for Chrome OS X
+
+        // prevent other wheel events and bubbling in general
+        if(evt.stopPropagation) evt.stopPropagation();
+        evt.cancelBubble = true;
+        // most often you want to prevent default scrolling behavior (full page scroll!)
+        if(evt.preventDefault) evt.preventDefault();
+        evt.returnValue = false;
+        elm.notify(delta.id, r);
+    };
+
+    var delta = Signal.constant(0);
+    // delta.defaultNumberOfKids = 2;
+
+
+    var node = elm.display === Elm.FULLSCREEN ? document : elm.node;
+
+    // elm.addListener([delta.id], node, 'wheel', wheelDistance);
+    elm.addListener([delta.id], node, 'DOMMouseScroll', wheelDistance);
+    elm.addListener([delta.id], node, 'mousewheel', wheelDistance);
+
+    return elm.Native.Scroll.values =
+        { delta : delta
+        };
+};
+Elm.Website = Elm.Website || {};
+Elm.Website.Scroll = Elm.Website.Scroll || {};
+Elm.Website.Scroll.make = function (_elm) {
+   "use strict";
+   _elm.Website = _elm.Website || {};
+   _elm.Website.Scroll = _elm.Website.Scroll || {};
+   if (_elm.Website.Scroll.values) return _elm.Website.Scroll.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Native$Scroll = Elm.Native.Scroll.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var delta = $Native$Scroll.delta;
+   return _elm.Website.Scroll.values = {_op: _op,delta: delta};
 };Elm.Website = Elm.Website || {};
 Elm.Website.Blog = Elm.Website.Blog || {};
 Elm.Website.Blog.Formatting = Elm.Website.Blog.Formatting || {};
@@ -5606,52 +5668,73 @@ Elm.Main.make = function (_elm) {
    $Text = Elm.Text.make(_elm),
    $Website$Blog$Formatting = Elm.Website.Blog.Formatting.make(_elm),
    $Website$Blog$Skeleton = Elm.Website.Blog.Skeleton.make(_elm),
+   $Website$Scroll = Elm.Website.Scroll.make(_elm),
    $Window = Elm.Window.make(_elm);
    var _op = {};
-   var scene = function (_p0) {
+   var lam_style = F2(function (f,t) {
+      return f(A2($Text.color,A3($Color.rgb,94,94,93),A2($Text.height,200,A2($Text.typeface,_U.list(["Helvetica-Bold"]),t))));
+   });
+   var pos_fun = function (f) {    return A2($Basics.max,f / 200,0);};
+   var lam_pos = function (f) {    return $Graphics$Element.relative(pos_fun(f));};
+   var lam = F2(function (_p0,f) {
       var _p1 = _p0;
       var _p2 = _p1._0;
       return A2($Graphics$Element.flow,
+      $Graphics$Element.right,
+      _U.list([A4($Graphics$Element.container,
+              _p2 / 3 | 0,
+              250,
+              A2($Graphics$Element.midBottomAt,$Graphics$Element.absolute((_p2 / 6 | 0) - $Basics.round(f)),$Graphics$Element.absolute(30)),
+              A2(lam_style,$Graphics$Element.rightAligned,$Text.fromString("λ")))
+              ,A4($Graphics$Element.container,
+              _p2 / 3 | 0,
+              200,
+              A2($Graphics$Element.midBottomAt,$Graphics$Element.absolute(_p2 / 6 | 0),lam_pos(f)),
+              A2(lam_style,$Graphics$Element.centered,$Text.fromString("∏")))
+              ,A4($Graphics$Element.container,
+              _p2 / 3 | 0,
+              250,
+              A2($Graphics$Element.midBottomAt,$Graphics$Element.absolute((_p2 / 6 | 0) + $Basics.round(f)),$Graphics$Element.absolute(30)),
+              A2(lam_style,$Graphics$Element.leftAligned,$Text.fromString("ω")))]));
+   });
+   var scene = F2(function (_p3,d) {
+      var _p4 = _p3;
+      var _p5 = _p4._0;
+      return A2($Graphics$Element.flow,
       $Graphics$Element.down,
-      _U.list([A2($Website$Blog$Skeleton.titlebar,_p2,$Website$Blog$Formatting.title("  CF"))
-              ,A2($Graphics$Element.spacer,_p2,300)
+      _U.list([A2($Website$Blog$Skeleton.titlebar,_p5,$Website$Blog$Formatting.title("  CF"))
+              ,A2($Graphics$Element.spacer,_p5,300)
+              ,A4($Graphics$Element.container,_p5,300,$Graphics$Element.middle,A2(lam,{ctor: "_Tuple2",_0: _p5,_1: _p4._1},d))
               ,A4($Graphics$Element.container,
-              _p2,
-              300,
-              $Graphics$Element.middle,
-              $Graphics$Element.justified(A2($Text.color,
-              A3($Color.rgb,94,94,93),
-              A2($Text.height,200,A2($Text.typeface,_U.list(["Helvetica-Bold"]),$Text.fromString(" λ∏ω"))))))
-              ,A4($Graphics$Element.container,
-              _p2,
+              _p5,
               60,
               $Graphics$Element.middle,
               A2($Graphics$Element.flow,
               $Graphics$Element.right,
               _U.list([A4($Graphics$Element.container,
-                      180,
+                      A2($Basics.max,_p5 / 3 | 0,100),
                       60,
-                      $Graphics$Element.midLeft,
+                      $Graphics$Element.middle,
                       $Graphics$Element.justified(A2($Text.link,
                       "http://λπω.com/blog",
                       A2($Text.color,A3($Color.rgb,94,94,93),A2($Text.height,36,A2($Text.typeface,_U.list(["Helvetica-Bold"]),$Text.fromString("blog")))))))
                       ,A4($Graphics$Element.container,
-                      200,
+                      A2($Basics.max,_p5 / 3 | 0,200),
                       60,
                       $Graphics$Element.middle,
                       $Graphics$Element.justified(A2($Text.link,
                       "https://github.com/CodaFi",
                       A2($Text.color,A3($Color.rgb,94,94,93),A2($Text.height,36,A2($Text.typeface,_U.list(["Helvetica-Bold"]),$Text.fromString("projects")))))))
                       ,A4($Graphics$Element.container,
-                      180,
+                      A2($Basics.max,_p5 / 3 | 0,100),
                       60,
-                      $Graphics$Element.midRight,
+                      $Graphics$Element.middle,
                       $Graphics$Element.justified(A2($Text.link,
                       "http://λπω.com/About-Me",
                       A2($Text.color,
                       A3($Color.rgb,94,94,93),
                       A2($Text.height,36,A2($Text.typeface,_U.list(["Helvetica-Bold"]),$Text.fromString("about")))))))])))]));
-   };
-   var main = A2($Signal.map,scene,$Window.dimensions);
-   return _elm.Main.values = {_op: _op,scene: scene,main: main};
+   });
+   var main = A3($Signal.map2,scene,$Window.dimensions,$Website$Scroll.delta);
+   return _elm.Main.values = {_op: _op,pos_fun: pos_fun,lam_pos: lam_pos,lam_style: lam_style,lam: lam,scene: scene,main: main};
 };</script></head><body><script type="text/javascript">Elm.fullscreen(Elm.Main)</script></body></html>

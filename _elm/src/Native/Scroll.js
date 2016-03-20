@@ -1,9 +1,9 @@
-Elm.Website.Scroll = {};
-Elm.Website.Scroll.make = function(elm) {
+Elm.Native.Scroll = {};
+Elm.Native.Scroll.make = function(elm) {
 
     elm.Website = elm.Website || {};
-    elm.Website.Scroll = elm.Website.Scroll || {};
-    if (elm.Website.Scroll.values) return elm.Website.Scroll.values;
+    elm.Native.Scroll = elm.Native.Scroll || {};
+    if (elm.Native.Scroll.values) return elm.Native.Scroll.values;
 
     var Signal = Elm.Signal.make(elm);
     var Utils  = Elm.Native.Utils.make(elm);
@@ -32,13 +32,13 @@ Elm.Website.Scroll.make = function(elm) {
     // delta.defaultNumberOfKids = 2;
 
 
-    var node = elm.display === ElmRuntime.Display.FULLSCREEN ? document : elm.node;
+    var node = elm.display === Elm.FULLSCREEN ? document : elm.node;
 
     // elm.addListener([delta.id], node, 'wheel', wheelDistance);
     elm.addListener([delta.id], node, 'DOMMouseScroll', wheelDistance);
     elm.addListener([delta.id], node, 'mousewheel', wheelDistance);
 
-    return elm.Website.Scroll.values =
+    return elm.Native.Scroll.values =
         { delta : delta
         };
 };

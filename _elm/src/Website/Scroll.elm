@@ -5,7 +5,7 @@ module Website.Scroll where
 -}
 
 import Native.Scroll
-import Signal (Signal)
+import Signal exposing (Signal)
 
 {-| How the scroll value changes as a delta. The value should be normalized
 across browsers and platforms. Do not expect good mobile support though.
