@@ -1,11 +1,18 @@
 import Window
 import Website.Blog.Skeleton as Blog 
 import Signal exposing (constant, map4) 
-import Markdown exposing (toElement) 
+import Markdown exposing (..)
 import Graphics.Element exposing (Element, left)
 
+options : Options
+options =
+    { githubFlavored = Just { tables = True, breaks = False }
+    , sanitize = False
+    , smartypants = True
+    }
+
 post : Element
-post = toElement """
+post = toElementWith options """
 ## Introduction
 
 I have been writing Objective-C for the entirety of my (arguably short)
@@ -60,10 +67,17 @@ characters.  Going forward, any characters mentioned specific to the language
 will be written in their INTERCAL-72 form, which is as follows (taken from the
 [Tonsil](http://www.muppetlabs.com/~breadbox/intercal-man/tonsila.html)):
 
+| Column 1 | Column2     | Column 3 |
+| -------- | ----------- | -------- |
+| text     | `some|code` | text     |
+
+
+| Character | Name | Use (if any) |
+| --------- | ---- | ------------ |
+| . | spot  | identify 16-bit variable
+| : | two-spot | identify 32-bit variable
+
 ```
-Character        Name                            Use (if any)
-.                spot                            identify 16-bit variable
-:                two-spot                        identify 32-bit variable
 ,                tail                            identify 16-bit array
 ;                hybrid                          identify 32-bit array
 #                mesh                            identify constant

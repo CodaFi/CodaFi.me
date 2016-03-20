@@ -506,7 +506,7 @@ Elm.Color.make = function (_elm) {
                         ,saturation: s};
               }();}
          _U.badCase($moduleName,
-         "between lines 114 and 121");
+         "between lines 114 and 118");
       }();
    };
    var HSLA = F4(function (a,
@@ -562,7 +562,7 @@ Elm.Color.make = function (_elm) {
                  color._3);
               }();}
          _U.badCase($moduleName,
-         "between lines 105 and 111");
+         "between lines 105 and 108");
       }();
    };
    var grayscale = function (p) {
@@ -840,7 +840,7 @@ Elm.Dict.make = function (_elm) {
               A3(foldr,f,acc,t._4)),
               t._3);}
          _U.badCase($moduleName,
-         "between lines 417 and 425");
+         "between lines 417 and 421");
       }();
    });
    var keys = function (dict) {
@@ -896,7 +896,7 @@ Elm.Dict.make = function (_elm) {
               A3(foldl,f,acc,dict._3)),
               dict._4);}
          _U.badCase($moduleName,
-         "between lines 406 and 414");
+         "between lines 406 and 410");
       }();
    });
    var isBBlack = function (dict) {
@@ -920,7 +920,7 @@ Elm.Dict.make = function (_elm) {
             case "Remove": return "Remove";
             case "Same": return "Same";}
          _U.badCase($moduleName,
-         "between lines 182 and 188");
+         "between lines 182 and 185");
       }();
    };
    var Same = {ctor: "Same"};
@@ -950,10 +950,10 @@ Elm.Dict.make = function (_elm) {
                       targetKey,
                       dict._3);}
                  _U.badCase($moduleName,
-                 "between lines 129 and 135");
+                 "between lines 129 and 132");
               }();}
          _U.badCase($moduleName,
-         "between lines 124 and 135");
+         "between lines 124 and 132");
       }();
    });
    var member = F2(function (key,
@@ -964,7 +964,7 @@ Elm.Dict.make = function (_elm) {
          {case "Just": return true;
             case "Nothing": return false;}
          _U.badCase($moduleName,
-         "between lines 138 and 146");
+         "between lines 138 and 140");
       }();
    });
    var max = function (dict) {
@@ -980,7 +980,7 @@ Elm.Dict.make = function (_elm) {
                         ,_1: dict._2};}
               return max(dict._4);}
          _U.badCase($moduleName,
-         "between lines 100 and 121");
+         "between lines 100 and 108");
       }();
    };
    var min = function (dict) {
@@ -1052,7 +1052,7 @@ Elm.Dict.make = function (_elm) {
               A2(map,f,dict._3),
               A2(map,f,dict._4));}
          _U.badCase($moduleName,
-         "between lines 394 and 403");
+         "between lines 394 and 399");
       }();
    });
    var showNColor = function (c) {
@@ -1101,7 +1101,7 @@ Elm.Dict.make = function (_elm) {
                    dict._4);}
               break;}
          _U.badCase($moduleName,
-         "between lines 154 and 166");
+         "between lines 154 and 162");
       }();
    };
    var blackish = function (t) {
@@ -1185,7 +1185,7 @@ Elm.Dict.make = function (_elm) {
               t._3,
               t._4);}
          _U.badCase($moduleName,
-         "between lines 386 and 391");
+         "between lines 386 and 388");
       }();
    };
    var balance_node = function (t) {
@@ -1652,7 +1652,7 @@ Elm.Dict.make = function (_elm) {
                case "Same":
                return updatedDict;}
             _U.badCase($moduleName,
-            "between lines 222 and 228");
+            "between lines 222 and 225");
          }();
       }();
    });
@@ -1912,7 +1912,7 @@ Elm.Graphics.Collage.make = function (_elm) {
                               ,["y",f.y + _v0._1]],
               f);}
          _U.badCase($moduleName,
-         "on line 226, column 7 to 35");
+         "on line 226, column 3 to 37");
       }();
    });
    var form = function (f) {
@@ -2594,7 +2594,7 @@ Elm.Graphics.Element.make = function (_elm) {
                  maxOrZero(ws),
                  $List.sum(hs));}
             _U.badCase($moduleName,
-            "between lines 362 and 373");
+            "between lines 362 and 368");
          }();
       }();
    });
@@ -2692,7 +2692,12 @@ Elm.Html.make = function (_elm) {
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
    $moduleName = "Html",
+   $Basics = Elm.Basics.make(_elm),
    $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
    $VirtualDom = Elm.VirtualDom.make(_elm);
    var fromElement = $VirtualDom.fromElement;
    var toElement = $VirtualDom.toElement;
@@ -3165,7 +3170,7 @@ Elm.List.make = function (_elm) {
             case "[]":
             return $Maybe.Nothing;}
          _U.badCase($moduleName,
-         "between lines 87 and 95");
+         "between lines 87 and 89");
       }();
    };
    var head = function (list) {
@@ -3176,7 +3181,7 @@ Elm.List.make = function (_elm) {
             case "[]":
             return $Maybe.Nothing;}
          _U.badCase($moduleName,
-         "between lines 75 and 84");
+         "between lines 75 and 77");
       }();
    };
    _op["::"] = $Native$List.cons;
@@ -3215,7 +3220,7 @@ Elm.List.make = function (_elm) {
             return A2(_op["::"],_v15._0,xs);
             case "Nothing": return xs;}
          _U.badCase($moduleName,
-         "between lines 179 and 186");
+         "between lines 179 and 181");
       }();
    });
    var filterMap = F2(function (f,
@@ -3362,7 +3367,7 @@ Elm.List.make = function (_elm) {
             case "[]":
             return _L.fromArray([]);}
          _U.badCase($moduleName,
-         "between lines 350 and 361");
+         "between lines 350 and 356");
       }();
    });
    _elm.List.values = {_op: _op
@@ -3413,12 +3418,24 @@ Elm.Main.make = function (_elm) {
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
    $moduleName = "Main",
+   $Basics = Elm.Basics.make(_elm),
    $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $List = Elm.List.make(_elm),
    $Markdown = Elm.Markdown.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm),
    $Website$Blog$Skeleton = Elm.Website.Blog.Skeleton.make(_elm),
    $Window = Elm.Window.make(_elm);
-   var post = $Markdown.toElement("\n## Introduction\n\nI have been writing Objective-C for the entirety of my (arguably short)\nprogramming career, and the only conclusion I can draw from all that time spent\nin the world of square-brackets and verbosity is that it forces me to think in\nextremely provincially about my code.  While the language itself is founded on\nvery powerful ideas, and the libraries and tools provided by Apple’s walled\ngarden are of an agreeable quality, there was always an urge within me to \"peek\nout over the garden walls\", as it were, and experiment with other languages.\nI’ve dabbled in the web, and left with a sour taste.  I’ve poked and prodded the\nlist comprehension languages, forced the functional ones, and written\nself-reorganizing code in the ones promising to satisfy that code-as-data fetish\nfor those of us so inclined that way.  But, paradoxically enough, the esoteric\nlanguages have, by far, been the most educational and satisfying.  To be fair,\nI’m not saying that you should run out and immediately install\n[Malbolge](http://en.wikipedia.org/wiki/Malbolge) on your computer -just to\nwatch your precious RAM fill with garbage and have to program entirely in\nrandom, cryptographically-restructured, pointer arithmetic- but rather that it\nis those languages that seem most foreign that often have the most to offer.  It\nis in this spirit that I am going to discuss one of my great loves: INTERCAL.\n\n> The names you are about to ignore are true. However, the story has been\n> changed significantly. Any resemblance of the programming language portrayed\n> here to other programming languages, living or dead, is purely coincidental.\n> - INTERCAL-72 Language Specification, Introduction\n\nINTERCAL began one May morning as a joke between two residents of Princeton\nUniversity, Donald R. Woods and James M. Lyon.  INTERCAL (affectionately\nexpanded as the Compiler Language With No Pronounceable Acronym) was literally\nmeant to be a compiler language that had nothing in common with any of the major\nlanguages of the period, eschewing everything but assignment statements,\nvariables, arrays, and “IO”.  INTERCAL has no notion of pointers, strings,\nsubroutines, boolean logic, and features a type system that’s little more than\na sick joke wrapped in a cruel irony.  This strict adherence to a perverted\ndefinition of simplicity lead to a language innovative for its unconventional\nuse of the ASCII character set, its nonsensical syntax, and its voluminous\navenues for errors and confusion.  The INTERCAL-72 spec puts it best:\n\n> It has few capabilities, and thus there are few restrictions to be kept in\n> mind. Since it is an exceedingly easy language to learn, one might expect it\n> would be a good language for initiating novice programmers. Perhaps surprising,\n> than, is the fact that it would be more likely to initiate a novice into\n> a search for another line of work.\n> - INTERCAL-72 Language Specification, Section 2.2\n\n## Character Set\n\nINTERCAL\'s unique use of the ASCII character set means that the creators of the\nlanguage had ample opportunity to rename certain obscure characters.  This being\nINTERCAL, they also took the opportunity to rename several more common\ncharacters.  Going forward, any characters mentioned specific to the language\nwill be written in their INTERCAL-72 form, which is as follows (taken from the\n[Tonsil](http://www.muppetlabs.com/~breadbox/intercal-man/tonsila.html)):\n\n```\nCharacter        Name                            Use (if any)\n.                spot                            identify 16-bit variable\n:                two-spot                        identify 32-bit variable\n,                tail                            identify 16-bit array\n;                hybrid                          identify 32-bit array\n#                mesh                            identify constant\n=                half-mesh\n\'                spark                           grouper\n`                backspark\n!                wow                             equivalent to spark-spot\n?                what                            unary XOR\n\"                rabbit-ears                     grouper\n\".               rabbit                          equivalent to ears-spot\n|                spike\n%                double-oh-seven                 percentage qualifier\n-                worm                            used with angles\n<                angle                           used with worms\n>                right angle\n(                wax                             precedes line label\n)                wane                            follows line label\n[                U turn\n]                U turn back\n{                embrace\n}                bracelet\n&                ampersand *                     unary AND\nV                V (or book)                     unary OR\n$                big money                       binary interleave\n¢                change                          binary interleave\n~                sqiggle                         binary select\n_                flat worm\n¯                overline                        indicates \"times 1000\"\n+                intersection                    separates list items\n/                slat\n\\               backslat\n¬                hookworm\n```\n\n## Structure\n\n```\n    ICL778I UNEXPLAINED COMPILER BUG\n    ON THE WAY TO 2\n        CORRECT SOURCE AND RESUBNIT\n```\n> An error code from ICK, the INTERCAL compiler\n\nINTERCAL is built around the notion of optionally-numbered ordered statements\nconsisting of either an operator and its argument, or a DO-prefixed expression.\nAll statements that are not explicitly operators must be prepended with a `DO`.\nBut, as telling the compiler -called ICK - to `DO` your bidding is rude, every\nthird-ish statement must be prepended with a `PLEASE DO`.  Failure to make at\nleast 1/5th of all statements `PLEASE` statements will result in ICK rejecting\nyour program as insufficiently polite.  Conversely, if more than 1/3rd of\nstatements are prepended with a `PLEASE`, your program will be rejected as\noverly polite.  Thus, INTERCAL forces the programmer to contort their code so as\nnot to trample on the Politesse Checking mechanism.  Anything that does not\ncompile is a comment, often leading to statements such as `PLEASE DONT` or\n`DONT` being used as common comment delimiters.  Care must be exercised when\nwriting comments, as any occurence of `N\'T` and `NOT` at the start of a program\nare abstensions from the previous operators.  This will become clear in later\nsections.\n\nLine numbers must be explicitly reserved by the programmer or the library writer\nso as to avoid clashes with existing line numbers.  For example, the INTERCAL\nsystem libraries reside on line numbers 1000-1999, and any program making use of\nlines or labels in that range are subject to undefined behavior.  C-INTERCAL\ncorrects this with the `-E` option, but this obstructs inclusion of the standard\nlibraries).  Every line may be preceded by a double-oh-seven (%) and a number\nfrom 0-100 inclusive which indicates the probability a given line may be\nexecuted when it is reached, allowing some notion of randomness to any INTERCAL\nprogram.\n\nVariables must be of type spot, two-spot, tail, or hybrid, and may only be named\nnumerically.  All INTERCAL variables are miniature stacks that can be pushed to\nwith the `STASH` command, and popped off with the `RETRIEVE` command.\nAttempting to `RETRIEVE` variables that have not been `STASH`\'ed to results in\nthe runtime error message `THROW STICK BEFORE RETRIEVING`.  Variables may also\nbe `IGNORE`\'d, that is made immune to the effects of any subsequent statements\nexcept the `REMEMBER` command, which annuls the effects of an `IGNORE`.\nAssignment is acchieved through the use of the `<-` operator (pronounced\ncalculate).  For example, to declare a 16-bit integer `:1` containing the value\n16, then terminating, the following program could be written:\n\n```\nDO :1 <- #16\nDO GIVE UP\n```\n\n## Operators\n\nINTERCAL-72 includes 5 operators, of which 2 are binary and 3 are unary.  While\nthese operators may share names with many common operators in other languages,\nthey have literally nothing in common with them, and often perform unnecessarily\ncomplex mathematical operations on the bits of a variable to arrive at an\nanswer.  The binary operators are mingle, represented by big-money ($) and\nselect, represented by a worm (~).  Mingle takes the bits of two numbers,\ninterleaves them, then returns the result with any overflow than doesn\'t fit\ninto the type of the second variable being lopped off, or causing a runtime\nerror (whichever the compiler finds most convenient).  It\'s always best to\nvisualize this operator, so here is 22 being mingled with 8:\n\n```\nDO .1 <- #22$#8\nDO GIVE UP\n\n0 0 0 1 0 1 1 0  // Bits of 22 with left-padding\n 0 0 0 0 1 0 0 0 // Bits of 8 with left-padding\n0000001001101000 // Bits are interleaved to yield 616\n```\n\nSelect is far more complicated, and is said to be based on [Warmenhovian Logic\nGates](http://www.muppetlabs.com/~breadbox/intercal-man/figure1.html), an\nextremely obscure offshoot of boolean algebra that often leads to New York, but\nmight lead to Philly if you do it right.  Select takes the bits of the first\nnumber, left pads them, then takes the bits of the right number, aligns them,\nand uses the 1\'s in the second variable to \"select\" bits from the first, then\nleft-padding the result.  Again, visualizing this operator is always much easier\nthan words:\n\n```\nDO .1 <- #22~#8\nDO GIVE UP\n\n0 0 0 1 0 1 1 0  // Bits of 22 with left-padding\n0 0 0 1 1 0 0 0  // Bits of 24 with left-padding\n_______________\n0 0 0 0 0 0 1 0  // Bits are selected to yield 2\n```\n\nBrilliant.  This isn\'t so hard to deal with in practice, it\'s just quite a bit\nmore math than it should be.  Now for the Unary Operators:\n\nINTERCAL\'s unary operators work in much the same way its binary operators do.\nBit manipulation is the name of the game when dealing with unary operators, and\nINTERCAL cares so much about its unary operators that they may actually be used\nin succession.  The only downside is the restrictions on where these operators\nmay be used:    after the type of a variable in its declarations.\n\nThe Ampersand (curiously, the only character that retains its proper name) goes\nthrough each pair of bits in a number, `AND`s them together, the Book (V)\noperator performs logical `OR`\'ing of the bits of a number, and What (?)\nperforms logical XOR\'ing of the bits of a number.\n\n``` \nDO .1 <- #&100\n\n0 1 1 0 0 1 0 0  // Bits of 100 with left-padding\n0 0 1 0 0 0 0 0  // Bits are AND\'ed together to yield 32\n\nDO .12<- #V100\n\n0 1 1 0 0 1 0 0  // Bits of 100 with left-padding\n0 1 1 1 0 0 1 0  // Bits are OR\'ed together to yield 114\n\nDO .3 <- #?100\n\n0 1 1 0 0 1 0 0  // Bits of 100 with left-padding\n0 1 0 1 0 1 1 0  // Bits are XOR\'ed together to yield 86\n\nDO GIVE UP\n```\n\n## A Turing Tarpit\n\nINTERCAL is the original Turing Tarpit language.  That is, it is a language that\nis Turing complete through the most ridiculous or useless constructs.  Bearing\nthat in mind, INTERCAL\'s Turing-completeness stems from its `COME FROM` and\n`NEXT` statements.  `COME FROM` is really `GOTO` implemented \"backwards in\ntime\", and thus can be used to insert certain statements after a line\nis executed.  For example:\n\n```\n(1)     DO <any statement>\n        .\n        .\n        .\n(2)     DO COME FROM (1)\n```\n\nshould be thought of as being equivalent to\n\n```\n(1)     DO <any statement>\n(2)     DO GOTO (3)\n        .\n        .\n        .\n(3)     DO NOTHING\n```\n\nOf course, the 2nd part of the example above is flawed, in that GOTO is not an\noperator in INTERCAL, and it will not compile.\n\nThe `NEXT` operator is used to implement the shadow of subroutines, and like\nvariables, maintains a stack of line labels that have been `NEXT`\'ed to.  True\nto form, INTERCAL only allows 79 line labels to be pushed onto the `NEXT` stack.\nAttempting to `NEXT` an 80th statement results in the error message `PROGRAM HAS\nDISAPPEARED INTO THE BLACK LAGOON` and immediate program termination.  This\nmeans the programmer has to take great care to ensure that most `NEXT`\'s are\nbalanced with a `FORGET`, which pops a variable number of statements off the\n`NEXT`\'ing stack and continues program execution.  It\'s easy to see how this\ncould be used to implement looping constructs, and even recursion if done\nproperly.\n\nAny notion of conditional behavior must be accomlished with the `ABSTAIN` and\n`REINSTATE` statements.  As the name implies, `ABSTAIN` causes a statement or\nline label to not be executed, or have its effects nullified when it is\nencoutered.  `REINSTATE` does the opposite.  It\'s important to note that\n`ABSTAIN` and `REINSTATE` do not take simple statements are arguments, rather\nthey take gerund lists of statements.  Thus, to nullify the effects of the\ncalculate operator, the following is invalid:\n\n```\nPLEASE ABSTAIN FROM CALCULATE\n```\n\nRather, its gerund should be used.\n\n```\nPLEASE ABSTAIN FROM CALCULATING\n```\n\nAs noted by the spec:\n\n> `DO ABSTAIN FROM ABSTAINING` is perfectly valid, as is `DO ABSTAIN FROM \n> REINSTATING` (although this latter is not usually recommended). However, the\n> statement `DO ABSTAIN FROM GIVING UP` is not accepted, even though `DON\'T GIVE\n> UP` is.\n\n\n## \"IO\"\n\nThe input side of IO is accomplished through the `WRITE IN` statement.  Rather\nthan restrict the types of the variables input will be written to, INTERCAL\nseverely restricts the languages and forms of any input.  Numbers to be read in\nmust be written out in all caps in english and the digits must be separated by\nat least one space.  For example, the range of 32-bit numbers is `ZERO`, or `OH`\nthrough `FOUR TWO NINE FOUR NINE SIX SEVEN TWO NINE FIVE`.  In an attempt to\nappear more \"international\", INTERCAL also recognizes input in the following\nlanguages: Sanskrit, Basque, Tagalog, Classical Nahuatl, Georgian, Kwakiutl, and\nVolapuk.\n\n> Attempting to write in a value greater than or equal to `SIX FIVE FIVE THREE\n> SIX` for a 16-bit variable will result in the error message, `DON\'T BYTE OFF\n> MORE THAN YOU CAN CHEW`.\n> - INTERCAL-72 Language Specification, Section 2.4.4.12\n\nOutput is acchieved through butchered Roman Numerals, which are as awful as the\nname implies.  Overlines indicate that the value below is to be multiplied by\n1000, and lowercase letters indicate the value should be multiplied by 1000000.\nZero is represented by just an overline.  Thus, the constant `#6,000` is written\nout as:\n\n```\n__\nVI\n```\n\n## It Gets So Very Much Worse\n\nINTERCAL also comes in a dialect known as TriNTERCAL, or Trinary INTERCAL.\nWhereas classical INTERCAL concerns itself with mangling binary operators,\nTriNTERCAL deals with trits, or 3-bit values.  TriNTERCAL introduces two new\noperators, whirlpool (@) and sharkfin (^), and overloads What (?) to be\nsubstraction without borrowing.  Despite how complicated this all may sound, the\nTriNTERCAL spec actually presents it excellently using the metaphor of \"choice\"\nand \"preference\".  For example, binary `AND` is said to \"prefer returning 0, but\nreturning 1 given no other choice\", and binary OR is said to \"prefer returning\n1, but returning 0 given no other choice.\" Trinary `OR` means given 0, 1, 2, the\noperator prefers to return 2, then 0, and will return 1 given no other choice.\nTrinary `AND` wants to return 0, will accept returning 1, and returns 2 given no\nother choice.  The only operator left is whirlpool, or logical `BUT`, which the\nspec puts best:\n\n> In TriINTERCAL programs the whirlpool (@) denotes the unary tritwise BUT\n> operation. You can think of the whirlpool as drawing values preferentially\n> towards the central value 1. Alternatively, you can think of it as drawing your\n> soul and your sanity inexorably down....\n> - INTERCAL-72 Language Specification, Section 6.5.2.1\n\n## Finding Value Among Garbage\n\nIf you\'ve made it this far without either dying of laughter or gouging your\neyeballs out or considering Office-Space\'ing your computer at the stupidity of\nprogramming language jokes in the 70\'s, then there has to be a question as to\nwhy languages like INTERCAL have any value aside from demonstration purposes.\nINTERCAL is not a language I would ever want to program in for client work, nor\nis a language that makes much in the way of useful work possible.  Where the\nvalue of esolangs lies is in strengthening the logical aspects of my mind.\nINTERCAL and others like it force me to think about my code far more\nstructurally than ever before, and logic must be inherent in the program itself\nand not datatypes, interfaces, or collections.  By lowering the amount of\navenues and alternatives that I have to consider when trying to even get\na program \"running\" in one of these languages, they have the effect of focusing\nmy efforts rather than hindering them.\n\nOne final note: For the love of god, don\'t specify the optimizer option when\ntrying to compile INTERCAL.  The optimizer will run for hours or days at a time\nattempting to \"optimize\" (ha!) your code.\n");
+   var options = {_: {}
+                 ,githubFlavored: $Maybe.Just({_: {}
+                                              ,breaks: false
+                                              ,tables: true})
+                 ,sanitize: false
+                 ,smartypants: true};
+   var post = A2($Markdown.toElementWith,
+   options,
+   "\n## Introduction\n\nI have been writing Objective-C for the entirety of my (arguably short)\nprogramming career, and the only conclusion I can draw from all that time spent\nin the world of square-brackets and verbosity is that it forces me to think in\nextremely provincially about my code.  While the language itself is founded on\nvery powerful ideas, and the libraries and tools provided by Apple’s walled\ngarden are of an agreeable quality, there was always an urge within me to \"peek\nout over the garden walls\", as it were, and experiment with other languages.\nI’ve dabbled in the web, and left with a sour taste.  I’ve poked and prodded the\nlist comprehension languages, forced the functional ones, and written\nself-reorganizing code in the ones promising to satisfy that code-as-data fetish\nfor those of us so inclined that way.  But, paradoxically enough, the esoteric\nlanguages have, by far, been the most educational and satisfying.  To be fair,\nI’m not saying that you should run out and immediately install\n[Malbolge](http://en.wikipedia.org/wiki/Malbolge) on your computer -just to\nwatch your precious RAM fill with garbage and have to program entirely in\nrandom, cryptographically-restructured, pointer arithmetic- but rather that it\nis those languages that seem most foreign that often have the most to offer.  It\nis in this spirit that I am going to discuss one of my great loves: INTERCAL.\n\n> The names you are about to ignore are true. However, the story has been\n> changed significantly. Any resemblance of the programming language portrayed\n> here to other programming languages, living or dead, is purely coincidental.\n> - INTERCAL-72 Language Specification, Introduction\n\nINTERCAL began one May morning as a joke between two residents of Princeton\nUniversity, Donald R. Woods and James M. Lyon.  INTERCAL (affectionately\nexpanded as the Compiler Language With No Pronounceable Acronym) was literally\nmeant to be a compiler language that had nothing in common with any of the major\nlanguages of the period, eschewing everything but assignment statements,\nvariables, arrays, and “IO”.  INTERCAL has no notion of pointers, strings,\nsubroutines, boolean logic, and features a type system that’s little more than\na sick joke wrapped in a cruel irony.  This strict adherence to a perverted\ndefinition of simplicity lead to a language innovative for its unconventional\nuse of the ASCII character set, its nonsensical syntax, and its voluminous\navenues for errors and confusion.  The INTERCAL-72 spec puts it best:\n\n> It has few capabilities, and thus there are few restrictions to be kept in\n> mind. Since it is an exceedingly easy language to learn, one might expect it\n> would be a good language for initiating novice programmers. Perhaps surprising,\n> than, is the fact that it would be more likely to initiate a novice into\n> a search for another line of work.\n> - INTERCAL-72 Language Specification, Section 2.2\n\n## Character Set\n\nINTERCAL\'s unique use of the ASCII character set means that the creators of the\nlanguage had ample opportunity to rename certain obscure characters.  This being\nINTERCAL, they also took the opportunity to rename several more common\ncharacters.  Going forward, any characters mentioned specific to the language\nwill be written in their INTERCAL-72 form, which is as follows (taken from the\n[Tonsil](http://www.muppetlabs.com/~breadbox/intercal-man/tonsila.html)):\n\n| Column 1 | Column2     | Column 3 |\n| -------- | ----------- | -------- |\n| text     | `some|code` | text     |\n\n\n| Character | Name | Use (if any) |\n| --------- | ---- | ------------ |\n| . | spot  | identify 16-bit variable\n| : | two-spot | identify 32-bit variable\n\n```\n,                tail                            identify 16-bit array\n;                hybrid                          identify 32-bit array\n#                mesh                            identify constant\n=                half-mesh\n\'                spark                           grouper\n`                backspark\n!                wow                             equivalent to spark-spot\n?                what                            unary XOR\n\"                rabbit-ears                     grouper\n\".               rabbit                          equivalent to ears-spot\n|                spike\n%                double-oh-seven                 percentage qualifier\n-                worm                            used with angles\n<                angle                           used with worms\n>                right angle\n(                wax                             precedes line label\n)                wane                            follows line label\n[                U turn\n]                U turn back\n{                embrace\n}                bracelet\n&                ampersand *                     unary AND\nV                V (or book)                     unary OR\n$                big money                       binary interleave\n¢                change                          binary interleave\n~                sqiggle                         binary select\n_                flat worm\n¯                overline                        indicates \"times 1000\"\n+                intersection                    separates list items\n/                slat\n\\               backslat\n¬                hookworm\n```\n\n## Structure\n\n```\n    ICL778I UNEXPLAINED COMPILER BUG\n    ON THE WAY TO 2\n        CORRECT SOURCE AND RESUBNIT\n```\n> An error code from ICK, the INTERCAL compiler\n\nINTERCAL is built around the notion of optionally-numbered ordered statements\nconsisting of either an operator and its argument, or a DO-prefixed expression.\nAll statements that are not explicitly operators must be prepended with a `DO`.\nBut, as telling the compiler -called ICK - to `DO` your bidding is rude, every\nthird-ish statement must be prepended with a `PLEASE DO`.  Failure to make at\nleast 1/5th of all statements `PLEASE` statements will result in ICK rejecting\nyour program as insufficiently polite.  Conversely, if more than 1/3rd of\nstatements are prepended with a `PLEASE`, your program will be rejected as\noverly polite.  Thus, INTERCAL forces the programmer to contort their code so as\nnot to trample on the Politesse Checking mechanism.  Anything that does not\ncompile is a comment, often leading to statements such as `PLEASE DONT` or\n`DONT` being used as common comment delimiters.  Care must be exercised when\nwriting comments, as any occurence of `N\'T` and `NOT` at the start of a program\nare abstensions from the previous operators.  This will become clear in later\nsections.\n\nLine numbers must be explicitly reserved by the programmer or the library writer\nso as to avoid clashes with existing line numbers.  For example, the INTERCAL\nsystem libraries reside on line numbers 1000-1999, and any program making use of\nlines or labels in that range are subject to undefined behavior.  C-INTERCAL\ncorrects this with the `-E` option, but this obstructs inclusion of the standard\nlibraries).  Every line may be preceded by a double-oh-seven (%) and a number\nfrom 0-100 inclusive which indicates the probability a given line may be\nexecuted when it is reached, allowing some notion of randomness to any INTERCAL\nprogram.\n\nVariables must be of type spot, two-spot, tail, or hybrid, and may only be named\nnumerically.  All INTERCAL variables are miniature stacks that can be pushed to\nwith the `STASH` command, and popped off with the `RETRIEVE` command.\nAttempting to `RETRIEVE` variables that have not been `STASH`\'ed to results in\nthe runtime error message `THROW STICK BEFORE RETRIEVING`.  Variables may also\nbe `IGNORE`\'d, that is made immune to the effects of any subsequent statements\nexcept the `REMEMBER` command, which annuls the effects of an `IGNORE`.\nAssignment is acchieved through the use of the `<-` operator (pronounced\ncalculate).  For example, to declare a 16-bit integer `:1` containing the value\n16, then terminating, the following program could be written:\n\n```\nDO :1 <- #16\nDO GIVE UP\n```\n\n## Operators\n\nINTERCAL-72 includes 5 operators, of which 2 are binary and 3 are unary.  While\nthese operators may share names with many common operators in other languages,\nthey have literally nothing in common with them, and often perform unnecessarily\ncomplex mathematical operations on the bits of a variable to arrive at an\nanswer.  The binary operators are mingle, represented by big-money ($) and\nselect, represented by a worm (~).  Mingle takes the bits of two numbers,\ninterleaves them, then returns the result with any overflow than doesn\'t fit\ninto the type of the second variable being lopped off, or causing a runtime\nerror (whichever the compiler finds most convenient).  It\'s always best to\nvisualize this operator, so here is 22 being mingled with 8:\n\n```\nDO .1 <- #22$#8\nDO GIVE UP\n\n0 0 0 1 0 1 1 0  // Bits of 22 with left-padding\n 0 0 0 0 1 0 0 0 // Bits of 8 with left-padding\n0000001001101000 // Bits are interleaved to yield 616\n```\n\nSelect is far more complicated, and is said to be based on [Warmenhovian Logic\nGates](http://www.muppetlabs.com/~breadbox/intercal-man/figure1.html), an\nextremely obscure offshoot of boolean algebra that often leads to New York, but\nmight lead to Philly if you do it right.  Select takes the bits of the first\nnumber, left pads them, then takes the bits of the right number, aligns them,\nand uses the 1\'s in the second variable to \"select\" bits from the first, then\nleft-padding the result.  Again, visualizing this operator is always much easier\nthan words:\n\n```\nDO .1 <- #22~#8\nDO GIVE UP\n\n0 0 0 1 0 1 1 0  // Bits of 22 with left-padding\n0 0 0 1 1 0 0 0  // Bits of 24 with left-padding\n_______________\n0 0 0 0 0 0 1 0  // Bits are selected to yield 2\n```\n\nBrilliant.  This isn\'t so hard to deal with in practice, it\'s just quite a bit\nmore math than it should be.  Now for the Unary Operators:\n\nINTERCAL\'s unary operators work in much the same way its binary operators do.\nBit manipulation is the name of the game when dealing with unary operators, and\nINTERCAL cares so much about its unary operators that they may actually be used\nin succession.  The only downside is the restrictions on where these operators\nmay be used:    after the type of a variable in its declarations.\n\nThe Ampersand (curiously, the only character that retains its proper name) goes\nthrough each pair of bits in a number, `AND`s them together, the Book (V)\noperator performs logical `OR`\'ing of the bits of a number, and What (?)\nperforms logical XOR\'ing of the bits of a number.\n\n``` \nDO .1 <- #&100\n\n0 1 1 0 0 1 0 0  // Bits of 100 with left-padding\n0 0 1 0 0 0 0 0  // Bits are AND\'ed together to yield 32\n\nDO .12<- #V100\n\n0 1 1 0 0 1 0 0  // Bits of 100 with left-padding\n0 1 1 1 0 0 1 0  // Bits are OR\'ed together to yield 114\n\nDO .3 <- #?100\n\n0 1 1 0 0 1 0 0  // Bits of 100 with left-padding\n0 1 0 1 0 1 1 0  // Bits are XOR\'ed together to yield 86\n\nDO GIVE UP\n```\n\n## A Turing Tarpit\n\nINTERCAL is the original Turing Tarpit language.  That is, it is a language that\nis Turing complete through the most ridiculous or useless constructs.  Bearing\nthat in mind, INTERCAL\'s Turing-completeness stems from its `COME FROM` and\n`NEXT` statements.  `COME FROM` is really `GOTO` implemented \"backwards in\ntime\", and thus can be used to insert certain statements after a line\nis executed.  For example:\n\n```\n(1)     DO <any statement>\n        .\n        .\n        .\n(2)     DO COME FROM (1)\n```\n\nshould be thought of as being equivalent to\n\n```\n(1)     DO <any statement>\n(2)     DO GOTO (3)\n        .\n        .\n        .\n(3)     DO NOTHING\n```\n\nOf course, the 2nd part of the example above is flawed, in that GOTO is not an\noperator in INTERCAL, and it will not compile.\n\nThe `NEXT` operator is used to implement the shadow of subroutines, and like\nvariables, maintains a stack of line labels that have been `NEXT`\'ed to.  True\nto form, INTERCAL only allows 79 line labels to be pushed onto the `NEXT` stack.\nAttempting to `NEXT` an 80th statement results in the error message `PROGRAM HAS\nDISAPPEARED INTO THE BLACK LAGOON` and immediate program termination.  This\nmeans the programmer has to take great care to ensure that most `NEXT`\'s are\nbalanced with a `FORGET`, which pops a variable number of statements off the\n`NEXT`\'ing stack and continues program execution.  It\'s easy to see how this\ncould be used to implement looping constructs, and even recursion if done\nproperly.\n\nAny notion of conditional behavior must be accomlished with the `ABSTAIN` and\n`REINSTATE` statements.  As the name implies, `ABSTAIN` causes a statement or\nline label to not be executed, or have its effects nullified when it is\nencoutered.  `REINSTATE` does the opposite.  It\'s important to note that\n`ABSTAIN` and `REINSTATE` do not take simple statements are arguments, rather\nthey take gerund lists of statements.  Thus, to nullify the effects of the\ncalculate operator, the following is invalid:\n\n```\nPLEASE ABSTAIN FROM CALCULATE\n```\n\nRather, its gerund should be used.\n\n```\nPLEASE ABSTAIN FROM CALCULATING\n```\n\nAs noted by the spec:\n\n> `DO ABSTAIN FROM ABSTAINING` is perfectly valid, as is `DO ABSTAIN FROM \n> REINSTATING` (although this latter is not usually recommended). However, the\n> statement `DO ABSTAIN FROM GIVING UP` is not accepted, even though `DON\'T GIVE\n> UP` is.\n\n\n## \"IO\"\n\nThe input side of IO is accomplished through the `WRITE IN` statement.  Rather\nthan restrict the types of the variables input will be written to, INTERCAL\nseverely restricts the languages and forms of any input.  Numbers to be read in\nmust be written out in all caps in english and the digits must be separated by\nat least one space.  For example, the range of 32-bit numbers is `ZERO`, or `OH`\nthrough `FOUR TWO NINE FOUR NINE SIX SEVEN TWO NINE FIVE`.  In an attempt to\nappear more \"international\", INTERCAL also recognizes input in the following\nlanguages: Sanskrit, Basque, Tagalog, Classical Nahuatl, Georgian, Kwakiutl, and\nVolapuk.\n\n> Attempting to write in a value greater than or equal to `SIX FIVE FIVE THREE\n> SIX` for a 16-bit variable will result in the error message, `DON\'T BYTE OFF\n> MORE THAN YOU CAN CHEW`.\n> - INTERCAL-72 Language Specification, Section 2.4.4.12\n\nOutput is acchieved through butchered Roman Numerals, which are as awful as the\nname implies.  Overlines indicate that the value below is to be multiplied by\n1000, and lowercase letters indicate the value should be multiplied by 1000000.\nZero is represented by just an overline.  Thus, the constant `#6,000` is written\nout as:\n\n```\n__\nVI\n```\n\n## It Gets So Very Much Worse\n\nINTERCAL also comes in a dialect known as TriNTERCAL, or Trinary INTERCAL.\nWhereas classical INTERCAL concerns itself with mangling binary operators,\nTriNTERCAL deals with trits, or 3-bit values.  TriNTERCAL introduces two new\noperators, whirlpool (@) and sharkfin (^), and overloads What (?) to be\nsubstraction without borrowing.  Despite how complicated this all may sound, the\nTriNTERCAL spec actually presents it excellently using the metaphor of \"choice\"\nand \"preference\".  For example, binary `AND` is said to \"prefer returning 0, but\nreturning 1 given no other choice\", and binary OR is said to \"prefer returning\n1, but returning 0 given no other choice.\" Trinary `OR` means given 0, 1, 2, the\noperator prefers to return 2, then 0, and will return 1 given no other choice.\nTrinary `AND` wants to return 0, will accept returning 1, and returns 2 given no\nother choice.  The only operator left is whirlpool, or logical `BUT`, which the\nspec puts best:\n\n> In TriINTERCAL programs the whirlpool (@) denotes the unary tritwise BUT\n> operation. You can think of the whirlpool as drawing values preferentially\n> towards the central value 1. Alternatively, you can think of it as drawing your\n> soul and your sanity inexorably down....\n> - INTERCAL-72 Language Specification, Section 6.5.2.1\n\n## Finding Value Among Garbage\n\nIf you\'ve made it this far without either dying of laughter or gouging your\neyeballs out or considering Office-Space\'ing your computer at the stupidity of\nprogramming language jokes in the 70\'s, then there has to be a question as to\nwhy languages like INTERCAL have any value aside from demonstration purposes.\nINTERCAL is not a language I would ever want to program in for client work, nor\nis a language that makes much in the way of useful work possible.  Where the\nvalue of esolangs lies is in strengthening the logical aspects of my mind.\nINTERCAL and others like it force me to think about my code far more\nstructurally than ever before, and logic must be inherent in the program itself\nand not datatypes, interfaces, or collections.  By lowering the amount of\navenues and alternatives that I have to consider when trying to even get\na program \"running\" in one of these languages, they have the effect of focusing\nmy efforts rather than hindering them.\n\nOne final note: For the love of god, don\'t specify the optimizer option when\ntrying to compile INTERCAL.  The optimizer will run for hours or days at a time\nattempting to \"optimize\" (ha!) your code.\n");
    var main = A5($Signal.map4,
    $Website$Blog$Skeleton.generateImagefulPost,
    $Window.dimensions,
@@ -3426,6 +3443,7 @@ Elm.Main.make = function (_elm) {
    $Signal.constant("http://images03.olx.co.za/ui/19/87/99/1328006455_309297899_1-Intercal-Calibration-Services-CC-Newton-Park.jpg"),
    $Signal.constant(post));
    _elm.Main.values = {_op: _op
+                      ,options: options
                       ,post: post
                       ,main: main};
    return _elm.Main.values;
@@ -3440,10 +3458,14 @@ Elm.Markdown.make = function (_elm) {
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
    $moduleName = "Markdown",
+   $Basics = Elm.Basics.make(_elm),
    $Graphics$Element = Elm.Graphics.Element.make(_elm),
    $Html = Elm.Html.make(_elm),
+   $List = Elm.List.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
-   $Native$Markdown = Elm.Native.Markdown.make(_elm);
+   $Native$Markdown = Elm.Native.Markdown.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
    var toElementWith = $Native$Markdown.toElementWith;
    var toHtmlWith = $Native$Markdown.toHtmlWith;
    var defaultOptions = {_: {}
@@ -3497,7 +3519,7 @@ Elm.Maybe.make = function (_elm) {
             case "Nothing":
             return $default;}
          _U.badCase($moduleName,
-         "between lines 45 and 56");
+         "between lines 45 and 47");
       }();
    });
    var Nothing = {ctor: "Nothing"};
@@ -3510,11 +3532,11 @@ Elm.Maybe.make = function (_elm) {
                     case "Nothing":
                     return oneOf(maybes._1);}
                  _U.badCase($moduleName,
-                 "between lines 64 and 73");
+                 "between lines 64 and 66");
               }();
             case "[]": return Nothing;}
          _U.badCase($moduleName,
-         "between lines 59 and 73");
+         "between lines 59 and 66");
       }();
    };
    var andThen = F2(function (maybeValue,
@@ -3539,7 +3561,7 @@ Elm.Maybe.make = function (_elm) {
             return Just(f(maybe._0));
             case "Nothing": return Nothing;}
          _U.badCase($moduleName,
-         "between lines 76 and 107");
+         "between lines 76 and 78");
       }();
    });
    _elm.Maybe.values = {_op: _op
@@ -11798,7 +11820,7 @@ Elm.Result.make = function (_elm) {
             case "Ok":
             return $Maybe.Just(result._0);}
          _U.badCase($moduleName,
-         "between lines 164 and 177");
+         "between lines 164 and 166");
       }();
    };
    var Err = function (a) {
@@ -11813,7 +11835,7 @@ Elm.Result.make = function (_elm) {
             case "Ok":
             return callback(result._0);}
          _U.badCase($moduleName,
-         "between lines 126 and 145");
+         "between lines 126 and 128");
       }();
    });
    var Ok = function (a) {
@@ -11827,7 +11849,7 @@ Elm.Result.make = function (_elm) {
             case "Ok":
             return Ok(func(ra._0));}
          _U.badCase($moduleName,
-         "between lines 41 and 52");
+         "between lines 41 and 43");
       }();
    });
    var map2 = F3(function (func,
@@ -11981,7 +12003,7 @@ Elm.Result.make = function (_elm) {
                  return Err(_v39._4._0);}
               break;}
          _U.badCase($moduleName,
-         "between lines 82 and 123");
+         "between lines 82 and 88");
       }();
    });
    var formatError = F2(function (f,
@@ -11993,7 +12015,7 @@ Elm.Result.make = function (_elm) {
             case "Ok":
             return Ok(result._0);}
          _U.badCase($moduleName,
-         "between lines 148 and 161");
+         "between lines 148 and 150");
       }();
    });
    var fromMaybe = F2(function (err,
@@ -12123,7 +12145,7 @@ Elm.Signal.make = function (_elm) {
             case "[]":
             return $Debug.crash("mergeMany was given an empty list!");}
          _U.badCase($moduleName,
-         "between lines 177 and 197");
+         "between lines 177 and 182");
       }();
    };
    var foldp = $Native$Signal.foldp;
@@ -12648,9 +12670,13 @@ Elm.VirtualDom.make = function (_elm) {
    _U = _N.Utils.make(_elm),
    _L = _N.List.make(_elm),
    $moduleName = "VirtualDom",
+   $Basics = Elm.Basics.make(_elm),
    $Graphics$Element = Elm.Graphics.Element.make(_elm),
    $Json$Decode = Elm.Json.Decode.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
    $Native$VirtualDom = Elm.Native.VirtualDom.make(_elm),
+   $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var lazy3 = $Native$VirtualDom.lazy3;
    var lazy2 = $Native$VirtualDom.lazy2;
@@ -12697,7 +12723,10 @@ Elm.Website.Blog.Formatting.make = function (_elm) {
    $Color = Elm.Color.make(_elm),
    $Graphics$Collage = Elm.Graphics.Collage.make(_elm),
    $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $List = Elm.List.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
    $Text = Elm.Text.make(_elm);
    var formatFunctionText = function (s) {
       return $Graphics$Element.justified($Text.height(36)($Text.typeface(_L.fromArray(["Computer Modern Roman"]))($Text.fromString(s))));
@@ -12785,6 +12814,10 @@ Elm.Website.Blog.Skeleton.make = function (_elm) {
    $Basics = Elm.Basics.make(_elm),
    $Color = Elm.Color.make(_elm),
    $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
    $Website$Blog$Formatting = Elm.Website.Blog.Formatting.make(_elm);
    var titlebar = F2(function (w,
    t) {
