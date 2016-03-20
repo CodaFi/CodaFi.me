@@ -1,11 +1,19 @@
 import Window
-import Website.Blog.Skeleton as Blog 
-import Signal exposing (constant, map4) 
-import Markdown exposing (toElement) 
+import Website.Blog.Skeleton as Blog
+import Signal exposing (constant, map4)
+import Markdown exposing (..)
 import Graphics.Element exposing (Element, left)
 
+options : Options
+options =
+    { githubFlavored = Just { tables = True, breaks = False }
+    , defaultHighlighting = Nothing
+    , sanitize = False
+    , smartypants = True
+    }
+
 post : Element
-post = toElement """
+post = toElementWith options """
 ## Introduction
 
 I have been writing Objective-C for the entirety of my (arguably short)
@@ -60,10 +68,17 @@ characters.  Going forward, any characters mentioned specific to the language
 will be written in their INTERCAL-72 form, which is as follows (taken from the
 [Tonsil](http://www.muppetlabs.com/~breadbox/intercal-man/tonsila.html)):
 
+| Column 1 | Column2     | Column 3 |
+| -------- | ----------- | -------- |
+| text     | `some|code` | text     |
+
+
+| Character | Name | Use (if any) |
+| --------- | ---- | ------------ |
+| . | spot  | identify 16-bit variable
+| : | two-spot | identify 32-bit variable
+
 ```
-Character        Name                            Use (if any)
-.                spot                            identify 16-bit variable
-:                two-spot                        identify 32-bit variable
 ,                tail                            identify 16-bit array
 ;                hybrid                          identify 32-bit array
 #                mesh                            identify constant
@@ -204,7 +219,7 @@ through each pair of bits in a number, `AND`s them together, the Book (V)
 operator performs logical `OR`'ing of the bits of a number, and What (?)
 performs logical XOR'ing of the bits of a number.
 
-``` 
+```
 DO .1 <- #&100
 
 0 1 1 0 0 1 0 0  // Bits of 100 with left-padding
@@ -285,7 +300,7 @@ PLEASE ABSTAIN FROM CALCULATING
 
 As noted by the spec:
 
-> `DO ABSTAIN FROM ABSTAINING` is perfectly valid, as is `DO ABSTAIN FROM 
+> `DO ABSTAIN FROM ABSTAINING` is perfectly valid, as is `DO ABSTAIN FROM
 > REINSTATING` (although this latter is not usually recommended). However, the
 > statement `DO ABSTAIN FROM GIVING UP` is not accepted, even though `DON'T GIVE
 > UP` is.
@@ -362,8 +377,7 @@ trying to compile INTERCAL.  The optimizer will run for hours or days at a time
 attempting to \"optimize\" (ha!) your code.
 """
 
-main = map4 Blog.generateImagefulPost Window.dimensions 
-        (constant "Variations on a RoCocoa Theme") 
-        (constant "http://images03.olx.co.za/ui/19/87/99/1328006455_309297899_1-Intercal-Calibration-Services-CC-Newton-Park.jpg") 
+main = map4 Blog.generateImagefulPost Window.dimensions
+        (constant "Variations on a RoCocoa Theme")
+        (constant "http://images03.olx.co.za/ui/19/87/99/1328006455_309297899_1-Intercal-Calibration-Services-CC-Newton-Park.jpg")
         (constant post)
-

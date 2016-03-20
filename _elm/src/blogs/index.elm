@@ -62,14 +62,15 @@ helloWorldTitle = toElement """
 In which we question the reason for this blog's inception.
 </span>
 """
+cell (a, u, w) = container (max 500 w) 105 topLeft (box a u w |> width w)
 
 scene (w,h) = flow down [ container (max 500 w) 60 (midLeftAt (absolute 10) (absolute 30)) (Format.title "  CF") |> color (rgb 57 74 85),
-                          container (max 500 w) 105 topLeft (box monadicComputering "http://λπω.com/blog/Monadic-Computering.html" w |> width w),
-                          container (max 500 w) 105 topLeft (box combinatorsTitle "http://λπω.com/blog/Combinators.html" w |> width w),
-                          container (max 500 w) 105 topLeft (box fpInSwiftIntroTitle "http://λπω.com/blog/FP-In-Swift-Intro.html" w |> width w),
-                          container (max 500 w) 105 topLeft (box monardsTitle "http://λπω.com/blog/Monards.html" w |> width w),
-                          container (max 500 w) 105 topLeft (box errorHandlingTitle "http://λπω.com/blog/Error-Handling.html" w |> width w),
-                          container (max 500 w) 105 topLeft (box intercalTitle "http://λπω.com/blog/INTERCAL.html" w |> width w),
+                          cell (monadicComputering, "http://λπω.com/blog/Monadic-Computering.html", w),
+                          cell (combinatorsTitle, "http://λπω.com/blog/Combinators.html", w),
+                          cell (fpInSwiftIntroTitle, "http://λπω.com/blog/FP-In-Swift-Intro.html", w),
+                          cell (monardsTitle, "http://λπω.com/blog/Monards.html", w),
+                          cell (errorHandlingTitle, "http://λπω.com/blog/Error-Handling.html", w),
+                          cell (intercalTitle, "http://λπω.com/blog/INTERCAL.html", w),
                           container (max 500 w) 105 (midLeftAt (absolute 0) (absolute 60)) (box helloWorldTitle "http://λπω.com/blog/HelloWorld.html" w |> width w)
                         ]
 
@@ -80,4 +81,3 @@ box e l w =
                ] |> link l
 
 main = map scene Window.dimensions
-
